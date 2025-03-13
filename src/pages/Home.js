@@ -50,7 +50,7 @@ export default function Home() {
           width: "100vw",
           color: "white",
           textAlign: "center",
-          backgroundColor: "#1d3576", // Deep blue background
+          background: "linear-gradient(to bottom, #1d3576, black)", // Deep blue background
         }}
       >
         <ReviewersLogosSlider />

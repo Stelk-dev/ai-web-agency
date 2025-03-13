@@ -1,87 +1,153 @@
-import React from "react";
+import React, { useState } from "react";
+import { FaCheckCircle } from "react-icons/fa";
+import "../../style/ourservice.css";
 
-export default function OurServicesHome() {
+const FeatureCard = ({ title, subtitle }) => {
+  const [mousePosition, setMousePosition] = useState({ x: 0, y: 0 });
+  const [isHovering, setIsHovering] = useState(false);
+
+  const handleMouseMove = (e) => {
+    const rect = e.currentTarget.getBoundingClientRect();
+    setMousePosition({
+      x: e.clientX - rect.left,
+      y: e.clientY - rect.top,
+    });
+  };
+
   return (
     <div
       style={{
-        width: "100%",
-        maxWidth: "1200px",
-        padding: "0 24px",
-        marginTop: "40px",
-      }}
-    >
-      <h2
-        style={{
-          textAlign: "left",
-          fontWeight: "300",
-          fontSize: "36px",
-          marginBottom: "40px",
-        }}
-      >
-        Our Services
-      </h2>
+        position: "relative",
 
+        background: "linear-gradient(to right, #080b1c, #0e173e)",
+        border: "1px solid #646d85",
+        borderRadius: "16px",
+        padding: "24px",
+        color: "white",
+        overflow: "hidden",
+        height: "100%",
+        cursor: "default",
+      }}
+      onMouseMove={handleMouseMove}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+    >
+      {isHovering && (
+        <div
+          style={{
+            position: "absolute",
+            pointerEvents: "none",
+            width: "150px",
+            height: "150px",
+            backgroundColor: "rgba(255, 255, 255, 0.14)",
+            borderRadius: "50%",
+            filter: "blur(20px)",
+            opacity: 0.6,
+            transition: "opacity 0.2s",
+            left: `${mousePosition.x - 75}px`,
+            top: `${mousePosition.y - 75}px`,
+          }}
+        />
+      )}
       <div
         style={{
           display: "flex",
-          justifyContent: "space-between",
-          gap: "20px",
-          flexWrap: "wrap",
+          alignItems: "center",
+          justifyContent: "center",
+          height: "100%",
+          gap: "16px",
+          position: "relative",
+          zIndex: 1,
         }}
       >
         <div
           style={{
-            flex: "1 1 300px",
-            marginBottom: "30px",
-            textAlign: "left",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            padding: "30px",
-            borderRadius: "10px",
+            borderRadius: "50%",
+            padding: "8px",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            flexShrink: 0,
           }}
         >
-          <h3 style={{ fontWeight: "400", marginTop: "0" }}>AI Strategy</h3>
-          <p>
-            We help you identify and implement AI solutions that deliver real
-            business value and competitive advantage.
-          </p>
+          <FaCheckCircle size={32} style={{ color: "#1a56db" }} />
         </div>
-
-        <div
-          style={{
-            flex: "1 1 300px",
-            marginBottom: "30px",
-            textAlign: "left",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            padding: "30px",
-            borderRadius: "10px",
-          }}
-        >
-          <h3 style={{ fontWeight: "400", marginTop: "0" }}>Implementation</h3>
-          <p>
-            Our team of experts will work with you to seamlessly integrate AI
-            solutions into your existing systems.
-          </p>
-        </div>
-
-        <div
-          style={{
-            flex: "1 1 300px",
-            marginBottom: "30px",
-            textAlign: "left",
-            backgroundColor: "rgba(0,0,0,0.3)",
-            padding: "30px",
-            borderRadius: "10px",
-          }}
-        >
-          <h3 style={{ fontWeight: "400", marginTop: "0" }}>
-            Training & Support
+        <div style={{ display: "flex", flexDirection: "column" }}>
+          <h3
+            style={{
+              fontSize: "18px",
+              fontWeight: 500,
+              color: "white",
+              margin: "0 0 4px 0",
+            }}
+          >
+            {title}
           </h3>
-          <p>
-            Comprehensive training and ongoing support to ensure your team can
-            maximize the value of AI technologies.
+          <p
+            style={{
+              fontSize: "14px",
+              color: "#a0aec0",
+              margin: 0,
+            }}
+          >
+            {subtitle}
           </p>
         </div>
       </div>
     </div>
   );
-}
+};
+
+const ResponsiveCardList = () => {
+  const features = [
+    {
+      title: "Building Systems with LLMs",
+      subtitle:
+        "Our expertise in LLMs allows us to create and optimize powerful AI-driven systems tailored to your needs",
+    },
+    {
+      title: "Production-Ready AI Solutions",
+      subtitle:
+        "We guide you through the entire process, from prototyping to full-scale production, ensuring your AI initiatives are successful and sustainable",
+    },
+    {
+      title: "Data Platform Engineering",
+      subtitle:
+        "We design and build scalable, robust data platforms on Azure to support your AI initiatives",
+    },
+    {
+      title: "Deploying AI Applications",
+      subtitle:
+        "We ensure your data-centric and AI applications are deployed seamlessly, with reliability and scalability in mind.",
+    },
+    {
+      title: "Upskilling Your Engineering Team",
+      subtitle:
+        "We provide hands-on training to elevate your team’s AI skills, ensuring they’re equipped to handle the latest technologies and best practices",
+    },
+    {
+      title: "Integrating AI into Your Stack",
+      subtitle:
+        "We help you incorporate AI into your current systems to enhance their capabilities without disrupting your operations.",
+    },
+  ];
+
+  return (
+    <div style={{ padding: "32px" }}>
+      <h1 style={{ fontSize: "70px", textAlign: "start", fontWeight: 300 }}>
+        Our services
+      </h1>
+      <div className="card-grid">
+        {features.map((feature, index) => (
+          <FeatureCard
+            key={index}
+            title={feature.title}
+            subtitle={feature.subtitle}
+          />
+        ))}
+      </div>
+    </div>
+  );
+};
+
+export default ResponsiveCardList;
