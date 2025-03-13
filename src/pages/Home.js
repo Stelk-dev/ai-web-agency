@@ -6,16 +6,42 @@ import OurServicesHome from "./homes/OurServicesHome";
 
 export default function Home() {
   return (
-    <div
-      style={{
-        position: "relative",
-      }}
-    >
-      <StarryNightSky />
+    <div>
+      <div
+        style={{
+          position: "relative",
+          height: "100vh",
+          overflow: "hidden",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            top: 0,
+            left: 0,
+            width: "100%",
+            height: "100%",
+          }}
+        >
+          <StarryNightSky />
+        </div>
+
+        <div
+          style={{
+            position: "relative",
+            zIndex: 10,
+            height: "100%",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <HeaderHome />
+        </div>
+      </div>
 
       <div
         style={{
-          position: "absolute",
           display: "flex",
           gap: "64px",
           alignItems: "center",
@@ -23,13 +49,10 @@ export default function Home() {
           flexDirection: "column",
           width: "100vw",
           color: "white",
-          zIndex: 2,
           textAlign: "center",
-          backgroundColor: "transparent",
+          backgroundColor: "#1d3576", // Deep blue background
         }}
       >
-        <HeaderHome />
-
         <ReviewersLogosSlider />
 
         <OurServicesHome />

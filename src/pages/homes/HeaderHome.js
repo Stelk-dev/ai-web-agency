@@ -7,7 +7,7 @@ export default function HeaderHome() {
         maxWidth: "900px",
         margin: "0 auto",
         gap: "32px",
-        width: "100%",
+        width: "100vw",
         height: "100vh",
         display: "flex",
         justifyContent: "center",
@@ -23,6 +23,7 @@ export default function HeaderHome() {
           height: "fit-content",
           margin: "0px",
           textAlign: "center",
+          color: "white",
         }}
       >
         Helping you integrate AI with clarity & confidence
