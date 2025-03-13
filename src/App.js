@@ -8,7 +8,7 @@ function App() {
   return (
     <>
       <Navbar />
-      <div className="container">
+      <div>
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Home />} />

@@ -7,15 +7,54 @@ const SpaceGradientBackground = () => {
     const canvas = canvasRef.current;
     const ctx = canvas.getContext("2d");
 
+    // Stars array to track positions and movement
+    const stars = [];
+    const glowingStars = [];
+
     // Set canvas to full window size
     const resizeCanvas = () => {
       canvas.width = window.innerWidth;
       canvas.height = window.innerHeight;
+      initializeStars();
       drawBackground();
     };
 
     window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
+
+    function initializeStars() {
+      // Clear previous stars
+      stars.length = 0;
+      glowingStars.length = 0;
+
+      // Regular stars with fading properties
+      for (let i = 0; i < 150; i++) {
+        stars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 1.5 + 0.5,
+          opacity: Math.random() * 0.9 + 0.1,
+          speed: Math.random() * 0.4, // Movement speed
+          direction: Math.random() * Math.PI * 2,
+          // Fading properties
+          fadeSpeed: Math.random() * 0.005 + 0.002, // Slow fade speed
+          fadingOut: Math.random() > 0.5, // Random initial fade direction
+          minOpacity: Math.random() * 0.2, // Minimum opacity when faded out
+          maxOpacity: Math.random() * 0.5 + 0.5, // Maximum opacity when faded in
+        });
+      }
+
+      // Glowing stars
+      for (let i = 0; i < 15; i++) {
+        glowingStars.push({
+          x: Math.random() * canvas.width,
+          y: Math.random() * canvas.height,
+          radius: Math.random() * 2 + 1,
+          speed: Math.random() * 0.4 + 0.3, // Faster than regular stars
+          direction: Math.random() * Math.PI * 2,
+        });
+      }
+    }
 
     function drawBackground() {
       // Create gradient background from black to deep blue
@@ -27,52 +66,104 @@ const SpaceGradientBackground = () => {
 
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-      // Draw stars
-      drawStars(ctx, canvas.width, canvas.height);
     }
 
-    function drawStars(ctx, width, height) {
-      // Add stars
-      for (let i = 0; i < 150; i++) {
-        const x = Math.random() * width;
-        const y = Math.random() * height;
-        const radius = Math.random() * 1.5 + 0.5;
-        const opacity = Math.random() * 0.9 + 0.1;
+    function updateAndDrawStars() {
+      // Update and draw regular stars with fading
+      stars.forEach((star) => {
+        // Handle fading effect
+        if (star.fadingOut) {
+          star.opacity -= star.fadeSpeed;
+          if (star.opacity <= star.minOpacity) {
+            star.opacity = star.minOpacity;
+            star.fadingOut = false;
+          }
+        } else {
+          star.opacity += star.fadeSpeed;
+          if (star.opacity >= star.maxOpacity) {
+            star.opacity = star.maxOpacity;
+            star.fadingOut = true;
+          }
+        }
 
+        // Move star
+        star.x += Math.cos(star.direction) * star.speed;
+        star.y += Math.sin(star.direction) * star.speed;
+
+        // Wrap around edges
+        if (star.x < 0) star.x = canvas.width;
+        if (star.x > canvas.width) star.x = 0;
+        if (star.y < 0) star.y = canvas.height;
+        if (star.y > canvas.height) star.y = 0;
+
+        // Draw star
         ctx.beginPath();
-        ctx.arc(x, y, radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${star.opacity})`;
         ctx.fill();
-      }
+      });
 
-      // Add a few larger, glowing stars
-      for (let i = 0; i < 15; i++) {
-        const x = Math.random() * width;
-        const y = Math.random() * height;
-        const radius = Math.random() * 2 + 1;
+      // Update and draw glowing stars
+      glowingStars.forEach((star) => {
+        // Move star
+        star.x += Math.cos(star.direction) * star.speed;
+        star.y += Math.sin(star.direction) * star.speed;
+
+        // Wrap around edges
+        if (star.x < 0) star.x = canvas.width;
+        if (star.x > canvas.width) star.x = 0;
+        if (star.y < 0) star.y = canvas.height;
+        if (star.y > canvas.height) star.y = 0;
 
         // Create glow effect
-        const gradient = ctx.createRadialGradient(x, y, 0, x, y, radius * 5);
+        const gradient = ctx.createRadialGradient(
+          star.x,
+          star.y,
+          0,
+          star.x,
+          star.y,
+          star.radius * 5
+        );
         gradient.addColorStop(0, "rgba(255, 255, 255, 0.8)");
         gradient.addColorStop(0.3, "rgba(200, 220, 255, 0.4)");
         gradient.addColorStop(1, "rgba(200, 220, 255, 0)");
 
         ctx.fillStyle = gradient;
         ctx.beginPath();
-        ctx.arc(x, y, radius * 5, 0, Math.PI * 2);
+        ctx.arc(star.x, star.y, star.radius * 5, 0, Math.PI * 2);
         ctx.fill();
 
         // Star center
         ctx.beginPath();
-        ctx.arc(x, y, radius, 0, Math.PI * 2);
+        ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
         ctx.fillStyle = "rgba(255, 255, 255, 0.9)";
         ctx.fill();
-      }
+      });
     }
+
+    // Animation loop
+    let animationFrameId;
+
+    function animate() {
+      // Clear canvas
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+      // Redraw background and shapes (they stay static)
+      drawBackground();
+
+      // Update and draw stars
+      updateAndDrawStars();
+
+      // Continue animation loop
+      animationFrameId = requestAnimationFrame(animate);
+    }
+
+    // Start animation
+    animate();
 
     return () => {
       window.removeEventListener("resize", resizeCanvas);
+      cancelAnimationFrame(animationFrameId);
     };
   }, []);
 
