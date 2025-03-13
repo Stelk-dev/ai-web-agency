@@ -5,6 +5,7 @@ import viralityLogo from "../../assets/Virality-logo.png";
 import digitalLogo from "../../assets/Digital-logo.png";
 import retailTuneLogo from "../../assets/Retailtune_logo.png";
 import extraInfissiLogo from "../../assets/ExtraInfissi-logo.png";
+import datadotsLogo from "../../assets/DataDots-logo.png";
 
 const ReviewersLogosSlider = ({ images, speed = 0.4 }) => {
   const containerRef = useRef(null);
@@ -14,9 +15,10 @@ const ReviewersLogosSlider = ({ images, speed = 0.4 }) => {
   const displayImages = [
     nandLogo,
     viralityLogo,
+    digitalLogo,
     retailTuneLogo,
     extraInfissiLogo,
-    digitalLogo,
+    datadotsLogo,
   ];
 
   // Initialize image items with positions and other properties
