@@ -1,4 +1,5 @@
 import React from "react";
+import WhiteButton from "../../components/WhiteButton";
 
 export default function CallToAction() {
   return (
@@ -50,24 +51,11 @@ export default function CallToAction() {
         }}
       >
         Whether you're looking to automate processes, streamline operations, or
-        unlock new opportunities – we’ll work alongside your team to implement
+        unlock new opportunities – we'll work alongside your team to implement
         solutions that scale (with) your business.
       </div>
 
-      <button
-        style={{
-          backgroundColor: "white",
-          borderRadius: "32px",
-          outline: "none",
-          border: "0px",
-          fontWeight: "500",
-          padding: "12px 24px",
-          cursor: "pointer",
-          marginTop: "12px",
-        }}
-      >
-        GET IN TOUCH
-      </button>
+      <WhiteButton />
     </div>
   );
 }

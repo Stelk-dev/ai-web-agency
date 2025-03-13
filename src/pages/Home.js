@@ -54,7 +54,7 @@ export default function Home() {
           background: "linear-gradient(to bottom, #1d3576, black)", // Deep blue background
         }}
       >
-        <ReviewersLogosSlider />
+        {/* <ReviewersLogosSlider /> */}
 
         <OurServicesHome />
 

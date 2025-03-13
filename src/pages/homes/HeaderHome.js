@@ -1,4 +1,6 @@
 import React from "react";
+import WhiteButton from "../../components/WhiteButton";
+import GradientButton from "../../components/GradientButton";
 
 export default function HeaderHome() {
   return (
@@ -42,20 +44,10 @@ export default function HeaderHome() {
         help you identify what truly gives that competitive advantage.
       </div>
 
-      <button
-        style={{
-          backgroundColor: "white",
-          borderRadius: "32px",
-          outline: "none",
-          border: "0px",
-          fontWeight: "500",
-          padding: "12px 24px",
-          cursor: "pointer",
-          marginTop: "12px",
-        }}
-      >
-        GET IN TOUCH
-      </button>
+      <div style={{ display: "flex", gap: "12px" }}>
+        <WhiteButton />
+        <GradientButton text="CHECK PORTFOLIO" />
+      </div>
     </div>
   );
 }
