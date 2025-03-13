@@ -133,7 +133,7 @@ const ResponsiveCardList = () => {
   ];
 
   return (
-    <div style={{ padding: "32px" }}>
+    <div style={{ padding: "32px", maxWidth: "1200px", margin: "232x" }}>
       <h1 style={{ fontSize: "70px", textAlign: "start", fontWeight: 300 }}>
         Our services
       </h1>

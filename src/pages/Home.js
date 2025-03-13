@@ -3,6 +3,7 @@ import React from "react";
 import HeaderHome from "./homes/HeaderHome";
 import ReviewersLogosSlider from "./homes/ReviewersLogosSlider";
 import OurServicesHome from "./homes/OurServicesHome";
+import CallToAction from "./homes/CallToAction";
 
 export default function Home() {
   return (
@@ -56,6 +57,8 @@ export default function Home() {
         <ReviewersLogosSlider />
 
         <OurServicesHome />
+
+        <CallToAction />
         {/* <div
           style={{ height: "1400px", backgroundColor: "red", width: "100%" }}
         ></div> */}
