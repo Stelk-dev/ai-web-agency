@@ -4,6 +4,11 @@
     width: 100%;
 }
 
+.full-v{
+    padding: 0px;
+    max-width: none !important;
+}
+
 .main-paragh{
     margin: 32px 0px;
 }
