@@ -133,10 +133,16 @@ const ResponsiveCardList = () => {
   ];
 
   return (
-    <div style={{ padding: "32px", maxWidth: "1200px", margin: "232x" }}>
-      <h1 style={{ fontSize: "70px", textAlign: "start", fontWeight: 300 }}>
-        Our services
-      </h1>
+    <div className="main-v">
+      <div className="main-paragh">
+        <h1 className="main-paragh-h1">Our services</h1>
+        <p className="main-paragh-desc">
+          From building enterprise-grade AI platforms to guiding digital
+          transformation and upskilling development teams, we help you move
+          beyond any boundaries of what's possible, pointing you to AI and data
+          technologies that make sense in helping you grow.
+        </p>
+      </div>
       <div className="card-grid">
         {features.map((feature, index) => (
           <FeatureCard

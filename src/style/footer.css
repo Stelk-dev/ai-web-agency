@@ -1,0 +1,10 @@
+.footer{
+    background-color: #4660f1;
+    background: linear-gradient(to right, #4660f1, #27369b);
+    width: 100vw;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}

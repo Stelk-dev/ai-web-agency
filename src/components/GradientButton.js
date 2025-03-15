@@ -4,7 +4,7 @@ export default function GradientButton({ text = "BUTTON TEXT", onClick }) {
   const [isHovered, setIsHovered] = useState(false);
 
   const baseStyle = {
-    backgroundColor: "rgb(2, 14, 56)",
+    backgroundColor: "rgb(2, 28, 122)",
     // background: "linear-gradient(to right, #4051b8, #081853)",
     borderRadius: "32px",
     outline: "none",
@@ -19,7 +19,7 @@ export default function GradientButton({ text = "BUTTON TEXT", onClick }) {
 
   const hoverStyle = {
     ...baseStyle,
-    backgroundColor: "rgb(2, 14, 56, 0.6)",
+    backgroundColor: "rgb(2, 14, 56)",
   };
 
   return (

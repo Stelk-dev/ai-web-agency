@@ -1,9 +1,10 @@
 import StarryNightSky from "../views/FullSkyView";
 import React from "react";
 import HeaderHome from "./homes/HeaderHome";
-import ReviewersLogosSlider from "./homes/ReviewersLogosSlider";
 import OurServicesHome from "./homes/OurServicesHome";
 import CallToAction from "./homes/CallToAction";
+import UseCasesHome from "./homes/UseCasesHome";
+import ReviewsFromClientsHome from "./homes/ReviewsFromClientsHome";
 
 export default function Home() {
   return (
@@ -44,7 +45,7 @@ export default function Home() {
       <div
         style={{
           display: "flex",
-          gap: "64px",
+          gap: "164px",
           alignItems: "center",
           justifyContent: "center",
           flexDirection: "column",
@@ -52,23 +53,18 @@ export default function Home() {
           color: "white",
           textAlign: "center",
           background: "linear-gradient(to bottom, #1d3576, black)", // Deep blue background
+          padding: "64px 0px",
         }}
       >
         {/* <ReviewersLogosSlider /> */}
 
         <OurServicesHome />
 
+        <UseCasesHome />
+
+        <ReviewsFromClientsHome />
+
         <CallToAction />
-        {/* <div
-          style={{ height: "1400px", backgroundColor: "red", width: "100%" }}
-        ></div> */}
-        <div
-          style={{
-            height: "1400px",
-            width: "100%",
-          }}
-        ></div>
-        <div style={{ height: "1400px", width: "100%" }}></div>
       </div>
     </div>
   );
