@@ -54,13 +54,12 @@ export default function Home() {
           width: "100vw",
           color: "white",
           textAlign: "center",
-          background: "linear-gradient(to bottom, #1d3576, black)", // Deep blue background
-          paddingTop: "64px",
+          background: "linear-gradient(to bottom, #0a3677, black)", // Deep blue background
         }}
       >
-        <ReviewersLogosSlider />
-
         <OurServicesHome />
+
+        <ReviewersLogosSlider />
 
         <UseCasesHome />
 

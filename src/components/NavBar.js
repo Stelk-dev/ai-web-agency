@@ -45,7 +45,7 @@ const Navbar = () => {
         About
       </Link>
       <Link
-        to="/about"
+        to="/use-cases"
         style={{
           textDecoration: "white",
           color: "white",

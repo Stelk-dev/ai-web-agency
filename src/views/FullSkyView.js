@@ -1,6 +1,10 @@
 import React, { useEffect, useRef } from "react";
 
-const SpaceGradientBackground = () => {
+const SpaceGradientBackground = ({
+  starsNumber = 150,
+  glowingStarsNumber = 15,
+  backgroundColorBlack = false,
+}) => {
   const canvasRef = useRef(null);
 
   useEffect(() => {
@@ -28,24 +32,24 @@ const SpaceGradientBackground = () => {
       glowingStars.length = 0;
 
       // Regular stars with fading properties
-      for (let i = 0; i < 150; i++) {
+      for (let i = 0; i < starsNumber; i++) {
         stars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          radius: Math.random() * 1.5 + 0.5,
-          opacity: Math.random() * 0.9 + 0.1,
+          radius: Math.random() * 2,
+          opacity: Math.random() * 0.7,
           speed: Math.random() * 0.4, // Movement speed
           direction: Math.random() * Math.PI * 2,
           // Fading properties
           fadeSpeed: Math.random() * 0.005 + 0.002, // Slow fade speed
           fadingOut: Math.random() > 0.5, // Random initial fade direction
           minOpacity: Math.random() * 0.2, // Minimum opacity when faded out
-          maxOpacity: Math.random() * 0.5 + 0.5, // Maximum opacity when faded in
+          maxOpacity: Math.random() * 0.8, // Maximum opacity when faded in
         });
       }
 
       // Glowing stars
-      for (let i = 0; i < 15; i++) {
+      for (let i = 0; i < glowingStarsNumber; i++) {
         glowingStars.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
@@ -59,11 +63,13 @@ const SpaceGradientBackground = () => {
     function drawBackground() {
       // Create gradient background from black to deep blue
       const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
-      gradient.addColorStop(0, "#000000");
-      gradient.addColorStop(0.4, "#050523");
-      gradient.addColorStop(0.8, "#0a1a4d");
-      gradient.addColorStop(1, "#0a3677");
+      if (backgroundColorBlack) gradient.addColorStop(0, "#000000");
 
+      if (!backgroundColorBlack) {
+        gradient.addColorStop(0.4, "#050523");
+        gradient.addColorStop(0.8, "#0a1a4d");
+        gradient.addColorStop(1, "#0a3677");
+      }
       ctx.fillStyle = gradient;
       ctx.fillRect(0, 0, canvas.width, canvas.height);
     }
@@ -126,7 +132,7 @@ const SpaceGradientBackground = () => {
         );
         gradient.addColorStop(0, "rgba(255, 255, 255, 0.8)");
         gradient.addColorStop(0.3, "rgba(200, 220, 255, 0.4)");
-        gradient.addColorStop(1, "rgba(200, 220, 255, 0)");
+        gradient.addColorStop(1, "rgba(255, 200, 200, 0)");
 
         ctx.fillStyle = gradient;
         ctx.beginPath();

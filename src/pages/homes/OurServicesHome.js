@@ -122,7 +122,6 @@ const ResponsiveCardList = () => {
       subtitle:
         "We help you incorporate AI into your current systems to enhance their capabilities without disrupting your operations.",
     },
-    {},
   ];
 
   return (

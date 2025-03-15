@@ -187,7 +187,7 @@ export default function ReviewsFromClientsHome() {
     >
       <div className="main-v">
         <div className="main-paragh">
-          <h1 className="main-paragh-h1">What our clients think:</h1>
+          <h1 className="main-paragh-h1">What our clients says</h1>
           <p className="main-paragh-desc">
             At Algorithmx, we bring together a decade of AI engineering,
             software development, and enterprise consulting experience to help
