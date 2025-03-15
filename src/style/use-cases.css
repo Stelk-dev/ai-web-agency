@@ -22,7 +22,7 @@
     overflow: hidden;
     cursor: pointer;
   }
-  
+
   .primary-use-case-content {
     width: 35%;
     height: 100%;
@@ -58,23 +58,98 @@
     text-align: start;
     width: 100%;
   }
+
+  .use-case-link {
+    color: white;
+    text-decoration: underline;
+    margin: 0;
+    font-weight: 200;
+    text-align: start;
+  }
   
   .use-case-image {
     width: 65%;
     height: 100%;
-    background-color: black;
+    background-color: red;
     display: flex;
     align-items: center;
     justify-content: center;
+    opacity: .5;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .primary-use-case-wrapper:hover .find-more-overlay {
+    opacity: 1;
+  }
+  
+  .primary-use-case-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  .primary-overlay-wrapper {
+    position: absolute;
+    top: 0;
+    left: 35%; /* Position over the image area, which starts at 35% */
+    width: 65%; /* Match the width of the image area */
+    height: 100%;
+    pointer-events: none;
+    z-index: 10;
   }
 
   .image {
-    width: 300px;
-    height: fit-content;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
   }
 
   .secondary-use-case-image {
     width: 100%;
     height: 100%;
     background-color: blue;
+    position: relative;
+    overflow: hidden;
+  }
+  
+  .find-more-overlay {
+    position: absolute;
+    top: 0px;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.1s ease;
+    pointer-events: none;
+  }
+  
+  .find-more-text {
+    color: white;
+    font-size: 24px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin: 0px;
+}
+  
+  .secondary-use-case-wrapper:hover .find-more-overlay {
+    opacity: 1;
+  }
+  
+  .secondary-use-case-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+  }
+  
+  
+  /* Override any filter that might be applied from parent containers */
+  .no-filter {
+    filter: none !important;
+    transform: none !important;
+    -webkit-filter: none !important;
   }

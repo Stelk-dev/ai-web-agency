@@ -1,23 +1,44 @@
 import React from "react";
 import "../../style/use-cases.css";
+import { FaExternalLinkAlt } from "react-icons/fa";
 
-import SupremMilkLogo from "../../assets/SupremMilk-logo.png";
+import SupremMilkLogo from "../../assets/Prioraty-PRJ.png";
+import SecondPrj1 from "../../assets/Secondary-PRJ.png";
 
 export default function UseCasesHome() {
   const PrimaryUseCase = () => {
     return (
-      <div className="primary-use-case-container">
-        <div className="primary-use-case-content">
-          <h1 className="use-case-title">Suprem - Milk</h1>
-          <p className="use-case-description">
-            Crypto Insiders, the largest cryptocurrency news platform in the
-            Netherlands, attracts over 2 million... Crypto Insiders, the largest
-            cryptocurrency news platform in the Netherlands, attracts over 2
-            million...
-          </p>
-        </div>
-        <div className="use-case-image">
-          <img src={SupremMilkLogo} alt="logo-big-use-case" className="image" />
+      <div className="primary-use-case-wrapper">
+        {/* Main content that gets the filter applied */}
+        <div className="primary-use-case-container">
+          <div className="primary-use-case-content">
+            <h1 className="use-case-title">Suprem - Milk</h1>
+            <p className="use-case-description">
+              Crypto Insiders, the largest cryptocurrency news platform in the
+              Netherlands, attracts over 2 million... Crypto Insiders, the
+              largest cryptocurrency news platform in the Netherlands, attracts
+              over 2 million...
+            </p>
+
+            <div
+              style={{
+                marginTop: "32px",
+                display: "flex",
+                alignItems: "center",
+                gap: "8px",
+              }}
+            >
+              <p className="use-case-link">Read</p>
+              <FaExternalLinkAlt size={"14px"} color="#1a56db" />
+            </div>
+          </div>
+          <div className="use-case-image">
+            <img
+              src={SupremMilkLogo}
+              alt="logo-big-use-case"
+              className="image"
+            />
+          </div>
         </div>
       </div>
     );
@@ -25,12 +46,35 @@ export default function UseCasesHome() {
 
   const UseCaseBox = ({ title, text, image }) => {
     return (
-      <div className="secondary-use-case-container">
-        <div className="use-case-image"></div>
+      <div className="secondary-use-case-wrapper">
+        {/* Main content that gets the filter applied */}
+        <div className="secondary-use-case-container">
+          <div className="secondary-use-case-image">
+            <img
+              src={SecondPrj1}
+              alt="logo-secondary-use-case"
+              className="image"
+            />
+          </div>
 
-        <div className="secondary-use-case-content">
-          <h1 className="use-case-title">{title}</h1>
-          <p className="use-case-description">{text}</p>
+          <div className="secondary-use-case-content">
+            <h1 className="use-case-title">{title}</h1>
+            <p className="use-case-description">{text}</p>
+            <p className="use-case-description">{text}</p>
+          </div>
+
+          <div
+            style={{
+              marginBottom: "32px",
+              display: "flex",
+              alignItems: "center",
+              padding: "0px 32px",
+              gap: "8px",
+            }}
+          >
+            <p className="use-case-link">Read</p>
+            <FaExternalLinkAlt size={"14px"} color="#1a56db" />
+          </div>
         </div>
       </div>
     );
@@ -73,22 +117,18 @@ export default function UseCasesHome() {
           }}
         >
           <UseCaseBox
-            title={"Suprem Milk"}
+            title={"N and Group"}
             text={
-              "React Hook useEffect has a missing dependency: 'doubledTestimonials.length'. Either include it or remove the dependency array"
+              "React Hook useEffect has a missing dependency: 'doubledTestimonials."
             }
           />
           <UseCaseBox
-            title={"Suprem Milk"}
-            text={
-              "React Hook useEffect has a missing dependency: 'doubledTestimonials.length'. Either include it or remove the dependency array. React Hook useEffect has a missing dependency: 'doubledTestimonials.length'. Either include it or remove the dependency array"
-            }
+            title={"The Legacy"}
+            text={"React Hook emove the dependency array"}
           />
           <UseCaseBox
-            title={"Suprem Milk"}
-            text={
-              "React Hook useEffect has a missing dependency: 'doubledTestimonials.length'. Either include it or remove the dependency array. React Hook useEffect has a missing dependency: 'doubledTestimonials.length'. Either include it or remove the dependency array"
-            }
+            title={"Retail Tune"}
+            text={"Either include it or remove the dependency array"}
           />
         </div>
       </div>
