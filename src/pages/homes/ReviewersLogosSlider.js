@@ -7,110 +7,52 @@ import retailTuneLogo from "../../assets/Retailtune_logo.png";
 import extraInfissiLogo from "../../assets/ExtraInfissi-logo.png";
 import datadotsLogo from "../../assets/DataDots-logo.png";
 
-const ReviewersLogosSlider = ({ images, speed = 0.4 }) => {
-  const containerRef = useRef(null);
-  const [imageItems, setImageItems] = useState([]);
-  const animationRef = useRef(null);
-  // Use the imported images
-  const displayImages = [
-    nandLogo,
-    viralityLogo,
-    digitalLogo,
-    retailTuneLogo,
-    extraInfissiLogo,
-    datadotsLogo,
+const ReviewersLogosSlider = () => {
+  const carouselRef = useRef(null);
+  const [translateX, setTranslateX] = useState(0);
+
+  // Use the imported logos
+  const logos = [
+    { id: 1, src: nandLogo, alt: "Nand Group" },
+    { id: 2, src: viralityLogo, alt: "Virality" },
+    { id: 3, src: digitalLogo, alt: "Digital" },
+    { id: 4, src: retailTuneLogo, alt: "RetailTune" },
+    { id: 5, src: extraInfissiLogo, alt: "Extra Infissi" },
+    { id: 6, src: datadotsLogo, alt: "DataDots" },
   ];
 
-  // Initialize image items with positions and other properties
+  // Create duplicated array for infinite scrolling
+  const extendedLogos = [...logos, ...logos, ...logos];
+
+  // Fixed spacing between logo items (adjust as needed)
+  const logoSpacing = 180;
+
   useEffect(() => {
-    if (!containerRef.current) return;
+    const carousel = carouselRef.current;
+    if (!carousel) return;
 
-    const containerWidth = containerRef.current.offsetWidth;
+    // Calculate total width of the original logos set
+    const totalWidth = logos.length * logoSpacing;
 
-    // Create initial image items with random positions
-    const items = displayImages.map((src, index) => {
-      // Space images out evenly across container width at first
-      const spacing = containerWidth / displayImages.length;
-
-      return {
-        id: `img-${index}`,
-        src,
-        x: index * spacing,
-        width: 0, // Will be measured after rendering
-        loaded: false,
-      };
-    });
-
-    setImageItems(items);
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  // After initial render, measure image widths and start animation
-  useEffect(() => {
-    if (!containerRef.current || imageItems.length === 0) return;
-
-    const container = containerRef.current;
-    const containerWidth = container.offsetWidth;
-
-    // Update image widths after they've rendered
-    const updatedItems = [...imageItems];
-    let allImagesLoaded = true;
-
-    imageItems.forEach((item, index) => {
-      const imgElement = document.getElementById(item.id);
-      if (imgElement) {
-        const imgWidth = imgElement.offsetWidth;
-        updatedItems[index] = {
-          ...item,
-          width: imgWidth,
-          loaded: true,
-        };
-      } else {
-        allImagesLoaded = false;
-      }
-    });
-
-    if (allImagesLoaded) {
-      setImageItems(updatedItems);
-
-      // Start animation once widths are measured
-      const animate = () => {
-        setImageItems((prevItems) => {
-          return prevItems.map((item) => {
-            // Move image to the left
-            let newX = item.x - speed;
-
-            // If image has moved completely off the left edge
-            if (newX < -item.width - 20) {
-              // -20 accounts for margin
-              // Move it back to the right edge of the container
-              newX = containerWidth;
-            }
-
-            return {
-              ...item,
-              x: newX,
-            };
-          });
-        });
-
-        animationRef.current = requestAnimationFrame(animate);
-      };
-
-      // Start animation loop
-      animationRef.current = requestAnimationFrame(animate);
-    }
-
-    return () => {
-      if (animationRef.current) {
-        cancelAnimationFrame(animationRef.current);
-      }
+    const scrollAnimation = () => {
+      setTranslateX((prev) => {
+        // When we've scrolled past the first set of logos, reset position
+        if (prev <= -totalWidth) {
+          return 0;
+        }
+        // Continue scrolling left
+        return prev - 1;
+      });
     };
-  }, [imageItems, speed]);
+
+    // Smooth scrolling animation - adjust interval for speed
+    const scrollInterval = setInterval(scrollAnimation, 100);
+
+    return () => clearInterval(scrollInterval);
+  }, []);
 
   return (
     <div
-      ref={containerRef}
       style={{
         width: "100vw",
         height: "100px",
@@ -119,34 +61,42 @@ const ReviewersLogosSlider = ({ images, speed = 0.4 }) => {
         backgroundColor: "#00000033",
       }}
     >
-      {imageItems.map((item) => (
-        <div
-          key={item.id}
-          id={item.id}
-          style={{
-            position: "absolute",
-            left: `${item.x}px`,
-            top: "50%",
-            transform: "translateY(-50%)",
-            height: "60px",
-            display: "inline-flex",
-            transition: "none",
-          }}
-        >
-          <img
-            src={item.src}
-            alt={`Slide ${item.id}`}
+      <div
+        ref={carouselRef}
+        style={{
+          display: "flex",
+          alignItems: "center",
+          position: "absolute",
+          top: "50%",
+          transform: `translateX(${translateX}px) translateY(-50%)`,
+          transition: "transform 10s linear",
+          width: "max-content", // Allow content to extend beyond container
+        }}
+      >
+        {extendedLogos.map((logo, index) => (
+          <div
+            key={`${logo.id}-${index}`}
             style={{
-              height: "100%",
-              width: "auto",
-              objectFit: "contain",
-              color: "#0a1a4d",
-              opacity: 0.8,
-              filter: "brightness(0) invert(1)", // Makes images completely white
+              margin: "0 40px",
+              height: "60px",
+              display: "inline-flex",
             }}
-          />
-        </div>
-      ))}
+          >
+            <img
+              src={logo.src}
+              alt={logo.alt}
+              style={{
+                height: "100%",
+                width: "auto",
+                objectFit: "contain",
+                color: "#0a1a4d",
+                opacity: 0.8,
+                filter: "brightness(0) invert(1)", // Makes logos completely white
+              }}
+            />
+          </div>
+        ))}
+      </div>
     </div>
   );
 };

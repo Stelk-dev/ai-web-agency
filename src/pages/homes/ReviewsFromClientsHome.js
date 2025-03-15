@@ -146,7 +146,6 @@ const TestimonialCarousel = () => {
 
     return () => clearInterval(scrollInterval);
   }, []);
-  console.log(translateX);
 
   return (
     <div

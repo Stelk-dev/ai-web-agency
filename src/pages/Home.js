@@ -5,6 +5,8 @@ import OurServicesHome from "./homes/OurServicesHome";
 import CallToAction from "./homes/CallToAction";
 import UseCasesHome from "./homes/UseCasesHome";
 import ReviewsFromClientsHome from "./homes/ReviewsFromClientsHome";
+import ReviewersLogosSlider from "./homes/ReviewersLogosSlider";
+import VideosHome from "./homes/VideosHome";
 
 export default function Home() {
   return (
@@ -53,16 +55,18 @@ export default function Home() {
           color: "white",
           textAlign: "center",
           background: "linear-gradient(to bottom, #1d3576, black)", // Deep blue background
-          padding: "64px 0px",
+          paddingTop: "64px",
         }}
       >
-        {/* <ReviewersLogosSlider /> */}
+        <ReviewersLogosSlider />
 
         <OurServicesHome />
 
         <UseCasesHome />
 
         <ReviewsFromClientsHome />
+
+        <VideosHome />
 
         <CallToAction />
       </div>

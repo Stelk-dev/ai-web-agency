@@ -83,15 +83,7 @@ const FeatureCard = ({ title, subtitle }) => {
           >
             {title}
           </h3>
-          <p
-            style={{
-              fontSize: "14px",
-              color: "#a0aec0",
-              margin: 0,
-            }}
-          >
-            {subtitle}
-          </p>
+          <p className="p-2-center">{subtitle}</p>
         </div>
       </div>
     </div>
