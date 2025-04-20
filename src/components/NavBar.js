@@ -37,7 +37,7 @@ const Navbar = () => {
       <Link
         to="/about"
         style={{
-          textDecoration: "white",
+          textDecoration: "none",
           color: "white",
           fontWeight: "300",
         }}
@@ -47,7 +47,7 @@ const Navbar = () => {
       <Link
         to="/use-cases"
         style={{
-          textDecoration: "white",
+          textDecoration: "none",
           color: "white",
           fontWeight: "300",
         }}
