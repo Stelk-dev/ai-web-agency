@@ -95,7 +95,7 @@ const ReviewersLogosSlider = () => {
         height: "100px",
         overflow: "hidden",
         position: "relative",
-        backgroundColor: "#00000033",
+        backgroundColor: "black",
       }}
     >
       <div
@@ -129,7 +129,7 @@ const ReviewersLogosSlider = () => {
                 maxWidth: `${logoSpacing * 2}px`, // Maximum width to prevent overlap
                 objectFit: "contain",
                 color: "#0a1a4d",
-                opacity: 0.8,
+                opacity: 1,
                 filter: "brightness(0) invert(1)", // Makes logos completely white
               }}
             />
