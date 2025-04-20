@@ -1,16 +1,22 @@
 import React from "react";
 import "../../style/use-cases.css";
 import { FaExternalLinkAlt } from "react-icons/fa";
+import { useNavigate } from "react-router-dom";
 
 import SupremMilkLogo from "../../assets/Prioraty-PRJ.png";
 import SecondPrj1 from "../../assets/Secondary-PRJ.png";
 
 export default function UseCasesHome() {
+  const navigate = useNavigate();
   const PrimaryUseCase = () => {
     return (
       <div className="primary-use-case-wrapper">
         {/* Main content that gets the filter applied */}
-        <div className="primary-use-case-container">
+        <div
+          className="primary-use-case-container"
+          onClick={() => navigate("/use-case/suprem-milk")}
+          style={{ cursor: "pointer" }}
+        >
           <div className="primary-use-case-content">
             <h1 className="use-case-title">Suprem - Milk</h1>
             <p className="use-case-description">
@@ -26,6 +32,10 @@ export default function UseCasesHome() {
                 display: "flex",
                 alignItems: "center",
                 gap: "8px",
+              }}
+              onClick={(e) => {
+                e.stopPropagation();
+                navigate("/use-case/suprem-milk");
               }}
             >
               <p className="use-case-link">Read</p>
@@ -44,11 +54,15 @@ export default function UseCasesHome() {
     );
   };
 
-  const UseCaseBox = ({ title, text, image }) => {
+  const UseCaseBox = ({ title, text, image, route }) => {
     return (
       <div className="secondary-use-case-wrapper">
         {/* Main content that gets the filter applied */}
-        <div className="secondary-use-case-container">
+        <div
+          className="secondary-use-case-container"
+          onClick={() => navigate(route)}
+          style={{ cursor: "pointer" }}
+        >
           <div className="secondary-use-case-image">
             <img
               src={SecondPrj1}
@@ -70,6 +84,10 @@ export default function UseCasesHome() {
               alignItems: "center",
               padding: "0px 32px",
               gap: "8px",
+            }}
+            onClick={(e) => {
+              e.stopPropagation();
+              navigate(route);
             }}
           >
             <p className="use-case-link">Read</p>
@@ -121,14 +139,17 @@ export default function UseCasesHome() {
             text={
               "React Hook useEffect has a missing dependency: 'doubledTestimonials."
             }
+            route="/use-case/n-and-group"
           />
           <UseCaseBox
             title={"The Legacy"}
             text={"React Hook emove the dependency array"}
+            route="/use-case/the-legacy"
           />
           <UseCaseBox
             title={"Retail Tune"}
             text={"Either include it or remove the dependency array"}
+            route="/use-case/retail-tune"
           />
         </div>
       </div>

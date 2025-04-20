@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
-import SpaceGradientBackground from "../views/FullSkyView";
+import SpaceGradientBackground from "../../views/FullSkyView";
 
-export default function AboutUs() {
+export default function UseCasePage({ name }) {
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -57,7 +57,7 @@ export default function AboutUs() {
           <h1
             style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
           >
-            Our Solutions
+            {name}
           </h1>
           <p style={{ margin: "0px", padding: "0px" }}>
             These days, staying ahead often means turning data and AI into
