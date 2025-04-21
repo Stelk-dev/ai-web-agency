@@ -97,15 +97,23 @@ export default function Home() {
         <FadeInSection>
           <OurServicesHome />
         </FadeInSection>
-
+        <br />
+        <br />
+        <br />
         <FadeInSection>
           <UseCasesHome />
         </FadeInSection>
-
+        <br />
+        <br />
+        <br />
         <FadeInSection>
           <ReviewsFromClientsHome />
         </FadeInSection>
-
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
         <FadeInSection>
           <VideosHome />
         </FadeInSection>

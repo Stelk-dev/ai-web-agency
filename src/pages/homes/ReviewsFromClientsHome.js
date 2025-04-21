@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React from "react";
 
 // Testimonial data
 const testimonials = [
@@ -32,22 +32,63 @@ const testimonials = [
     text: '"From our first meeting, the Ankor team demonstrated a deep understanding of our industry challenges. Their AI solution has streamlined our processes and given us valuable insights we never had before."',
     company: "DIGITAL",
   },
+  // Adding 4 more testimonials to fill the 3x3 grid
+  {
+    id: 6,
+    name: "Sofia Moretti",
+    text: '"The innovative AI solutions provided by Ankor have completely revolutionized how we approach data analysis. Their team was professional, knowledgeable, and dedicated to our success."',
+    company: "TECHINNO",
+  },
+  {
+    id: 7,
+    name: "Roberto Conti",
+    text: '"Working with Ankor has been a game-changer for our business. Their expertise in AI implementation helped us automate processes we thought were impossible to streamline."',
+    company: "FUTURETECH",
+  },
+  {
+    id: 8,
+    name: "Elena Marino",
+    text: "\"Ankor's team didn't just provide us with technology solutions, they became strategic partners in our growth. Their AI expertise translated directly to measurable business outcomes.\"",
+    company: "SKYDATA",
+  },
+  {
+    id: 9,
+    name: "Paolo Romano",
+    text: '"The level of technical expertise and industry knowledge at Ankor is outstanding. They delivered an AI solution that perfectly addressed our unique challenges and exceeded our expectations."',
+    company: "NEXTSYS",
+  },
+  // Adding 4 more testimonials to fill the 3x3 grid
+  {
+    id: 6,
+    name: "Sofia Moretti",
+    text: '"The innovative AI solutions provided by Ankor have completely revolutionized how we approach data analysis. Their team was professional, knowledgeable, and dedicated to our success."',
+    company: "TECHINNO",
+  },
+  {
+    id: 7,
+    name: "Roberto Conti",
+    text: '"Working with Ankor has been a game-changer for our business. Their expertise in AI implementation helped us automate processes we thought were impossible to streamline."',
+    company: "FUTURETECH",
+  },
+  {
+    id: 8,
+    name: "Elena Marino",
+    text: "\"Ankor's team didn't just provide us with technology solutions, they became strategic partners in our growth. Their AI expertise translated directly to measurable business outcomes.\"",
+    company: "SKYDATA",
+  },
 ];
 
-const TestimonialBox = ({ testimonial }) => {
+const TestimonialBox = ({ testimonial, opacity }) => {
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        minWidth: "340px",
-        height: "400px",
-        backgroundColor: "#0a0a0a",
-        margin: "0 20px",
-        flex: "0 0 auto",
+        width: "100%",
+        height: "350px",
         borderRadius: "8px",
-        boxShadow: "0 4px 8px rgba(0, 0, 0, 0.3)",
+        opacity: 1.0,
       }}
     >
       <div
@@ -63,7 +104,7 @@ const TestimonialBox = ({ testimonial }) => {
           maxWidth: "300px",
         }}
       >
-        <div>★ ★ ★ ★ ★</div>
+        <div style={{ color: "#FFD700" }}>★ ★ ★ ★ ★</div>
         <h2
           style={{
             fontSize: "1.5rem",
@@ -110,67 +151,32 @@ const TestimonialBox = ({ testimonial }) => {
           </span>
         </div>
       </div>
-
-      <div style={{}} />
     </div>
   );
 };
 
-const TestimonialCarousel = () => {
-  const carouselRef = useRef(null);
-  const [translateX, setTranslateX] = useState(0);
-
-  const itemWidth = 380; // Width of each item (340px + 40px margin)
-
-  // Creating a doubled list for infinite scrolling effect
-  const doubledTestimonials = [...testimonials, ...testimonials];
-
-  useEffect(() => {
-    const carousel = carouselRef.current;
-    if (!carousel) return;
-
-    const totalWidth = testimonials.length * itemWidth;
-    const scrollAnimation = () => {
-      setTranslateX((prev) => {
-        if (prev < -totalWidth) return 0;
-        // Continue scrolling left
-        return prev - 1;
-      });
-    };
-
-    // Smooth scrolling animation - adjust interval for speed
-    const scrollInterval = setInterval(
-      scrollAnimation,
-      doubledTestimonials.length * 10
-    );
-
-    return () => clearInterval(scrollInterval);
-  }, []);
+const TestimonialGrid = () => {
+  // No opacity effect - all testimonials at full opacity
+  const getOpacity = () => {
+    return 1.0; // Full opacity for all testimonials
+  };
 
   return (
     <div
       style={{
+        display: "grid",
+        gridTemplateColumns: "repeat(3, 1fr)",
+        gridGap: "20px",
         width: "100%",
-        position: "relative",
-        overflow: "hidden",
       }}
     >
-      <div
-        ref={carouselRef}
-        style={{
-          display: "flex",
-          transform: `translateX(${translateX}px)`,
-          transition: "transform 10s linear",
-          width: "max-content", // Allow content to extend beyond container
-        }}
-      >
-        {doubledTestimonials.map((testimonial, index) => (
-          <TestimonialBox
-            key={`${testimonial.id}-${index}`}
-            testimonial={testimonial}
-          />
-        ))}
-      </div>
+      {testimonials.map((testimonial, index) => (
+        <TestimonialBox
+          key={testimonial.id}
+          testimonial={testimonial}
+          opacity={getOpacity(index)}
+        />
+      ))}
     </div>
   );
 };
@@ -192,30 +198,45 @@ export default function ReviewsFromClientsHome() {
             At Algorithmx, we bring together a decade of AI engineering,
             software development, and enterprise consulting experience to help
             you cut through the noise and transform possibilities into practical
-            solutions.{" "}
+            solutions.
           </p>
         </div>
       </div>
 
-      <div
-        className="main-v full-v"
-        style={{
-          backgroundColor: "black",
-          boxShadow: "0 0px 40px 20px #00000066",
-          border: "1px solid #F7F7F722",
-        }}
-      >
+      <div style={{ position: "relative" }}>
         <div
+          className="main-v full-v"
           style={{
-            display: "flex",
-            alignItems: "center",
-            justifyContent: "center",
-            padding: "40px 0",
-            width: "100%",
+            padding: "40px 20px",
+            position: "relative",
             overflow: "hidden",
+            // Add a fade-out mask from top (opaque) to bottom (transparent)
+            WebkitMaskImage:
+              "linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%)",
+            maskImage:
+              "linear-gradient(to bottom, rgba(0,0,0,1) 10%, rgba(0,0,0,0) 100%)",
           }}
         >
-          <TestimonialCarousel />
+          {/* Overlay with gradient opacity from top to bottom */}
+          <TestimonialGrid />
+        </div>
+
+        <div className="center-div">
+          <h1
+            style={{
+              fontWeight: "500",
+              fontSize: "70px",
+              height: "fit-content",
+              margin: "0px",
+              textAlign: "center",
+              color: "white",
+              position: "absolute",
+              bottom: 12,
+              width: "100%",
+            }}
+          >
+            Over hundreds of happy clients
+          </h1>
         </div>
       </div>
     </div>

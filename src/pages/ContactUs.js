@@ -1,6 +1,14 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 export default function ContactUs() {
+  useEffect(() => {
+    window.scrollTo({
+      top: 0,
+      left: 0,
+      behavior: "instant",
+    });
+  }, []);
+
   return (
     <div
       style={{
