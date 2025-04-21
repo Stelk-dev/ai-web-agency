@@ -5,6 +5,7 @@ import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import UseCases from "./pages/UseCases";
 import UseCasePage from "./pages/usecases/UseCasePage";
+import Services from "./pages/Services";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
           {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/about" element={<AboutUs />} />
+          <Route path="/services" element={<Services />} />
           <Route path="/use-cases" element={<UseCases />} />
           <Route path="/contact-us" element={<ContactUs />} />
           <Route

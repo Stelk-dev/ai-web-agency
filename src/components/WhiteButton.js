@@ -1,6 +1,9 @@
 import React from "react";
+import { useNavigate } from "react-router-dom";
 
-export default function WhiteButton({ text = "GET IN TOUCH", onClick }) {
+export default function WhiteButton({ text = "GET IN TOUCH", style }) {
+  const nav = useNavigate();
+
   return (
     <button
       style={{
@@ -13,8 +16,9 @@ export default function WhiteButton({ text = "GET IN TOUCH", onClick }) {
         cursor: "pointer",
         marginTop: "12px",
         transition: "background-color 0.3s ease",
+        ...style,
       }}
-      onClick={onClick}
+      onClick={() => nav("/contact-us")}
       onMouseOver={(e) => (e.target.style.backgroundColor = "#f0f0f0")}
       onMouseOut={(e) => (e.target.style.backgroundColor = "white")}
     >

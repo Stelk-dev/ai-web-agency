@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import "../style/navbar.css";
+import Logo from "../assets/AppLogo2.png"; // Make sure this path matches your logo file
+import WhiteButton from "./WhiteButton";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -24,36 +26,37 @@ const Navbar = () => {
 
   return (
     <nav className={`nav-bar ${scrolled ? "scrolled" : ""}`}>
-      <Link
-        to="/"
+      {/* Left: Logo */}
+      <div
         style={{
-          textDecoration: "none",
-          color: "white",
-          fontWeight: "300",
+          width: "300px",
+          justifyContent: "start",
+          display: "flex",
         }}
       >
-        Home
-      </Link>
-      <Link
-        to="/about"
+        <Link to="/" className="logo">
+          <img src={Logo} alt="Logo" />
+        </Link>
+      </div>
+
+      {/* Center: Navigation */}
+      <div className="nav-center">
+        <Link to="/">Home</Link>
+        <Link to="/services">Services</Link>
+        <Link to="/about">About</Link>
+        <Link to="/use-cases">Cases</Link>
+      </div>
+
+      {/* Right: Contact Us Button */}
+      <div
         style={{
-          textDecoration: "none",
-          color: "white",
-          fontWeight: "300",
+          width: "300px",
+          justifyContent: "end",
+          display: "flex",
         }}
       >
-        About
-      </Link>
-      <Link
-        to="/use-cases"
-        style={{
-          textDecoration: "none",
-          color: "white",
-          fontWeight: "300",
-        }}
-      >
-        Use cases
-      </Link>
+        <WhiteButton style={{ marginTop: "0px", marginRight: "20px" }} />
+      </div>
     </nav>
   );
 };

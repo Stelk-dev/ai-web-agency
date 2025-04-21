@@ -1,8 +1,11 @@
 import React from "react";
 import WhiteButton from "../../components/WhiteButton";
 import GradientButton from "../../components/GradientButton";
+import { useNavigate } from "react-router-dom";
 
 export default function HeaderHome() {
+  const nav = useNavigate();
+
   return (
     <div
       style={{
@@ -46,7 +49,10 @@ export default function HeaderHome() {
 
       <div style={{ display: "flex", gap: "12px" }}>
         <WhiteButton />
-        <GradientButton text="CHECK PORTFOLIO" />
+        <GradientButton
+          text="CHECK PORTFOLIO"
+          onClick={() => nav("/use-cases")}
+        />
       </div>
     </div>
   );
