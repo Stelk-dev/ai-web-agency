@@ -1,4 +1,5 @@
 import React from "react";
+import { FadeInSection } from "../../components/FadeInSection";
 
 // Testimonial data
 const testimonials = [
@@ -221,23 +222,25 @@ export default function ReviewsFromClientsHome() {
           <TestimonialGrid />
         </div>
 
-        <div className="center-div">
-          <h1
-            style={{
-              fontWeight: "500",
-              fontSize: "70px",
-              height: "fit-content",
-              margin: "0px",
-              textAlign: "center",
-              color: "white",
-              position: "absolute",
-              bottom: 12,
-              width: "100%",
-            }}
-          >
-            Over hundreds of happy clients
-          </h1>
-        </div>
+        <FadeInSection>
+          <div className="center-div">
+            <h1
+              style={{
+                fontWeight: "500",
+                fontSize: "70px",
+                height: "fit-content",
+                margin: "0px",
+                textAlign: "center",
+                color: "white",
+                position: "absolute",
+                bottom: 12,
+                width: "100%",
+              }}
+            >
+              Over hundreds of happy clients
+            </h1>
+          </div>
+        </FadeInSection>
       </div>
     </div>
   );

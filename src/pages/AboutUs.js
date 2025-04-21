@@ -57,7 +57,7 @@ export default function AboutUs() {
           <h1
             style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
           >
-            Our Solutions
+            About Us
           </h1>
           <p style={{ margin: "0px", padding: "0px" }}>
             These days, staying ahead often means turning data and AI into

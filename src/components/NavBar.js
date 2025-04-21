@@ -1,11 +1,20 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "../style/navbar.css";
 import Logo from "../assets/AppLogo2.png"; // Make sure this path matches your logo file
 import WhiteButton from "./WhiteButton";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const nav = useNavigate();
+  const handleLogoClick = () => {
+    if (window.location.pathname === "/") {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+      return;
+    }
+
+    nav("/");
+  };
 
   useEffect(() => {
     const handleScroll = () => {
@@ -34,7 +43,7 @@ const Navbar = () => {
           display: "flex",
         }}
       >
-        <Link to="/" className="logo">
+        <Link to="/" className="logo" onClick={handleLogoClick}>
           <img src={Logo} alt="Logo" />
         </Link>
       </div>

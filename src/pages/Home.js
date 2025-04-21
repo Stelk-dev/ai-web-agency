@@ -1,5 +1,5 @@
 import StarryNightSky from "../views/FullSkyView";
-import React, { useRef, useEffect, useState } from "react";
+import React from "react";
 import HeaderHome from "./homes/HeaderHome";
 import OurServicesHome from "./homes/OurServicesHome";
 import CallToAction from "./homes/CallToAction";
@@ -7,41 +7,7 @@ import UseCasesHome from "./homes/UseCasesHome";
 import ReviewsFromClientsHome from "./homes/ReviewsFromClientsHome";
 import ReviewersLogosSlider from "./homes/ReviewersLogosSlider";
 import VideosHome from "./homes/VideosHome";
-
-// FadeInSection helper component
-function FadeInSection({ children }) {
-  const ref = useRef();
-  const [isVisible, setVisible] = useState(false);
-
-  useEffect(() => {
-    const observer = new window.IntersectionObserver(
-      ([entry]) => {
-        if (entry.isIntersecting) {
-          setVisible(true);
-          observer.disconnect();
-        }
-      },
-      { threshold: 0.15 }
-    );
-    if (ref.current) observer.observe(ref.current);
-    return () => observer.disconnect();
-  }, []);
-
-  return (
-    <div
-      ref={ref}
-      style={{
-        opacity: isVisible ? 1 : 0,
-        transform: isVisible ? "none" : "translateY(40px)",
-        transition:
-          "opacity 0.8s cubic-bezier(.4,0,.2,1), transform 0.8s cubic-bezier(.4,0,.2,1)",
-        willChange: "opacity, transform",
-      }}
-    >
-      {children}
-    </div>
-  );
-}
+import { FadeInSection } from "../components/FadeInSection";
 
 export default function Home() {
   return (
