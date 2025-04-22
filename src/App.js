@@ -1,7 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./pages/Home";
-import AboutUs from "./pages/AboutUs";
 import ContactUs from "./pages/ContactUs";
 import UseCases from "./pages/UseCases";
 import UseCasePage from "./pages/usecases/UseCasePage";
@@ -15,7 +14,7 @@ function App() {
         <Routes>
           {/* Public routes */}
           <Route path="/" element={<Home />} />
-          <Route path="/about" element={<AboutUs />} />
+          {/* <Route path="/about" element={<AboutUs />} /> */}
           <Route path="/services" element={<Services />} />
           <Route path="/use-cases" element={<UseCases />} />
           <Route path="/contact-us" element={<ContactUs />} />

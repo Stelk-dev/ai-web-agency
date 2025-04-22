@@ -67,7 +67,7 @@ export default function Home() {
         <br />
         <br />
         <FadeInSection>
-          <UseCasesHome />
+          <UseCasesHome colorText="white" />
         </FadeInSection>
         <br />
         <br />

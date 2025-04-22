@@ -6,48 +6,79 @@ import { useNavigate } from "react-router-dom";
 import SupremMilkLogo from "../../assets/Prioraty-PRJ.png";
 import SecondPrj1 from "../../assets/Secondary-PRJ.png";
 
-export default function UseCasesHome({ colorText = "black" }) {
+const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
   const navigate = useNavigate();
-  const PrimaryUseCase = () => {
+
+  // Dummy data for primary use cases
+  const primaryUseCases = [
+    {
+      title: "Suprem - Milk",
+      description:
+        "Crypto Insiders, the largest cryptocurrency news platform in the Netherlands, attracts over 2 million visitors monthly. Their team needed a reliable system to manage content creation and distribution across multiple channels.",
+      image: SupremMilkLogo,
+      route: "/use-case/suprem-milk",
+    },
+    {
+      title: "Quantum Solutions",
+      description:
+        "A leading tech innovator in quantum computing needed a sophisticated dashboard to visualize complex data outputs. We delivered an intuitive interface that simplified user interaction with advanced computational results.",
+      image: SupremMilkLogo,
+      route: "/use-case/quantum-solutions",
+    },
+    {
+      title: "EcoMetrics",
+      description:
+        "This environmental monitoring startup required a scalable platform to process sensor data from thousands of locations. Our solution provided real-time analytics and actionable insights for sustainability decision-makers.",
+      image: SupremMilkLogo,
+      route: "/use-case/eco-metrics",
+    },
+  ];
+
+  const ReadMore = ({ route }) => (
+    <div
+      style={{
+        marginTop: "32px",
+        display: "flex",
+        alignItems: "center",
+        gap: "8px",
+      }}
+      onClick={(e) => {
+        e.stopPropagation();
+        navigate(route);
+      }}
+    >
+      <p className="use-case-link">Read</p>
+      <FaExternalLinkAlt size={"14px"} color="#1a56db" />
+    </div>
+  );
+
+  const UseCase = ({
+    title,
+    description,
+    image,
+    route,
+    isReversed = false,
+  }) => {
     return (
       <div className="primary-use-case-wrapper">
-        {/* Main content that gets the filter applied */}
         <div
           className="primary-use-case-container"
-          onClick={() => navigate("/use-case/suprem-milk")}
-          style={{ cursor: "pointer" }}
+          onClick={() => navigate(route)}
+          style={{
+            flexDirection: isReversed ? "row-reverse" : "row",
+            display: "flex",
+            alignItems: "stretch",
+          }}
         >
           <div className="primary-use-case-content">
-            <h1 className="use-case-title">Suprem - Milk</h1>
-            <p className="use-case-description">
-              Crypto Insiders, the largest cryptocurrency news platform in the
-              Netherlands, attracts over 2 million... Crypto Insiders, the
-              largest cryptocurrency news platform in the Netherlands, attracts
-              over 2 million...
-            </p>
-
-            <div
-              style={{
-                marginTop: "32px",
-                display: "flex",
-                alignItems: "center",
-                gap: "8px",
-              }}
-              onClick={(e) => {
-                e.stopPropagation();
-                navigate("/use-case/suprem-milk");
-              }}
-            >
-              <p className="use-case-link">Read</p>
-              <FaExternalLinkAlt size={"14px"} color="#1a56db" />
+            <div>
+              <h1 className="use-case-title-primary">{title}</h1>
+              <p className="use-case-description-primary">{description}</p>
             </div>
+            <ReadMore route={route} />
           </div>
-          <div className="use-case-image">
-            <img
-              src={SupremMilkLogo}
-              alt="logo-big-use-case"
-              className="image"
-            />
+          <div className="use-case-image" style={{ flex: 1, height: "100%" }}>
+            <img src={image} alt={`${title} showcase`} className="image" />
           </div>
         </div>
       </div>
@@ -56,8 +87,7 @@ export default function UseCasesHome({ colorText = "black" }) {
 
   const UseCaseBox = ({ title, text, image, route }) => {
     return (
-      <div className="secondary-use-case-wrapper">
-        {/* Main content that gets the filter applied */}
+      <div className="secondary-use-case-wrapper" style={{ height: "450px" }}>
         <div
           className="secondary-use-case-container"
           onClick={() => navigate(route)}
@@ -65,8 +95,8 @@ export default function UseCasesHome({ colorText = "black" }) {
         >
           <div className="secondary-use-case-image">
             <img
-              src={SecondPrj1}
-              alt="logo-secondary-use-case"
+              src={image || SecondPrj1}
+              alt={`${title} showcase`}
               className="image"
             />
           </div>
@@ -98,6 +128,27 @@ export default function UseCasesHome({ colorText = "black" }) {
     );
   };
 
+  const secondaryUseCases = [
+    {
+      title: "N and Group",
+      text: "An enterprise retail group with over 50 locations needed to consolidate their digital presence. We built a centralized platform with localized customization features.",
+      image: SecondPrj1,
+      route: "/use-case/n-and-group",
+    },
+    {
+      title: "The Legacy",
+      text: "This heritage brand required a digital transformation that respected their century-old tradition while embracing modern technology for a new generation of customers.",
+      image: SecondPrj1,
+      route: "/use-case/the-legacy",
+    },
+    {
+      title: "Retail Tune",
+      text: "A music-focused retail chain needed analytics to understand customer behavior across physical and digital touchpoints, resulting in a 27% increase in customer retention.",
+      image: SecondPrj1,
+      route: "/use-case/retail-tune",
+    },
+  ];
+
   return (
     <div className="main-v">
       <div className="main-paragh" style={{ color: colorText }}>
@@ -109,11 +160,9 @@ export default function UseCasesHome({ colorText = "black" }) {
         </p>
       </div>
 
-      {/* Cases */}
       <div
         className="main-v full-v"
         style={{
-          height: "1000px",
           display: "flex",
           flexDirection: "column",
           gap: "16px",
@@ -121,38 +170,62 @@ export default function UseCasesHome({ colorText = "black" }) {
       >
         {/* Primary */}
         <div style={{ height: "50%" }}>
-          <PrimaryUseCase />
+          <UseCase
+            title={primaryUseCases[0].title}
+            description={primaryUseCases[0].description}
+            image={primaryUseCases[0].image}
+            route={primaryUseCases[0].route}
+          />
         </div>
 
         {/* Others */}
-        <div
-          style={{
-            display: "flex",
-            alignItems: "center",
-            gap: "16px",
-            width: "100%",
-            height: "50%",
-          }}
-        >
-          <UseCaseBox
-            title={"N and Group"}
-            text={
-              "React Hook useEffect has a missing dependency: 'doubledTestimonials."
-            }
-            route="/use-case/n-and-group"
-          />
-          <UseCaseBox
-            title={"The Legacy"}
-            text={"React Hook emove the dependency array"}
-            route="/use-case/the-legacy"
-          />
-          <UseCaseBox
-            title={"Retail Tune"}
-            text={"Either include it or remove the dependency array"}
-            route="/use-case/retail-tune"
-          />
-        </div>
+        {topCases ? (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "16px",
+              width: "100%",
+              height: "50%",
+            }}
+          >
+            {secondaryUseCases.map((useCase, index) => (
+              <UseCaseBox
+                key={index}
+                title={useCase.title}
+                text={useCase.text}
+                image={useCase.image}
+                route={useCase.route}
+              />
+            ))}
+          </div>
+        ) : (
+          <>
+            <UseCase
+              title={primaryUseCases[1].title}
+              description={primaryUseCases[1].description}
+              image={primaryUseCases[1].image}
+              route={primaryUseCases[1].route}
+              isReversed={true}
+            />
+            <UseCase
+              title={primaryUseCases[0].title}
+              description={primaryUseCases[0].description}
+              image={primaryUseCases[0].image}
+              route={primaryUseCases[0].route}
+            />
+            <UseCase
+              title={primaryUseCases[2].title}
+              description={primaryUseCases[2].description}
+              image={primaryUseCases[2].image}
+              route={primaryUseCases[2].route}
+              isReversed={true}
+            />
+          </>
+        )}
       </div>
     </div>
   );
-}
+};
+
+export default UseCasesHome;

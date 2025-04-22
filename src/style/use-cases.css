@@ -1,155 +1,174 @@
-.primary-use-case-container {
-    border: 1px solid #F7F7F733;
-    border-radius: 32px;
-    display: flex;
-    background-color: black;
-    width: 100%;
-    height: 100%;
-    gap: 8px;
-    overflow: hidden;
-    cursor: pointer;
-  }
+/* Common styles for containers */
+.primary-use-case-container,
+.secondary-use-case-container {
+  border: 1px solid rgba(247, 247, 247, 0.2);
+  border-radius: 32px;
+  display: flex;
+  background-color: black;
+  width: 100%;
+  height: 100%;
+  gap: 8px;
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.18s cubic-bezier(0.4, 0.2, 0.2, 1), 
+              box-shadow 0.18s cubic-bezier(0.4, 0.2, 0.2, 1);
+}
 
 .secondary-use-case-container {
-    border: 1px solid #F7F7F733;
-    border-radius: 32px;
-    display: flex;
-    background-color: black;
-    flex-direction: column;
-    height: 100%;
-    width: 100%;
-    gap: 8px;
-    overflow: hidden;
-    cursor: pointer;
-  }
-
-  .primary-use-case-content {
-    width: 35%;
-    height: 100%;
-    display: flex;
-    align-items: flex-start;
-    justify-content: center;
-    flex-direction: column;
-    padding: 16px;
-  }
-
-  .secondary-use-case-content {
-    height: calc(100% - 16px);
-    display: flex;
-    align-items: flex-start;
-    justify-content: flex-start;
-    flex-direction: column;
-    padding: 0px 16px;
-    overflow: hidden;
-  }
-  
-  .use-case-title {
-    color: white;
-    margin-bottom: 12px;
-    font-weight: 400;
-    font-size: 32px;
-    margin: 0px;
-  }
-  
-  .use-case-description {
-    color: #AAA;
-    margin: 0;
-    font-weight: 200;
-    text-align: start;
-    width: 100%;
-  }
-
-  .use-case-link {
-    color: white;
-    text-decoration: underline;
-    margin: 0;
-    font-weight: 200;
-    text-align: start;
-  }
-  
-  .use-case-image {
-    width: 65%;
-    height: 100%;
-    background-color: red;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: .5;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .primary-use-case-wrapper:hover .find-more-overlay {
-    opacity: 1;
-  }
-  
-  .primary-use-case-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  .primary-overlay-wrapper {
-    position: absolute;
-    top: 0;
-    left: 35%; /* Position over the image area, which starts at 35% */
-    width: 65%; /* Match the width of the image area */
-    height: 100%;
-    pointer-events: none;
-    z-index: 10;
-  }
-
-  .image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  .secondary-use-case-image {
-    width: 100%;
-    height: 100%;
-    background-color: blue;
-    position: relative;
-    overflow: hidden;
-  }
-  
-  .find-more-overlay {
-    position: absolute;
-    top: 0px;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    opacity: 0;
-    transition: opacity 0.1s ease;
-    pointer-events: none;
-  }
-  
-  .find-more-text {
-    color: white;
-    font-size: 24px;
-    font-weight: 600;
-    letter-spacing: 1px;
-    text-transform: uppercase;
-    margin: 0px;
+  flex-direction: column;
 }
-  
-  .secondary-use-case-wrapper:hover .find-more-overlay {
-    opacity: 1;
-  }
-  
-  .secondary-use-case-wrapper {
-    position: relative;
-    width: 100%;
-    height: 100%;
-  }
-  
-  
-  /* Override any filter that might be applied from parent containers */
-  .no-filter {
-    filter: none !important;
-    transform: none !important;
-    -webkit-filter: none !important;
-  }
+
+/* Hover effects */
+.primary-use-case-wrapper:hover .primary-use-case-container,
+.secondary-use-case-wrapper:hover .secondary-use-case-container {
+  transform: scale(1.04);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.18), 
+              0 1.5px 8px 0 rgba(26, 86, 219, 0.08);
+  z-index: 2;
+}
+
+/* Content areas */
+.primary-use-case-content {
+  width: 49%;
+  display: flex;
+  align-items: start;
+  text-align: start;
+  justify-content: space-between;
+  height: 100%;
+  flex-direction: column;
+  padding: 32px;
+  box-sizing: border-box;
+}
+
+.secondary-use-case-content {
+  height: calc(100% - 128px);
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  padding: 0 16px;
+  overflow: hidden;
+}
+
+/* Typography */
+.use-case-title,
+.use-case-title-primary {
+  color: white;
+  margin: 0 0 12px 0;
+  font-weight: 400;
+}
+
+.use-case-title {
+  font-size: 26px;
+}
+
+.use-case-title-primary {
+  font-weight: 500;
+  font-size: 32px;
+}
+
+.use-case-description,
+.use-case-description-primary {
+  color: #AAA;
+  margin: 0;
+  font-weight: 200;
+  text-align: start;
+  width: 100%;
+}
+
+.use-case-description {
+  font-size: 14px;
+}
+
+.use-case-description-primary {
+  font-weight: 300;
+  font-size: 18px;
+}
+
+.use-case-link {
+  color: white;
+  text-decoration: underline;
+  margin: 0;
+  font-weight: 200;
+  text-align: start;
+}
+
+/* Image containers */
+.use-case-image,
+.secondary-use-case-image {
+  position: relative;
+  overflow: hidden;
+}
+
+.use-case-image {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0.5;
+}
+
+.secondary-use-case-image {
+  width: 100%;
+  height: 100%;
+}
+
+.image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Wrapper elements */
+.primary-use-case-wrapper,
+.secondary-use-case-wrapper {
+  position: relative;
+  width: 100%;
+  height: 400px;
+}
+
+/* Overlay elements */
+.find-more-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transition: opacity 0.1s ease;
+  pointer-events: none;
+}
+
+.primary-use-case-wrapper:hover .find-more-overlay,
+.secondary-use-case-wrapper:hover .find-more-overlay {
+  opacity: 1;
+}
+
+.find-more-text {
+  color: white;
+  font-size: 24px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+.primary-overlay-wrapper {
+  position: absolute;
+  top: 0;
+  left: 35%;
+  width: 65%;
+  height: 100%;
+  pointer-events: none;
+  z-index: 10;
+}
+
+/* Utility classes */
+.no-filter {
+  filter: none !important;
+  transform: none !important;
+  -webkit-filter: none !important;
+}

@@ -1,5 +1,9 @@
 import React, { useEffect } from "react";
-import StarryNightSky from "../views/FullSkyView";
+import { FadeInSection } from "../components/FadeInSection";
+import ResponsiveCardList from "./homes/OurServicesHome";
+import UseCasesHome from "./homes/UseCasesHome";
+import CallToAction from "./homes/CallToAction";
+import SpaceGradientBackground from "../views/FullSkyView";
 
 export default function UseCases() {
   useEffect(() => {
@@ -11,39 +15,45 @@ export default function UseCases() {
   }, []);
 
   return (
-    <>
+    <div
+      style={{
+        backgroundColor: "black",
+        flexDirection: "column",
+      }}
+      className="center-div"
+    >
+      {/* Background */}
       <div
         style={{
-          height: "700px",
-          backgroundColor: "black",
+          position: "absolute",
+          top: 0,
+          left: "50%",
+          transform: "translateX(-50%)",
+          width: "85%",
+          height: "85%",
+        }}
+      >
+        <SpaceGradientBackground
+          starsNumber={15}
+          glowingStarsNumber={14}
+          backgroundColorBlack={true}
+        />
+      </div>
+
+      {/* Content */}
+      <div
+        style={{
+          height: "80vh",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
           textAlign: "center",
           color: "white",
           padding: "0px 24px",
-          position: "relative",
         }}
       >
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <StarryNightSky
-            starsNumber={15}
-            glowingStarsNumber={4}
-            backgroundColorBlack={true}
-          />
-        </div>
-
-        <div
-          style={{
-            maxWidth: "800px",
             width: "100%",
             position: "relative",
             zIndex: 10,
@@ -52,25 +62,30 @@ export default function UseCases() {
             flexDirection: "column",
             justifyContent: "center",
             alignItems: "center",
+            maxWidth: "800px",
           }}
         >
           <h1
             style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
           >
-            Turning complexity into real-world results
+            Algorithmx Use Cases
           </h1>
           <p style={{ margin: "0px", padding: "0px" }}>
             Here are some of our most recent projects showcasing how we've
             helped organizations transform their challenges into competitive
-            advantages through AI and data solutions.
+            advantages through AI and data solutions
           </p>
         </div>
       </div>
 
-      {/* Use cases */}
-      <div
-        style={{ backgroundColor: "red", width: "100vw", height: "100vh" }}
-      ></div>
-    </>
+      <FadeInSection>
+        <UseCasesHome topCases={false} colorText="white" />
+      </FadeInSection>
+      <div style={{ height: "300px" }} />
+
+      <FadeInSection>
+        <CallToAction />
+      </FadeInSection>
+    </div>
   );
 }
