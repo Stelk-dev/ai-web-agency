@@ -37,7 +37,7 @@ const CircleCarousel = () => {
         gap: "32px",
         padding: "20px",
         width: "100%",
-        height: "260px", // Increased height to accommodate larger circles
+        height: "260px",
         overflow: "hidden",
       }}
     >
@@ -46,9 +46,12 @@ const CircleCarousel = () => {
         const distanceFromCenter = Math.abs(index - centerIndex);
 
         // Calculate size and opacity based on position
-        // Increased base size from 60 to 90
         const size = 120 - distanceFromCenter * 18;
         const opacity = 1 - distanceFromCenter * 0.15;
+
+        // Calculate animation properties
+        const animationDuration = 2 + distanceFromCenter * 0.3; // Outer circles animate slightly slower
+        const animationDelay = index * 0.2; // Offset each circle's animation
 
         return (
           <div
@@ -65,22 +68,83 @@ const CircleCarousel = () => {
               transition: "all 0.3s ease",
               transform: `scale(${1 - distanceFromCenter * 0.04})`,
               zIndex: 10 - distanceFromCenter,
-              overflow: "hidden", // Added to ensure image stays within circle
+              overflow: "hidden",
+              position: "relative",
+              animation: `float-${index} ${animationDuration}s ease-in-out ${animationDelay}s infinite alternate`,
             }}
           >
             <img
               src={item.Icon}
               alt={item.name}
               style={{
-                width: `${size * 0.7}px`, // Slightly increased from 0.6 to 0.7
+                width: `${size * 0.7}px`,
                 height: `${size * 0.7}px`,
-                filter: "brightness(0) invert(1)", // Makes any image white
-                objectFit: "contain", // Ensures the image maintains its aspect ratio
+                filter: "brightness(0) invert(1)",
+                objectFit: "contain",
               }}
             />
           </div>
         );
       })}
+
+      <style>{`
+        @keyframes float-0 {
+          0% { transform: translateY(0) scale(${
+            1 - Math.abs(0 - centerIndex) * 0.04
+          }); }
+          100% { transform: translateY(-10px) scale(${
+            1 - Math.abs(0 - centerIndex) * 0.04
+          }); }
+        }
+        @keyframes float-1 {
+          0% { transform: translateY(0) scale(${
+            1 - Math.abs(1 - centerIndex) * 0.04
+          }); }
+          100% { transform: translateY(-12px) scale(${
+            1 - Math.abs(1 - centerIndex) * 0.04
+          }); }
+        }
+        @keyframes float-2 {
+          0% { transform: translateY(0) scale(${
+            1 - Math.abs(2 - centerIndex) * 0.04
+          }); }
+          100% { transform: translateY(-14px) scale(${
+            1 - Math.abs(2 - centerIndex) * 0.04
+          }); }
+        }
+        @keyframes float-3 {
+          0% { transform: translateY(0) scale(${
+            1 - Math.abs(3 - centerIndex) * 0.04
+          }); }
+          100% { transform: translateY(-8px) scale(${
+            1 - Math.abs(3 - centerIndex) * 0.04
+          }); }
+        }
+        @keyframes float-4 {
+          0% { transform: translateY(0) scale(${
+            1 - Math.abs(4 - centerIndex) * 0.04
+          }); }
+          100% { transform: translateY(-14px) scale(${
+            1 - Math.abs(4 - centerIndex) * 0.04
+          }); }
+        }
+        @keyframes float-5 {
+          0% { transform: translateY(0) scale(${
+            1 - Math.abs(5 - centerIndex) * 0.04
+          }); }
+          100% { transform: translateY(-12px) scale(${
+            1 - Math.abs(5 - centerIndex) * 0.04
+          }); }
+        }
+        @keyframes float-6 {
+          0% { transform: translateY(0) scale(${
+            1 - Math.abs(6 - centerIndex) * 0.04
+          }); }
+          100% { transform: translateY(-10px) scale(${
+            1 - Math.abs(6 - centerIndex) * 0.04
+          }); }
+        }
+      `}</style>
     </div>
   );
 };
