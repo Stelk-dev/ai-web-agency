@@ -1,7 +1,7 @@
 import StarryNightSky from "../views/FullSkyView";
 import React from "react";
 import HeaderHome from "./homes/HeaderHome";
-import OurServicesHome from "./homes/OurServicesHome";
+import ResponsiveCardList from "./homes/OurServicesHome";
 import CallToAction from "./homes/CallToAction";
 import UseCasesHome from "./homes/UseCasesHome";
 import ReviewsFromClientsHome from "./homes/ReviewsFromClientsHome";
@@ -61,7 +61,7 @@ export default function Home() {
         <ReviewersLogosSlider />
 
         <FadeInSection>
-          <OurServicesHome />
+          <ResponsiveCardList />
         </FadeInSection>
         <br />
         <br />

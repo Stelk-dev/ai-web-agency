@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import SupremMilkLogo from "../../assets/Prioraty-PRJ.png";
 import SecondPrj1 from "../../assets/Secondary-PRJ.png";
 
-export default function UseCasesHome() {
+export default function UseCasesHome({ colorText = "black" }) {
   const navigate = useNavigate();
   const PrimaryUseCase = () => {
     return (
@@ -100,7 +100,7 @@ export default function UseCasesHome() {
 
   return (
     <div className="main-v">
-      <div className="main-paragh">
+      <div className="main-paragh" style={{ color: colorText }}>
         <h1 className="main-paragh-h1">Our latest projects</h1>
         <p className="main-paragh-desc">
           Our track record spans from initial strategy development to full
