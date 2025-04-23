@@ -18,12 +18,26 @@
     border-bottom: 1px solid #555555;
 }
 
+.nav-logo {
+    display: flex;
+    justify-content: start;
+    flex: 1;
+    max-width: 300px;
+}
+
 .nav-bar .nav-center {
     display: flex;
     gap: 32px;
     align-items: center;
     justify-content: center;
     flex: 1;
+}
+
+.nav-bar .nav-right {
+    display: flex;
+    justify-content: end;
+    flex: 1;
+    max-width: 300px;
 }
 
 .nav-bar a {
@@ -68,4 +82,96 @@
 
 .nav-bar .contact-btn:hover {
     background: #FFFFFFDD;
+}
+
+/* Mobile menu toggle button */
+.mobile-menu-toggle {
+    display: none;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    margin-right: 12px;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    width: 100%;
+    background-color: white;
+    border-radius: 3px;
+    transition: all 0.3s ease;
+}
+
+.hamburger.open span:nth-child(1) {
+    transform: translateY(9px) rotate(45deg);
+}
+
+.hamburger.open span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.open span:nth-child(3) {
+    transform: translateY(-9px) rotate(-45deg);
+}
+
+.mobile-contact-button {
+    display: none;
+}
+
+/* Responsive styles */
+@media screen and (max-width: 768px) {
+    .mobile-menu-toggle {
+        display: flex;
+        align-items: center;
+    }
+    
+    .nav-bar .nav-center {
+        position: fixed;
+        flex-direction: column;
+        top: 0;
+        right: -100%;
+        width: 75%;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.95);
+        padding: 80px 40px;
+        transition: right 0.3s ease;
+        box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+        z-index: 1000;
+    }
+    
+    .nav-bar .nav-center.mobile-open {
+        right: 0;
+    }
+    
+    .nav-bar .nav-center a {
+        font-size: 1.2rem;
+        width: 100%;
+        text-align: center;
+        padding: 15px 0;
+    }
+    
+    .nav-bar .nav-right {
+        display: none;
+    }
+    
+    .mobile-contact-button {
+        display: block;
+        width: 100%;
+        margin-top: 20px;
+    }
+    
+    .mobile-contact-button button {
+        width: 100%;
+    }
+    
+    .nav-logo {
+        max-width: none;
+    }
 }

@@ -6,7 +6,9 @@ import WhiteButton from "./WhiteButton";
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const nav = useNavigate();
+
   const handleLogoClick = () => {
     if (window.location.pathname === "/") {
       window.scrollTo({ top: 0, behavior: "smooth" });
@@ -14,6 +16,14 @@ const Navbar = () => {
     }
 
     nav("/");
+  };
+
+  const toggleMobileMenu = () => {
+    setMobileMenuOpen(!mobileMenuOpen);
+  };
+
+  const closeMobileMenu = () => {
+    setMobileMenuOpen(false);
   };
 
   useEffect(() => {
@@ -36,34 +46,42 @@ const Navbar = () => {
   return (
     <nav className={`nav-bar ${scrolled ? "scrolled" : ""}`}>
       {/* Left: Logo */}
-      <div
-        style={{
-          width: "300px",
-          justifyContent: "start",
-          display: "flex",
-        }}
-      >
+      <div className="nav-logo">
         <Link to="/" className="logo" onClick={handleLogoClick}>
           <img src={Logo} alt="Logo" />
         </Link>
       </div>
 
-      {/* Center: Navigation */}
-      <div className="nav-center">
-        <Link to="/">Home</Link>
-        <Link to="/services">Services</Link>
-        {/* <Link to="/about">About</Link> */}
-        <Link to="/use-cases">Cases</Link>
+      {/* Mobile Menu Toggle Button */}
+      <div className="mobile-menu-toggle" onClick={toggleMobileMenu}>
+        <div className={`hamburger ${mobileMenuOpen ? "open" : ""}`}>
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
       </div>
 
-      {/* Right: Contact Us Button */}
-      <div
-        style={{
-          width: "300px",
-          justifyContent: "end",
-          display: "flex",
-        }}
-      >
+      {/* Center: Navigation - Desktop */}
+      <div className={`nav-center ${mobileMenuOpen ? "mobile-open" : ""}`}>
+        <Link to="/" onClick={closeMobileMenu}>
+          Home
+        </Link>
+        <Link to="/services" onClick={closeMobileMenu}>
+          Services
+        </Link>
+        {/* <Link to="/about">About</Link> */}
+        <Link to="/use-cases" onClick={closeMobileMenu}>
+          Cases
+        </Link>
+
+        {/* Mobile-only button */}
+        <div className="mobile-contact-button">
+          <WhiteButton style={{ margin: "20px 0" }} />
+        </div>
+      </div>
+
+      {/* Right: Contact Us Button - Desktop only */}
+      <div className="nav-right">
         <WhiteButton style={{ marginTop: "0px", marginRight: "20px" }} />
       </div>
     </nav>
