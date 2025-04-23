@@ -75,7 +75,7 @@ const Navbar = () => {
         </Link>
 
         {/* Mobile-only button */}
-        <div className="mobile-contact-button">
+        <div className="mobile-contact-button" onClick={closeMobileMenu}>
           <WhiteButton style={{ margin: "20px 0" }} />
         </div>
       </div>
