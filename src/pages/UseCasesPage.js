@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import { FadeInSection } from "../components/FadeInSection";
-import ResponsiveCardList from "./homes/OurServicesHome";
 import UseCasesHome from "./homes/UseCasesHome";
 import CallToAction from "./homes/CallToAction";
 import SpaceGradientBackground from "../views/FullSkyView";
 
-export default function UseCases() {
+export default function UseCasesPage() {
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -81,7 +80,6 @@ export default function UseCases() {
       <FadeInSection>
         <UseCasesHome topCases={false} colorText="white" />
       </FadeInSection>
-      <div style={{ height: "300px" }} />
 
       <FadeInSection>
         <CallToAction />

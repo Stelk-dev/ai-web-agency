@@ -58,6 +58,9 @@ export default function Home() {
         }}
       >
         <ReviewersLogosSlider />
+        <br />
+        <br />
+        <br />
 
         <FadeInSection>
           <ResponsiveCardList />
@@ -74,11 +77,9 @@ export default function Home() {
         <FadeInSection>
           <ReviewsFromClientsHome />
         </FadeInSection>
+        {/* <br />
         <br />
-        <br />
-        <br />
-        <br />
-        <br />
+        <br /> */}
         {/* <FadeInSection>
           <VideosHome />
         </FadeInSection> */}

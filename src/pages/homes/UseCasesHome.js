@@ -3,10 +3,7 @@ import "../../style/use-cases.css";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import SupremMilkLogo from "../../assets/banner-1.png";
-import SecondPrj1 from "../../assets/banner-3.png";
-import SecondPrj2 from "../../assets/banner-2.png";
-import SecondPrj3 from "../../assets/banner-4.png";
+import { AllCases } from "../../UseCases";
 
 const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
   const navigate = useNavigate();
@@ -26,32 +23,6 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
 
   // Determine layout mode based on screen size
   const isMobile = windowWidth <= 768;
-  const isTablet = windowWidth <= 1024 && windowWidth > 768;
-
-  // Dummy data for primary use cases
-  const primaryUseCases = [
-    {
-      title: "Suprem - Milk",
-      description:
-        "Crypto Insiders, the largest cryptocurrency news platform in the Netherlands, attracts over 2 million visitors monthly. Their team needed a reliable system to manage content creation and distribution across multiple channels.",
-      image: SupremMilkLogo,
-      route: "/use-case/suprem-milk",
-    },
-    {
-      title: "Quantum Solutions",
-      description:
-        "A leading tech innovator in quantum computing needed a sophisticated dashboard to visualize complex data outputs. We delivered an intuitive interface that simplified user interaction with advanced computational results.",
-      image: SecondPrj1,
-      route: "/use-case/quantum-solutions",
-    },
-    {
-      title: "EcoMetrics",
-      description:
-        "This environmental monitoring startup required a scalable platform to process sensor data from thousands of locations. Our solution provided real-time analytics and actionable insights for sustainability decision-makers.",
-      image: SecondPrj2,
-      route: "/use-case/eco-metrics",
-    },
-  ];
 
   const ReadMore = ({ route }) => (
     <div
@@ -120,11 +91,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           style={{ cursor: "pointer" }}
         >
           <div className="secondary-use-case-image">
-            <img
-              src={image || SecondPrj1}
-              alt={`${title} showcase`}
-              className="image"
-            />
+            <img src={image} alt={`${title} showcase`} className="image" />
           </div>
 
           <div className="secondary-use-case-content">
@@ -153,27 +120,6 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
     );
   };
 
-  const secondaryUseCases = [
-    {
-      title: "N and Group",
-      text: "An enterprise retail group with over 50 locations needed to consolidate their digital presence. We built a centralized platform with localized customization features.",
-      image: SecondPrj1,
-      route: "/use-case/n-and-group",
-    },
-    {
-      title: "Virality System",
-      text: "This heritage brand required a digital transformation that respected their century-old tradition while embracing modern technology for a new generation of customers.",
-      image: SecondPrj2,
-      route: "/use-case/virality-system",
-    },
-    {
-      title: "Extra Outdoor",
-      text: "A music-focused retail chain needed analytics to understand customer behavior across physical and digital touchpoints, resulting in a 27% increase in customer retention.",
-      image: SecondPrj3,
-      route: "/use-case/extra-outdoor",
-    },
-  ];
-
   return (
     <div className="main-v">
       <div className="main-paragh" style={{ color: colorText }}>
@@ -196,21 +142,21 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
         {/* Primary */}
         <div style={{ height: isMobile ? "auto" : "50%" }}>
           <UseCase
-            title={primaryUseCases[0].title}
-            description={primaryUseCases[0].description}
-            image={primaryUseCases[0].image}
-            route={primaryUseCases[0].route}
+            title={AllCases[0].title}
+            description={AllCases[0].description}
+            image={AllCases[0].image}
+            route={AllCases[0].route}
           />
         </div>
 
         {/* Others */}
         {topCases ? (
           <div className="use-cases-row">
-            {secondaryUseCases.map((useCase, index) => (
+            {AllCases.slice(1, 4).map((useCase, index) => (
               <UseCaseBox
                 key={useCase.title}
                 title={useCase.title}
-                text={useCase.text}
+                text={useCase.description}
                 image={useCase.image}
                 route={useCase.route}
               />
@@ -218,11 +164,11 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           </div>
         ) : (
           <>
-            {secondaryUseCases.map((useCase, index) => (
+            {AllCases.map((useCase, index) => (
               <UseCase
                 key={useCase.title}
                 title={useCase.title}
-                description={useCase.text}
+                description={useCase.description}
                 image={useCase.image}
                 route={useCase.route}
                 isReversed={!isMobile && index % 2 === 0}

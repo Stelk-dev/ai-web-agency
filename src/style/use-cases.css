@@ -1,7 +1,7 @@
 /* Common styles for containers */
 .primary-use-case-container,
 .secondary-use-case-container {
-  border: 1px solid rgba(247, 247, 247, 0.2);
+  border: 1px solid #f7f7f733;
   border-radius: 32px;
   display: flex;
   width: 100%;

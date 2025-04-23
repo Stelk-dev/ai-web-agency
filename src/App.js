@@ -1,10 +1,11 @@
-import { Route, Routes } from "react-router-dom";
+import { Route, Routes, Navigate } from "react-router-dom";
 import Navbar from "./components/NavBar";
 import Home from "./pages/Home";
 import ContactUs from "./pages/ContactUs";
-import UseCases from "./pages/UseCases";
+import UseCasesPage from "./pages/UseCasesPage";
 import UseCasePage from "./pages/usecases/UseCasePage";
 import Services from "./pages/Services";
+import { AllCases } from "./UseCases";
 
 function App() {
   return (
@@ -16,27 +17,19 @@ function App() {
           <Route path="/" element={<Home />} />
           {/* <Route path="/about" element={<AboutUs />} /> */}
           <Route path="/services" element={<Services />} />
-          <Route path="/use-cases" element={<UseCases />} />
+          <Route path="/use-cases" element={<UseCasesPage />} />
           <Route path="/contact-us" element={<ContactUs />} />
-          <Route
-            path="/use-case/suprem-milk"
-            element={<UseCasePage name={"Suprem Milk"} />}
-          />
-          <Route
-            path="/use-case/n-and-group"
-            element={<UseCasePage name={"N and Group"} />}
-          />
-          <Route
-            path="/use-case/the-legacy"
-            element={<UseCasePage name={"The Legacy"} />}
-          />
-          <Route
-            path="/use-case/retail-tune"
-            element={<UseCasePage name={"Retail Tune"} />}
-          />
 
-          {/* 404 route */}
-          <Route path="*" element={<Home />} />
+          {AllCases.map((item) => (
+            <Route
+              key={item.route}
+              path={item.route}
+              element={<UseCasePage />}
+            />
+          ))}
+
+          {/* 404 route - redirect to home */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </div>
       {/* <Footer /> */}

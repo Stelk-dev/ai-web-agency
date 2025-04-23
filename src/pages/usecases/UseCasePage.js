@@ -1,78 +1,324 @@
-import React, { useEffect } from "react";
-import SpaceGradientBackground from "../../views/FullSkyView";
+import React, { useEffect, useState } from "react";
+import { AllCases } from "../../UseCases";
+import { useLocation } from "react-router-dom";
+import { FadeInSection } from "../../components/FadeInSection";
+import CallToAction from "../homes/CallToAction";
 
-export default function UseCasePage({ name }) {
+export default function UseCasePage() {
+  const loc = useLocation();
+  const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1300);
+  const [isWideEnough, setIsWideEnough] = useState(window.innerWidth > 1300);
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
       left: 0,
       behavior: "instant",
     });
+
+    const handleResize = () => {
+      setIsLargeScreen(window.innerWidth > 1000);
+      setIsWideEnough(window.innerWidth > 1300);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
+  const caseData = AllCases.find((item) => item.route === loc.pathname);
+
+  const CopyRow = ({ title, description }) => {
+    return (
+      <div>
+        <h3
+          style={{
+            color: "white",
+            fontWeight: "500",
+            fontSize: "32px",
+            margin: "16px 0px",
+          }}
+        >
+          {title}
+        </h3>
+        <p
+          style={{
+            color: "#FFFFFFCC",
+            fontSize: "16px",
+            lineHeight: "1.8rem",
+            maxWidth: "700px",
+          }}
+        >
+          {description}
+        </p>
+      </div>
+    );
+  };
+
   return (
-    <>
+    <div
+      style={{
+        padding: "32px",
+        marginTop: "64px",
+        display: "flex",
+        gap: "32px",
+        flexDirection: "column",
+      }}
+    >
       <div
         style={{
-          height: "700px",
-          backgroundColor: "black",
+          borderRadius: "32px",
+          background: "linear-gradient(to right,rgb(18, 24, 54), #18266833)",
+          display: "flex",
+          flexDirection: isLargeScreen ? "row" : "column",
+          alignItems: "center",
+          justifyContent: "space-between",
+          flex: 1,
+          textAlign: isLargeScreen ? "left" : "center",
+          overflow: "hidden",
+          gap: isLargeScreen ? "32px" : "0",
+        }}
+      >
+        {/* Text - On left for large screens */}
+        {isLargeScreen && (
+          <div
+            style={{
+              color: "white",
+              padding: "32px",
+              flex: "1",
+              maxWidth: "50%",
+              margin: "0px 32px",
+              order: 1,
+            }}
+          >
+            <h1
+              style={{
+                fontSize: "44px",
+                fontWeight: "500",
+                lineHeight: "3.2rem",
+              }}
+            >
+              {caseData.titleFull}
+            </h1>
+            <p
+              style={{
+                fontSize: "16px",
+                color: "#FFFFFFCC",
+                lineHeight: "1.8rem",
+              }}
+            >
+              {caseData.description}
+            </p>
+          </div>
+        )}
+
+        {/* Image - On right for large screens */}
+        <div
+          style={{
+            width: isLargeScreen ? "50%" : "100%",
+            height: isLargeScreen ? "500px" : "300px",
+            order: isLargeScreen ? 2 : 1,
+          }}
+        >
+          <img
+            src={caseData.image}
+            alt={`showcase`}
+            style={{
+              width: "100%",
+              height: "100%",
+              objectFit: "cover",
+            }}
+          />
+        </div>
+
+        {/* Text - Below for small screens */}
+        {!isLargeScreen && (
+          <div
+            style={{
+              color: "white",
+              padding: "32px",
+              flex: 1,
+              maxWidth: "700px",
+              margin: "0px 32px",
+              order: 2,
+            }}
+          >
+            <h1
+              style={{
+                fontSize: "44px",
+                fontWeight: "500",
+                lineHeight: "3.2rem",
+              }}
+            >
+              {caseData.titleFull}
+            </h1>
+            <p
+              style={{
+                fontSize: "16px",
+                color: "#FFFFFFCC",
+                lineHeight: "1.8rem",
+              }}
+            >
+              {caseData.description}
+            </p>
+          </div>
+        )}
+      </div>
+
+      {/* Review */}
+      <div
+        style={{
           display: "flex",
           alignItems: "center",
           justifyContent: "center",
-          textAlign: "center",
-          color: "white",
-          padding: "0px 24px",
-          position: "relative",
         }}
       >
         <div
           style={{
-            position: "absolute",
-            top: 0,
-            left: 0,
-            width: "100%",
-            height: "100%",
-          }}
-        >
-          <SpaceGradientBackground
-            starsNumber={15}
-            glowingStarsNumber={4}
-            backgroundColorBlack={true}
-          />
-        </div>
-
-        <div
-          style={{
-            maxWidth: "800px",
-            width: "100%",
-            position: "relative",
-            zIndex: 10,
-            height: "100%",
             display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
             alignItems: "center",
+            gap: "24px",
+            borderRadius: "32px",
+            padding: "24px 24px",
+            maxWidth: "600px",
+            border: "1px solid #f7f7f733",
+            width: "100%",
           }}
         >
-          <h1
-            style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
-          >
-            {name}
-          </h1>
-          <p style={{ margin: "0px", padding: "0px" }}>
-            These days, staying ahead often means turning data and AI into
-            business value. But with countless solutions and approaches
-            available, how do you identify and implement what truly matters for
-            your organization? What does it take to become an AI-first type of
-            company? We're here to help you make the right decisions.
-          </p>
+          {/* Avatar */}
+          {caseData.reviewerImage && (
+            <img
+              src={caseData.reviewerImage}
+              alt="Reviewer"
+              style={{
+                borderRadius: "100%",
+                width: "50px",
+                height: "50px",
+                backgroundColor: "#CCC",
+              }}
+            />
+          )}
+
+          {/* Texts */}
+          <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+            <div style={{ color: "#ffe234", fontSize: "18px" }}>★ ★ ★ ★ ★</div>
+
+            <h3 style={{ color: "white", fontWeight: "500", margin: "0px" }}>
+              Marciello Longo
+            </h3>
+            <p style={{ color: "#FFFFFFCC", fontSize: "12px", margin: "0px" }}>
+              Their team needed a reliable system to manage content creation and
+              distribution across multiple channels
+            </p>
+          </div>
         </div>
       </div>
 
-      {/* Use cases */}
+      {/* Side-by-side layout for Inside and Copies when screen is wide enough */}
       <div
-        style={{ backgroundColor: "red", width: "100vw", height: "100vh" }}
-      ></div>
-    </>
+        style={{
+          display: "flex",
+          gap: "32px",
+          flexDirection: isWideEnough ? "row-reverse" : "column",
+        }}
+      >
+        {/* Inside */}
+        <div
+          style={{
+            borderRadius: "32px",
+            border: "1px solid #f7f7f733",
+            padding: "12px 24px",
+            flex: 0.95,
+            height: "fit-content",
+          }}
+        >
+          <h3
+            style={{
+              color: "white",
+              fontWeight: "500",
+              fontSize: "32px",
+              margin: "16px 0px",
+            }}
+          >
+            {caseData.title}
+          </h3>
+
+          {/* Detail rows */}
+          {caseData.info.map((detail, index) => (
+            <div
+              key={index}
+              style={{
+                borderTop: "1px solid #f7f7f733",
+                padding: "16px 2px",
+                display: "flex",
+                alignItems: "center",
+                justifyContent: "space-between",
+                fontSize: "14px",
+                gap: "24px",
+              }}
+            >
+              <div style={{ color: "#FFFFFF99" }}>{detail.label}</div>
+
+              {detail.isLink ? (
+                <a
+                  href={detail.value}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    color: "#8f94ff",
+                    textDecoration: "none",
+                    fontWeight: "500",
+                  }}
+                >
+                  {detail.value}
+                </a>
+              ) : (
+                <div
+                  style={{
+                    color: "white",
+                    fontWeight: "500",
+                    textAlign: "right",
+                  }}
+                >
+                  {detail.value}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
+
+        {/* Copies */}
+        <div
+          style={{
+            display: "flex",
+            flexDirection: "column",
+            gap: "16px",
+            flex: 1,
+          }}
+        >
+          <CopyRow
+            title={"The problem"}
+            description={
+              "Crypto Insiders' existing infrastructure struggled to handle the demands of live updates, especially during high-traffic market surges, risking delays and outages. To stay ahead, they needed a fast, reliable, and scalable solution that could meet the expectations of their growing audience."
+            }
+          />
+          <CopyRow
+            title={"The solution"}
+            description={
+              "Our mission was to create a future-proof system that delivered real-time coin data seamlessly to Crypto Insiders' visitors. We focused on engineering a solution that prioritized speed, reliability, and scalability—ensuring the platform could meet today's demands and handle tomorrow's growth"
+            }
+          />
+          <CopyRow
+            title={"The result"}
+            description={
+              "We engineered a high-performance data delivery system tailored to Crypto Insiders' needs. At the heart of the solution is a dedicated ingestion server that aggregates and verifies coin pricing data, ensuring every update is accurate and reliable. Paired with a dedicated caching layer, the system delivers blazing-fast response times under 200 milliseconds, keeping millions of visitors informed without missing a beat.\n\nTo guarantee the platform's resilience, we stress-tested the architecture to handle surges during volatile market events. The result? A scalable, future-proof system that supports Crypto Insiders' rapid growth, ensuring their audience enjoys a seamless experience—every time they visit."
+            }
+          />
+        </div>
+      </div>
+
+      <FadeInSection>
+        <CallToAction />
+      </FadeInSection>
+    </div>
   );
 }
