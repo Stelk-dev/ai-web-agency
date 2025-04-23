@@ -165,29 +165,29 @@ export default function UseCasePage() {
       </div>
 
       {/* Review */}
-      <div
-        style={{
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-        }}
-      >
+      {caseData.reviewer && (
         <div
           style={{
             display: "flex",
             alignItems: "center",
-            gap: "24px",
-            borderRadius: "32px",
-            padding: "24px 24px",
-            maxWidth: "600px",
-            border: "1px solid #f7f7f733",
-            width: "100%",
+            justifyContent: "center",
           }}
         >
-          {/* Avatar */}
-          {caseData.reviewerImage && (
+          <div
+            style={{
+              display: "flex",
+              alignItems: "center",
+              gap: "24px",
+              borderRadius: "32px",
+              padding: "24px 24px",
+              maxWidth: "600px",
+              border: "1px solid #f7f7f733",
+              width: "100%",
+            }}
+          >
+            {/* Avatar */}
             <img
-              src={caseData.reviewerImage}
+              src={caseData.reviewer.reviewerImage}
               alt="Reviewer"
               style={{
                 borderRadius: "100%",
@@ -196,22 +196,25 @@ export default function UseCasePage() {
                 backgroundColor: "#CCC",
               }}
             />
-          )}
 
-          {/* Texts */}
-          <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
-            <div style={{ color: "#ffe234", fontSize: "18px" }}>★ ★ ★ ★ ★</div>
+            {/* Texts */}
+            <div style={{ display: "flex", flexDirection: "column", flex: 1 }}>
+              <div style={{ color: "#ffe234", fontSize: "18px" }}>
+                ★ ★ ★ ★ ★
+              </div>
 
-            <h3 style={{ color: "white", fontWeight: "500", margin: "0px" }}>
-              Marciello Longo
-            </h3>
-            <p style={{ color: "#FFFFFFCC", fontSize: "12px", margin: "0px" }}>
-              Their team needed a reliable system to manage content creation and
-              distribution across multiple channels
-            </p>
+              <h3 style={{ color: "white", fontWeight: "500", margin: "0px" }}>
+                {caseData.reviewer.name}
+              </h3>
+              <p
+                style={{ color: "#FFFFFFCC", fontSize: "12px", margin: "0px" }}
+              >
+                {caseData.reviewer.review}
+              </p>
+            </div>
           </div>
         </div>
-      </div>
+      )}
 
       {/* Side-by-side layout for Inside and Copies when screen is wide enough */}
       <div

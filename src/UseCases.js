@@ -16,7 +16,12 @@ export const AllCases = [
       "Crypto Insiders, the largest cryptocurrency news platform in the Netherlands, attracts over 2 million visitors monthly. Their team needed a reliable system to manage content creation and distribution across multiple channels.",
     image: SupremMilkLogo,
     route: "/use-case/suprem-milk",
-    reviewerImage: Man3,
+    reviewer: {
+      reviewerImage: Man3,
+      name: "Riccardo Ferrari",
+      review:
+        "Algorithmx is an amazing company. We've been surprised by the speed, attention to details, and immediate understanding of our needs. Not only they understood our needs, but they recommended us alternative solutions or additional tools to improve our mockup product",
+    },
     info: [
       {
         label: "Website",
@@ -38,7 +43,12 @@ export const AllCases = [
       "A leading tech innovator in quantum computing needed a sophisticated dashboard to visualize complex data outputs. We delivered an intuitive interface that simplified user interaction with advanced computational results.",
     image: SecondPrj1,
     route: "/use-case/n-and-group",
-    reviewerImage: Man2,
+    reviewer: {
+      reviewerImage: Man2,
+      name: "Daniele Del Vecchio",
+      review:
+        "Algorithmx's AI helped us automate our customer service. The chatbot they developed significantly reduced response times and improved customer satisfaction",
+    },
     info: [
       {
         label: "Website",
@@ -49,17 +59,23 @@ export const AllCases = [
       { label: "Industry", value: "Mechanich" },
       {
         label: "Goal",
-        value: "AI system to generate 3D accurate user models from 2D pictures",
+        value:
+          "AI chatbot to automate customer service and improve response times",
       },
     ],
   },
   {
     title: "Virality System",
     description:
-      "This environmental monitoring startup required a scalable platform to process sensor data from thousands of locations. Our solution provided real-time analytics and actionable insights for sustainability decision-makers.",
+      "This environmental monitoring startup required a scalable platform to process sensor data from thousands of locations. Our solution provided real-time analytics and actionable insights for sustainability decision-makers",
     image: SecondPrj2,
     route: "/use-case/virality-system",
-    reviewerImage: Man1,
+    reviewer: {
+      reviewerImage: Man1,
+      name: "Davide Gentile",
+      review:
+        "Excellent experience with Algorithmx. Always careful about deadlines and developing the best code. Paying attention to the figma and my requests. Really good we will continue to collaborate",
+    },
     info: [
       {
         label: "Website",
@@ -77,10 +93,15 @@ export const AllCases = [
   {
     title: "Extra Outdoor",
     description:
-      "An enterprise retail group with over 50 locations needed to consolidate their digital presence. We built a centralized platform with localized customization features.",
+      "We used Algorithmx's AI-powered analytics to optimize our marketing campaigns. Their solutions provided valuable insights that led to a 20% increase in conversion rates",
     image: SecondPrj3,
     route: "/use-case/extra-outdoor",
-    reviewerImage: Man4,
+    reviewer: {
+      reviewerImage: Man4,
+      name: "Andrea Partisani",
+      review:
+        "We used Algorithmx's AI-powered analytics to optimize our marketing campaigns. Their solutions provided valuable insights that led to a 20% increase in conversion rates",
+    },
     info: [
       {
         label: "Website",
