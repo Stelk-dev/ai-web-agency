@@ -40,10 +40,10 @@ export default function ContactUs() {
     // Using the browser version of EmailJS
     emailjs
       .sendForm(
-        "YOUR_SERVICE_ID",
-        "YOUR_TEMPLATE_ID",
+        "service_l86qclt",
+        "template_6xfchin",
         formRef.current,
-        "YOUR_PUBLIC_KEY"
+        "L7ua-WuLwhYL-Ji9Z"
       )
       .then((result) => {
         setIsSubmitting(false);
