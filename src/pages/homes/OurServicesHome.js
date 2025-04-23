@@ -18,7 +18,6 @@ const FeatureCard = ({ title, subtitle }) => {
     <div
       style={{
         position: "relative",
-
         background: "linear-gradient(to right, #080b1c, #0e173e)",
         border: "1px solid #646d85",
         borderRadius: "16px",

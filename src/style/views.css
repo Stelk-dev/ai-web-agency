@@ -30,7 +30,8 @@
 
 .main-paragh-desc{
     text-align: start;
-    max-width: 1000px;
+    max-width: 90vw;
+    width: 100%;
     padding-left: 6px;
     margin: 0px;
 }

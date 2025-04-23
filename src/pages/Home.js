@@ -6,7 +6,6 @@ import CallToAction from "./homes/CallToAction";
 import UseCasesHome from "./homes/UseCasesHome";
 import ReviewsFromClientsHome from "./homes/ReviewsFromClientsHome";
 import ReviewersLogosSlider from "./homes/ReviewersLogosSlider";
-import VideosHome from "./homes/VideosHome";
 import { FadeInSection } from "../components/FadeInSection";
 
 export default function Home() {
@@ -80,9 +79,9 @@ export default function Home() {
         <br />
         <br />
         <br />
-        <FadeInSection>
+        {/* <FadeInSection>
           <VideosHome />
-        </FadeInSection>
+        </FadeInSection> */}
 
         <FadeInSection>
           <CallToAction />
