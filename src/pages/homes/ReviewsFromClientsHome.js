@@ -177,7 +177,7 @@ const TestimonialGrid = () => {
 
   // Show all testimonials on larger screens, but only 6 on smaller screens
   const limitedTestimonials =
-    windowWidth < 10000 ? testimonials.slice(0, 6) : testimonials;
+    windowWidth < 1000 ? testimonials.slice(0, 6) : testimonials;
 
   return (
     <div className="testimonial-grid">

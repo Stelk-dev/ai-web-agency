@@ -164,7 +164,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           </div>
         ) : (
           <>
-            {AllCases.map((useCase, index) => (
+            {AllCases.slice(1).map((useCase, index) => (
               <UseCase
                 key={useCase.title}
                 title={useCase.title}
