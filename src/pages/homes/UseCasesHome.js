@@ -3,8 +3,10 @@ import "../../style/use-cases.css";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
 
-import SupremMilkLogo from "../../assets/Prioraty-PRJ.png";
-import SecondPrj1 from "../../assets/Secondary-PRJ.png";
+import SupremMilkLogo from "../../assets/banner-1.png";
+import SecondPrj1 from "../../assets/banner-3.png";
+import SecondPrj2 from "../../assets/banner-2.png";
+import SecondPrj3 from "../../assets/banner-4.png";
 
 const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
   const navigate = useNavigate();
@@ -22,14 +24,14 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
       title: "Quantum Solutions",
       description:
         "A leading tech innovator in quantum computing needed a sophisticated dashboard to visualize complex data outputs. We delivered an intuitive interface that simplified user interaction with advanced computational results.",
-      image: SupremMilkLogo,
+      image: SecondPrj1,
       route: "/use-case/quantum-solutions",
     },
     {
       title: "EcoMetrics",
       description:
         "This environmental monitoring startup required a scalable platform to process sensor data from thousands of locations. Our solution provided real-time analytics and actionable insights for sustainability decision-makers.",
-      image: SupremMilkLogo,
+      image: SecondPrj2,
       route: "/use-case/eco-metrics",
     },
   ];
@@ -104,7 +106,6 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           <div className="secondary-use-case-content">
             <h1 className="use-case-title">{title}</h1>
             <p className="use-case-description">{text}</p>
-            <p className="use-case-description">{text}</p>
           </div>
 
           <div
@@ -136,16 +137,16 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
       route: "/use-case/n-and-group",
     },
     {
-      title: "The Legacy",
+      title: "Virality System",
       text: "This heritage brand required a digital transformation that respected their century-old tradition while embracing modern technology for a new generation of customers.",
-      image: SecondPrj1,
-      route: "/use-case/the-legacy",
+      image: SecondPrj2,
+      route: "/use-case/virality-system",
     },
     {
-      title: "Retail Tune",
+      title: "Extra Outdoor",
       text: "A music-focused retail chain needed analytics to understand customer behavior across physical and digital touchpoints, resulting in a 27% increase in customer retention.",
-      image: SecondPrj1,
-      route: "/use-case/retail-tune",
+      image: SecondPrj3,
+      route: "/use-case/extra-outdoor",
     },
   ];
 
@@ -191,7 +192,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           >
             {secondaryUseCases.map((useCase, index) => (
               <UseCaseBox
-                key={index}
+                key={useCase.title}
                 title={useCase.title}
                 text={useCase.text}
                 image={useCase.image}
@@ -201,26 +202,16 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           </div>
         ) : (
           <>
-            <UseCase
-              title={primaryUseCases[1].title}
-              description={primaryUseCases[1].description}
-              image={primaryUseCases[1].image}
-              route={primaryUseCases[1].route}
-              isReversed={true}
-            />
-            <UseCase
-              title={primaryUseCases[0].title}
-              description={primaryUseCases[0].description}
-              image={primaryUseCases[0].image}
-              route={primaryUseCases[0].route}
-            />
-            <UseCase
-              title={primaryUseCases[2].title}
-              description={primaryUseCases[2].description}
-              image={primaryUseCases[2].image}
-              route={primaryUseCases[2].route}
-              isReversed={true}
-            />
+            {secondaryUseCases.map((useCase, index) => (
+              <UseCase
+                key={useCase.title}
+                title={useCase.title}
+                description={useCase.text}
+                image={useCase.image}
+                route={useCase.route}
+                isReversed={index % 2 === 0}
+              />
+            ))}
           </>
         )}
       </div>

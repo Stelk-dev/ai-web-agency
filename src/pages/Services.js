@@ -55,7 +55,6 @@ const CircleCarousel = () => {
 
         return (
           <div
-            key={item.name}
             style={{
               display: "flex",
               justifyContent: "center",

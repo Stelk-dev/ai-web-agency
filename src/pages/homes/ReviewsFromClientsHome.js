@@ -58,21 +58,20 @@ const testimonials = [
     text: '"The level of technical expertise and industry knowledge at Ankor is outstanding. They delivered an AI solution that perfectly addressed our unique challenges and exceeded our expectations."',
     company: "NEXTSYS",
   },
-  // Adding 4 more testimonials to fill the 3x3 grid
   {
-    id: 6,
+    id: 10,
     name: "Sofia Moretti",
     text: '"The innovative AI solutions provided by Ankor have completely revolutionized how we approach data analysis. Their team was professional, knowledgeable, and dedicated to our success."',
     company: "TECHINNO",
   },
   {
-    id: 7,
+    id: 11,
     name: "Roberto Conti",
     text: '"Working with Ankor has been a game-changer for our business. Their expertise in AI implementation helped us automate processes we thought were impossible to streamline."',
     company: "FUTURETECH",
   },
   {
-    id: 8,
+    id: 12,
     name: "Elena Marino",
     text: "\"Ankor's team didn't just provide us with technology solutions, they became strategic partners in our growth. Their AI expertise translated directly to measurable business outcomes.\"",
     company: "SKYDATA",

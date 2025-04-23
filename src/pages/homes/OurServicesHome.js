@@ -138,7 +138,7 @@ const ResponsiveCardList = () => {
       <div className="card-grid">
         {features.map((feature, index) => (
           <FeatureCard
-            key={index}
+            key={feature.title}
             title={feature.title}
             subtitle={feature.subtitle}
           />
