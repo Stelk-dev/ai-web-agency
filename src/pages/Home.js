@@ -58,21 +58,14 @@ export default function Home() {
         }}
       >
         <ReviewersLogosSlider />
-        <br />
-        <br />
-        <br />
 
         <FadeInSection>
           <ResponsiveCardList />
         </FadeInSection>
         <br />
-        <br />
-        <br />
         <FadeInSection>
           <UseCasesHome colorText="white" />
         </FadeInSection>
-        <br />
-        <br />
         <br />
         <FadeInSection>
           <ReviewsFromClientsHome />

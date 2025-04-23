@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import SpaceGradientBackground from "../views/FullSkyView";
 import { FadeInSection } from "../components/FadeInSection";
 
@@ -14,6 +14,24 @@ import ResponsiveCardList from "./homes/OurServicesHome";
 import CallToAction from "./homes/CallToAction";
 
 const CircleCarousel = () => {
+  const [isMobile, setIsMobile] = useState(false);
+
+  useEffect(() => {
+    // Check if screen is mobile sized
+    const checkMobile = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    // Initial check
+    checkMobile();
+
+    // Add event listener for window resize
+    window.addEventListener("resize", checkMobile);
+
+    // Cleanup
+    return () => window.removeEventListener("resize", checkMobile);
+  }, []);
+
   // Icons for the circles
   const icons = [
     { Icon: Docker, name: "Docker" },
@@ -28,16 +46,22 @@ const CircleCarousel = () => {
   // Get the center index
   const centerIndex = Math.floor(icons.length / 2);
 
+  // Adjust size factors based on screen size
+  const baseSize = isMobile ? 80 : 120;
+  const sizeDecrement = isMobile ? 12 : 18;
+  const gap = isMobile ? "16px" : "32px";
+  const containerHeight = isMobile ? "180px" : "260px";
+
   return (
     <div
       style={{
         display: "flex",
         justifyContent: "center",
         alignItems: "center",
-        gap: "32px",
+        gap: gap,
         padding: "20px",
         width: "100%",
-        height: "260px",
+        height: containerHeight,
         overflow: "hidden",
       }}
     >
@@ -46,15 +70,16 @@ const CircleCarousel = () => {
         const distanceFromCenter = Math.abs(index - centerIndex);
 
         // Calculate size and opacity based on position
-        const size = 120 - distanceFromCenter * 18;
+        const size = baseSize - distanceFromCenter * sizeDecrement;
         const opacity = 1 - distanceFromCenter * 0.15;
 
         // Calculate animation properties
-        const animationDuration = 2 + distanceFromCenter * 0.3; // Outer circles animate slightly slower
-        const animationDelay = index * 0.2; // Offset each circle's animation
+        const animationDuration = 2 + distanceFromCenter * 0.3;
+        const animationDelay = index * 0.2;
 
         return (
           <div
+            key={item.name}
             style={{
               display: "flex",
               justifyContent: "center",
@@ -91,57 +116,57 @@ const CircleCarousel = () => {
           0% { transform: translateY(0) scale(${
             1 - Math.abs(0 - centerIndex) * 0.04
           }); }
-          100% { transform: translateY(-10px) scale(${
-            1 - Math.abs(0 - centerIndex) * 0.04
-          }); }
+          100% { transform: translateY(${isMobile ? -5 : -10}px) scale(${
+        1 - Math.abs(0 - centerIndex) * 0.04
+      }); }
         }
         @keyframes float-1 {
           0% { transform: translateY(0) scale(${
             1 - Math.abs(1 - centerIndex) * 0.04
           }); }
-          100% { transform: translateY(-12px) scale(${
-            1 - Math.abs(1 - centerIndex) * 0.04
-          }); }
+          100% { transform: translateY(${isMobile ? -6 : -12}px) scale(${
+        1 - Math.abs(1 - centerIndex) * 0.04
+      }); }
         }
         @keyframes float-2 {
           0% { transform: translateY(0) scale(${
             1 - Math.abs(2 - centerIndex) * 0.04
           }); }
-          100% { transform: translateY(-14px) scale(${
-            1 - Math.abs(2 - centerIndex) * 0.04
-          }); }
+          100% { transform: translateY(${isMobile ? -7 : -14}px) scale(${
+        1 - Math.abs(2 - centerIndex) * 0.04
+      }); }
         }
         @keyframes float-3 {
           0% { transform: translateY(0) scale(${
             1 - Math.abs(3 - centerIndex) * 0.04
           }); }
-          100% { transform: translateY(-8px) scale(${
-            1 - Math.abs(3 - centerIndex) * 0.04
-          }); }
+          100% { transform: translateY(${isMobile ? -4 : -8}px) scale(${
+        1 - Math.abs(3 - centerIndex) * 0.04
+      }); }
         }
         @keyframes float-4 {
           0% { transform: translateY(0) scale(${
             1 - Math.abs(4 - centerIndex) * 0.04
           }); }
-          100% { transform: translateY(-14px) scale(${
-            1 - Math.abs(4 - centerIndex) * 0.04
-          }); }
+          100% { transform: translateY(${isMobile ? -7 : -14}px) scale(${
+        1 - Math.abs(4 - centerIndex) * 0.04
+      }); }
         }
         @keyframes float-5 {
           0% { transform: translateY(0) scale(${
             1 - Math.abs(5 - centerIndex) * 0.04
           }); }
-          100% { transform: translateY(-12px) scale(${
-            1 - Math.abs(5 - centerIndex) * 0.04
-          }); }
+          100% { transform: translateY(${isMobile ? -6 : -12}px) scale(${
+        1 - Math.abs(5 - centerIndex) * 0.04
+      }); }
         }
         @keyframes float-6 {
           0% { transform: translateY(0) scale(${
             1 - Math.abs(6 - centerIndex) * 0.04
           }); }
-          100% { transform: translateY(-10px) scale(${
-            1 - Math.abs(6 - centerIndex) * 0.04
-          }); }
+          100% { transform: translateY(${isMobile ? -5 : -10}px) scale(${
+        1 - Math.abs(6 - centerIndex) * 0.04
+      }); }
         }
       `}</style>
     </div>

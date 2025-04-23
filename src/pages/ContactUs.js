@@ -67,7 +67,7 @@ export default function ContactUs() {
       className="center-div"
       style={{
         minHeight: "100vh",
-        width: "100%",
+        width: "calc(100% - 40px)",
         color: "white",
         backgroundColor: "black",
         display: "flex",
