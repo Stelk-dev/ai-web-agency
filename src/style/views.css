@@ -8,11 +8,12 @@
 .main-v{
     max-width: 1200px;
     padding: 32px;
-    width: 100%;
+    width: calc(100% - 64px);
 }
 
 .full-v{
     padding: 0px;
+    width: calc(100%);
     max-width: none !important;
 }
 

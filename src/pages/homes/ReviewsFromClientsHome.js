@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { FadeInSection } from "../../components/FadeInSection";
+import "../../style/testimonial-grid.css";
 
 // Testimonial data
 const testimonials = [
@@ -156,21 +157,31 @@ const TestimonialBox = ({ testimonial, opacity }) => {
 };
 
 const TestimonialGrid = () => {
+  const [windowWidth, setWindowWidth] = useState(
+    typeof window !== "undefined" ? window.innerWidth : 0
+  );
+
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   // No opacity effect - all testimonials at full opacity
   const getOpacity = () => {
     return 1.0; // Full opacity for all testimonials
   };
 
+  // Show all testimonials on larger screens, but only 6 on smaller screens
+  const limitedTestimonials =
+    windowWidth < 10000 ? testimonials.slice(0, 6) : testimonials;
+
   return (
-    <div
-      style={{
-        display: "grid",
-        gridTemplateColumns: "repeat(3, 1fr)",
-        gridGap: "20px",
-        width: "100%",
-      }}
-    >
-      {testimonials.map((testimonial, index) => (
+    <div className="testimonial-grid">
+      {limitedTestimonials.map((testimonial, index) => (
         <TestimonialBox
           key={testimonial.id}
           testimonial={testimonial}
@@ -193,11 +204,11 @@ export default function ReviewsFromClientsHome() {
     >
       <div className="main-v">
         <div className="main-paragh">
-          <h1 className="main-paragh-h1">What our clients says</h1>
+          <h1 className="main-paragh-h1">What our clients say</h1>
           <p className="main-paragh-desc">
-            At Algorithmx, we bring together a decade of AI engineering,
-            software development, and enterprise consulting experience to help
-            you cut through the noise and transform possibilities into practical
+            At Ankor, we bring together a decade of AI engineering, software
+            development, and enterprise consulting experience to help you cut
+            through the noise and transform possibilities into practical
             solutions.
           </p>
         </div>
@@ -207,7 +218,7 @@ export default function ReviewsFromClientsHome() {
         <div
           className="main-v full-v"
           style={{
-            padding: "40px 20px",
+            padding: "40px 0px",
             position: "relative",
             overflow: "hidden",
             // Add a fade-out mask from top (opaque) to bottom (transparent)

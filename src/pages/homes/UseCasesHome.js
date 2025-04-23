@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "../../style/use-cases.css";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
@@ -10,6 +10,23 @@ import SecondPrj3 from "../../assets/banner-4.png";
 
 const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
   const navigate = useNavigate();
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+
+  // Add a resize listener to track window width
+  useEffect(() => {
+    const handleResize = () => {
+      setWindowWidth(window.innerWidth);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => {
+      window.removeEventListener("resize", handleResize);
+    };
+  }, []);
+
+  // Determine layout mode based on screen size
+  const isMobile = windowWidth <= 768;
+  const isTablet = windowWidth <= 1024 && windowWidth > 768;
 
   // Dummy data for primary use cases
   const primaryUseCases = [
@@ -67,7 +84,11 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           className="primary-use-case-container"
           onClick={() => navigate(route)}
           style={{
-            flexDirection: isReversed ? "row-reverse" : "row",
+            flexDirection: isMobile
+              ? "column"
+              : isReversed
+              ? "row-reverse"
+              : "row",
             display: "flex",
             alignItems: "stretch",
           }}
@@ -79,7 +100,10 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
             </div>
             <ReadMore route={route} />
           </div>
-          <div className="use-case-image" style={{ flex: 1, height: "100%" }}>
+          <div
+            className="use-case-image"
+            style={{ flex: 1, height: isMobile ? "250px" : "100%" }}
+          >
             <img src={image} alt={`${title} showcase`} className="image" />
           </div>
         </div>
@@ -170,7 +194,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
         }}
       >
         {/* Primary */}
-        <div style={{ height: "50%" }}>
+        <div style={{ height: isMobile ? "auto" : "50%" }}>
           <UseCase
             title={primaryUseCases[0].title}
             description={primaryUseCases[0].description}
@@ -181,15 +205,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
 
         {/* Others */}
         {topCases ? (
-          <div
-            style={{
-              display: "flex",
-              alignItems: "center",
-              gap: "16px",
-              width: "100%",
-              height: "50%",
-            }}
-          >
+          <div className="use-cases-row">
             {secondaryUseCases.map((useCase, index) => (
               <UseCaseBox
                 key={useCase.title}
@@ -209,7 +225,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
                 description={useCase.text}
                 image={useCase.image}
                 route={useCase.route}
-                isReversed={index % 2 === 0}
+                isReversed={!isMobile && index % 2 === 0}
               />
             ))}
           </>
