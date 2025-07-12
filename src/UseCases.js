@@ -1,3 +1,4 @@
+import { useTranslation } from "react-i18next";
 import SupremMilkLogo from "./assets/banner-1.png";
 import SecondPrj1 from "./assets/banner-3.png";
 import SecondPrj2 from "./assets/banner-2.png";
@@ -7,7 +8,137 @@ import Man2 from "./assets/people/man_2.jpeg";
 import Man3 from "./assets/people/man_3.jpeg";
 import Man4 from "./assets/people/man_4.jpeg";
 
+export const useAllCases = () => {
+  const { t } = useTranslation("global");
+
+  return [
+    {
+      title: t("use_cases_data.suprem_milk.title"),
+      titleFull: t("use_cases_data.suprem_milk.titleFull"),
+      description: t("use_cases_data.suprem_milk.description"),
+      image: SupremMilkLogo,
+      route: "/use-case/suprem-milk",
+      reviewer: {
+        reviewerImage: Man3,
+        name: t("use_cases_data.suprem_milk.reviewer.name"),
+        review: t("use_cases_data.suprem_milk.reviewer.review"),
+      },
+      info: [
+        {
+          label: t("use_cases_data.suprem_milk.info.website"),
+          value: "https://suprem-milk.eu/",
+          isLink: true,
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.location"),
+          value: t("use_cases_data.suprem_milk.info.location_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.industry"),
+          value: t("use_cases_data.suprem_milk.info.industry_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.goal"),
+          value: t("use_cases_data.suprem_milk.info.goal_value"),
+        },
+      ],
+    },
+    {
+      title: t("use_cases_data.n_and_group.title"),
+      description: t("use_cases_data.n_and_group.description"),
+      image: SecondPrj1,
+      route: "/use-case/n-and-group",
+      reviewer: {
+        reviewerImage: Man1,
+        name: t("use_cases_data.n_and_group.reviewer.name"),
+        review: t("use_cases_data.n_and_group.reviewer.review"),
+      },
+      info: [
+        {
+          label: t("use_cases_data.suprem_milk.info.website"),
+          value: "https://www.n-andgroup.com/",
+          isLink: true,
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.location"),
+          value: t("use_cases_data.n_and_group.info.location_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.industry"),
+          value: t("use_cases_data.n_and_group.info.industry_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.goal"),
+          value: t("use_cases_data.n_and_group.info.goal_value"),
+        },
+      ],
+    },
+    {
+      title: t("use_cases_data.virality_system.title"),
+      description: t("use_cases_data.virality_system.description"),
+      image: SecondPrj2,
+      route: "/use-case/virality-system",
+      reviewer: {
+        reviewerImage: Man2,
+        name: t("use_cases_data.virality_system.reviewer.name"),
+        review: t("use_cases_data.virality_system.reviewer.review"),
+      },
+      info: [
+        {
+          label: t("use_cases_data.suprem_milk.info.website"),
+          value: "https://www.viralitysystem.it/",
+          isLink: true,
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.location"),
+          value: t("use_cases_data.virality_system.info.location_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.industry"),
+          value: t("use_cases_data.virality_system.info.industry_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.goal"),
+          value: t("use_cases_data.virality_system.info.goal_value"),
+        },
+      ],
+    },
+    {
+      title: t("use_cases_data.extra_outdoor.title"),
+      description: t("use_cases_data.extra_outdoor.description"),
+      image: SecondPrj3,
+      route: "/use-case/extra-outdoor",
+      reviewer: {
+        reviewerImage: Man4,
+        name: t("use_cases_data.extra_outdoor.reviewer.name"),
+        review: t("use_cases_data.extra_outdoor.reviewer.review"),
+      },
+      info: [
+        {
+          label: t("use_cases_data.suprem_milk.info.website"),
+          value: "https://extraoutdoor.it/infissi/",
+          isLink: true,
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.location"),
+          value: t("use_cases_data.extra_outdoor.info.location_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.industry"),
+          value: t("use_cases_data.extra_outdoor.info.industry_value"),
+        },
+        {
+          label: t("use_cases_data.suprem_milk.info.goal"),
+          value: t("use_cases_data.extra_outdoor.info.goal_value"),
+        },
+      ],
+    },
+  ];
+};
+
+// Legacy export for backward compatibility
 export const AllCases = [
+  // Legacy data for backward compatibility - will be replaced by useAllCases hook
   {
     title: "Suprem - Milk",
     titleFull:
@@ -116,20 +247,4 @@ export const AllCases = [
       },
     ],
   },
-  // {
-  //   title: "Virality System",
-  //   description:
-  //     "This heritage brand required a digital transformation that respected their century-old tradition while embracing modern technology for a new generation of customers.",
-  //   image: SecondPrj2,
-  //   route: "/use-case/virality-system",
-  // },
-  // {
-  //   title: "Extra Outdoor",
-  //   description:
-  //     "A music-focused retail chain needed analytics to understand customer behavior across physical and digital touchpoints, resulting in a 27% increase in customer retention.",
-  //   image: SecondPrj3,
-  //   route: "/use-case/extra-outdoor",
-  // },
 ];
-
-// Create a semi full body man (face and body but no legs), like the picture was done far away from him, dressed professional, crossed arms, looking at the camera with serious and professional look

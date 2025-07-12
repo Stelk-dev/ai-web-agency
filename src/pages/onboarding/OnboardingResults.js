@@ -1,10 +1,12 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 import "../../style/onboarding.css";
 import { useNavigate } from "react-router-dom";
 
 export default function OnboardingResults({ answers }) {
   const nav = useNavigate();
+  const [t] = useTranslation("global");
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -19,94 +21,78 @@ export default function OnboardingResults({ answers }) {
   // Generate recommendations based on answers
   const getRecommendations = () => {
     const recommendations = [];
-    const { questionOne, questionTwo, questionThree } = answers;
+    const { questionOne, questionTwo } = answers;
 
     // Service recommendations based on first question
     if (questionOne.includes("development")) {
       recommendations.push({
-        title: "Custom AI Development",
-        description:
-          "We'll build a tailored AI solution from the ground up, designed specifically for your business needs and requirements.",
+        title: t("onboarding.results.recommendations.development.title"),
+        description: t(
+          "onboarding.results.recommendations.development.description"
+        ),
         icon: "🛠️",
       });
     }
 
     if (questionOne.includes("consulting")) {
       recommendations.push({
-        title: "AI Strategy Consulting",
-        description:
-          "Our experts will analyze your business and create a comprehensive AI roadmap to maximize your competitive advantage.",
+        title: t("onboarding.results.recommendations.consulting.title"),
+        description: t(
+          "onboarding.results.recommendations.consulting.description"
+        ),
         icon: "💡",
       });
     }
 
     if (questionOne.includes("integration")) {
       recommendations.push({
-        title: "AI Integration Services",
-        description:
-          "Seamlessly integrate AI capabilities into your existing systems without disrupting your current operations.",
+        title: t("onboarding.results.recommendations.integration.title"),
+        description: t(
+          "onboarding.results.recommendations.integration.description"
+        ),
         icon: "🔗",
       });
     }
 
     if (questionOne.includes("training")) {
       recommendations.push({
-        title: "AI Training & Upskilling",
-        description:
-          "Comprehensive training programs to elevate your team's AI knowledge and implementation capabilities.",
+        title: t("onboarding.results.recommendations.training.title"),
+        description: t(
+          "onboarding.results.recommendations.training.description"
+        ),
         icon: "📚",
       });
     }
 
     // Add size-specific recommendations
-    if (questionTwo === "startup") {
+    if (questionTwo === "startup" || questionTwo === "small") {
       recommendations.push({
-        title: "Startup AI Package",
-        description:
-          "Cost-effective AI solutions designed to scale with your growing business and limited initial budget.",
+        title: t("onboarding.results.recommendations.pilot.title"),
+        description: t("onboarding.results.recommendations.pilot.description"),
         icon: "🚀",
       });
     } else if (questionTwo === "large") {
       recommendations.push({
-        title: "Enterprise AI Platform",
-        description:
-          "Comprehensive, scalable AI infrastructure designed for large-scale enterprise deployment and management.",
+        title: t("onboarding.results.recommendations.enterprise.title"),
+        description: t(
+          "onboarding.results.recommendations.enterprise.description"
+        ),
         icon: "🏢",
       });
     }
 
-    // Add budget-specific recommendations
-    if (questionThree === "under-10k") {
+    // Add data platform recommendation for medium to large companies
+    if (questionTwo === "medium" || questionTwo === "large") {
       recommendations.push({
-        title: "AI Starter Package",
-        description:
-          "Perfect entry-level AI solution with essential features and rapid deployment to get you started quickly.",
-        icon: "⚡",
-      });
-    } else if (questionThree === "10k-25k") {
-      recommendations.push({
-        title: "Professional AI Solution",
-        description:
-          "Comprehensive AI implementation with custom features, training, and ongoing support for growing businesses.",
-        icon: "🎯",
-      });
-    } else if (questionThree === "25k-50k") {
-      recommendations.push({
-        title: "Advanced AI Platform",
-        description:
-          "Full-scale AI transformation with advanced analytics, machine learning models, and enterprise integrations.",
-        icon: "🚀",
-      });
-    } else if (questionThree === "over-50k") {
-      recommendations.push({
-        title: "Enterprise AI Ecosystem",
-        description:
-          "Complete AI transformation with cutting-edge technology, dedicated support team, and scalable architecture.",
-        icon: "🏆",
+        title: t("onboarding.results.recommendations.data_platform.title"),
+        description: t(
+          "onboarding.results.recommendations.data_platform.description"
+        ),
+        icon: "🗄️",
       });
     }
 
-    return recommendations;
+    return recommendations.slice(0, 3); // Limit to 3 recommendations
   };
 
   const recommendations = getRecommendations();
@@ -155,14 +141,22 @@ export default function OnboardingResults({ answers }) {
       <div className="onboarding-container success-container">
         <div className="success-card">
           <div className="success-icon">🎉</div>
-          <h2 className="success-title">Thank you!</h2>
+          <h2 className="success-title">
+            {t("onboarding.results.form.success_title")}
+          </h2>
           <p className="success-message">
-            We've received your information and our team will contact you within
-            24 hours with personalized recommendations based on your needs.
+            {t("onboarding.results.form.success_message")}
           </p>
-          <button onClick={() => nav("/")} className="btn-back">
-            Home
-          </button>
+          <div
+            style={{ display: "flex", gap: "12px", justifyContent: "center" }}
+          >
+            <button onClick={() => nav("/")} className="btn-back">
+              {t("onboarding.results.form.home")}
+            </button>
+            <button onClick={() => nav("/use-cases")} className="btn-primary">
+              {t("onboarding.results.form.portfolio")}
+            </button>
+          </div>
         </div>
       </div>
     );
@@ -174,12 +168,10 @@ export default function OnboardingResults({ answers }) {
         {/* Recommendations Section */}
         <div className="results-recommendations">
           <div className="recommendations-badge">
-            Your Personalized Recommendations
+            {t("onboarding.results.title")}
           </div>
 
-          <h2 className="results-title">
-            Perfect! Here's what we recommend for you
-          </h2>
+          <h2 className="results-title">{t("onboarding.results.title")}</h2>
 
           <div className="recommendations-grid">
             {recommendations.map((rec, index) => (
@@ -201,13 +193,16 @@ export default function OnboardingResults({ answers }) {
         {/* Contact Form Section */}
         <div className="results-contact">
           <h3 className="contact-form-title">
-            Let's connect and discuss your project
+            {t("onboarding.results.contact_title")}
           </h3>
+          <p className="contact-form-subtitle">
+            {t("onboarding.results.contact_subtitle")}
+          </p>
 
           <form ref={formRef} onSubmit={handleSubmit} className="contact-form">
             <div className="form-group">
               <label htmlFor="name" className="form-label">
-                Name *
+                {t("onboarding.results.form.name")} *
               </label>
               <input
                 type="text"
@@ -217,13 +212,13 @@ export default function OnboardingResults({ answers }) {
                 onChange={handleChange}
                 required
                 className="form-input"
-                placeholder="Your name"
+                placeholder={t("onboarding.results.form.name_placeholder")}
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="email" className="form-label">
-                Email *
+                {t("onboarding.results.form.email")} *
               </label>
               <input
                 type="email"
@@ -233,13 +228,13 @@ export default function OnboardingResults({ answers }) {
                 onChange={handleChange}
                 required
                 className="form-input"
-                placeholder="your@email.com"
+                placeholder={t("onboarding.results.form.email_placeholder")}
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="phone" className="form-label">
-                Phone (optional)
+                {t("onboarding.results.form.phone")}
               </label>
               <input
                 type="tel"
@@ -248,13 +243,13 @@ export default function OnboardingResults({ answers }) {
                 value={formData.phone}
                 onChange={handleChange}
                 className="form-input"
-                placeholder="Your phone number"
+                placeholder={t("onboarding.results.form.phone_placeholder")}
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="message" className="form-label">
-                Additional details (optional)
+                {t("onboarding.results.form.message")}
               </label>
               <textarea
                 id="message"
@@ -262,7 +257,7 @@ export default function OnboardingResults({ answers }) {
                 value={formData.message}
                 onChange={handleChange}
                 className="form-textarea"
-                placeholder="Tell us more about your project..."
+                placeholder={t("onboarding.results.form.message_placeholder")}
               />
             </div>
 
@@ -273,7 +268,9 @@ export default function OnboardingResults({ answers }) {
               disabled={isSubmitting}
               className="form-submit"
             >
-              {isSubmitting ? "Sending..." : "Get My Personalized Consultation"}
+              {isSubmitting
+                ? t("onboarding.results.form.sending")
+                : t("onboarding.results.form.submit")}
             </button>
           </form>
         </div>

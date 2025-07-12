@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { FadeInSection } from "../../components/FadeInSection";
+import { useTranslation } from "react-i18next";
 import "../../style/testimonial-grid.css";
 
 // Testimonial data
@@ -192,6 +193,8 @@ const TestimonialGrid = () => {
 };
 
 export default function ReviewsFromClientsHome() {
+  const [t] = useTranslation("global");
+
   return (
     <div
       style={{
@@ -203,13 +206,8 @@ export default function ReviewsFromClientsHome() {
     >
       <div className="main-v">
         <div className="main-paragh">
-          <h1 className="main-paragh-h1">What our clients say</h1>
-          <p className="main-paragh-desc">
-            At Ankor, we bring together a decade of AI engineering, software
-            development, and enterprise consulting experience to help you cut
-            through the noise and transform possibilities into practical
-            solutions.
-          </p>
+          <h1 className="main-paragh-h1">{t("testimonials.title")}</h1>
+          <p className="main-paragh-desc">{t("testimonials.description")}</p>
         </div>
       </div>
 
@@ -246,7 +244,7 @@ export default function ReviewsFromClientsHome() {
                 width: "100%",
               }}
             >
-              40+ of happy clients
+              {t("testimonials.happy_clients")}
             </h1>
           </div>
         </FadeInSection>

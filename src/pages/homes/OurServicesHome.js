@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaCheckCircle } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 import "../../style/ourservice.css";
 
 const FeatureCard = ({ title, subtitle }) => {
@@ -90,49 +91,40 @@ const FeatureCard = ({ title, subtitle }) => {
 };
 
 const ResponsiveCardList = () => {
+  const [t] = useTranslation("global");
+
   const features = [
     {
-      title: "Building Systems with LLMs",
-      subtitle:
-        "Our expertise in LLMs allows us to create and optimize powerful AI-driven systems tailored to your needs",
+      title: t("services.features.llms.title"),
+      subtitle: t("services.features.llms.subtitle"),
     },
     {
-      title: "Production-Ready AI Solutions",
-      subtitle:
-        "We guide you through the entire process, from prototyping to full-scale production, ensuring your AI initiatives are successful and sustainable",
+      title: t("services.features.production.title"),
+      subtitle: t("services.features.production.subtitle"),
     },
     {
-      title: "Data Platform Engineering",
-      subtitle:
-        "We design and build scalable, robust data platforms on Azure to support your AI initiatives",
+      title: t("services.features.data_platform.title"),
+      subtitle: t("services.features.data_platform.subtitle"),
     },
     {
-      title: "Deploying AI Applications",
-      subtitle:
-        "We ensure your data-centric and AI applications are deployed seamlessly, with reliability and scalability in mind.",
+      title: t("services.features.deploying.title"),
+      subtitle: t("services.features.deploying.subtitle"),
     },
     {
-      title: "Upskilling Your Engineering Team",
-      subtitle:
-        "We provide hands-on training to elevate your team’s AI skills, ensuring they’re equipped to handle the latest technologies and best practices",
+      title: t("services.features.upskilling.title"),
+      subtitle: t("services.features.upskilling.subtitle"),
     },
     {
-      title: "Integrating AI into Your Stack",
-      subtitle:
-        "We help you incorporate AI into your current systems to enhance their capabilities without disrupting your operations.",
+      title: t("services.features.integrating.title"),
+      subtitle: t("services.features.integrating.subtitle"),
     },
   ];
 
   return (
     <div className="main-v">
       <div className="main-paragh">
-        <h1 className="main-paragh-h1">Our services</h1>
-        <p className="main-paragh-desc">
-          From building enterprise-grade AI platforms to guiding digital
-          transformation and upskilling development teams, we help you move
-          beyond any boundaries of what's possible, pointing you to AI and data
-          technologies that make sense in helping you grow.
-        </p>
+        <h1 className="main-paragh-h1">{t("services.title")}</h1>
+        <p className="main-paragh-desc">{t("services.description")}</p>
       </div>
       <div className="card-grid">
         {features.map((feature, index) => (

@@ -1,0 +1,291 @@
+{
+   "welcome": "Welcome",
+   "thank_you": "Thank you",
+   "goodbye": "Goodbye",
+   "header": {
+      "description": "AI and data reshape our world at a relentless speed, yet most find themselves caught between possibility and complexity. We are here to help you identify what truly gives that competitive advantage.",
+      "check_portfolio": "CHECK PORTFOLIO"
+   },
+   "services": {
+      "title": "Our services",
+      "description": "From building enterprise-grade AI platforms to guiding digital transformation and upskilling development teams, we help you move beyond any boundaries of what's possible, pointing you to AI and data technologies that make sense in helping you grow.",
+      "features": {
+         "llms": {
+            "title": "Building Systems with LLMs",
+            "subtitle": "Our expertise in LLMs allows us to create and optimize powerful AI-driven systems tailored to your needs"
+         },
+         "production": {
+            "title": "Production-Ready AI Solutions",
+            "subtitle": "We guide you through the entire process, from prototyping to full-scale production, ensuring your AI initiatives are successful and sustainable"
+         },
+         "data_platform": {
+            "title": "Data Platform Engineering",
+            "subtitle": "We design and build scalable, robust data platforms on Azure to support your AI initiatives"
+         },
+         "deploying": {
+            "title": "Deploying AI Applications",
+            "subtitle": "We ensure your data-centric and AI applications are deployed seamlessly, with reliability and scalability in mind."
+         },
+         "upskilling": {
+            "title": "Upskilling Your Engineering Team",
+            "subtitle": "We provide hands-on training to elevate your team's AI skills, ensuring they're equipped to handle the latest technologies and best practices"
+         },
+         "integrating": {
+            "title": "Integrating AI into Your Stack",
+            "subtitle": "We help you incorporate AI into your current systems to enhance their capabilities without disrupting your operations."
+         }
+      }
+   },
+   "use_cases": {
+      "title": "Our latest projects",
+      "description": "Our track record spans from initial strategy development to full implementation, always focusing on practical outcomes that drive solid business value. Here are some of our most recent projects:",
+      "read": "Read"
+   },
+   "testimonials": {
+      "title": "What our clients say",
+      "description": "At Ankor, we bring together a decade of AI engineering, software development, and enterprise consulting experience to help you cut through the noise and transform possibilities into practical solutions.",
+      "happy_clients": "40+ of happy clients"
+   },
+   "call_to_action": {
+      "tag": "I have an idea...",
+      "title": "Let's turn complexity into capability",
+      "description": "Whether you're looking to automate processes, streamline operations, or unlock new opportunities – we'll work alongside your team to implement solutions that scale (with) your business."
+   },
+   "about_us": {
+      "title": "About Us",
+      "description": "These days, staying ahead often means turning data and AI into business value. But with countless solutions and approaches available, how do you identify and implement what truly matters for your organization? What does it take to become an AI-first type of company? We're here to help you make the right decisions."
+   },
+   "use_case_page": {
+      "the_problem": "The problem",
+      "the_solution": "The solution",
+      "the_result": "The result"
+   },
+   "services_page": {
+      "title": "Algorithmx Services",
+      "description": "These days, staying ahead often means turning data and AI into business value. But with countless solutions and approaches available, how do you identify and implement what truly matters for your organization? What does it take to become an AI-first type of company? We're here to help you make the right decisions",
+      "tools_title": "The best tools for the best job"
+   },
+   "use_cases_page": {
+      "title": "Algorithmx Use Cases",
+      "description": "Here are some of our most recent projects showcasing how we've helped organizations transform their challenges into competitive advantages through AI and data solutions"
+   },
+   "contact_page": {
+      "title": "Get in touch",
+      "subtitle": "Have a question or want to discuss a project? Fill out the form below, and our team will get back to you within 24 hours.",
+      "try_recommendations": "Or try our quick personalized recommendations (15 seconds)",
+      "thank_you_title": "Thank you!",
+      "thank_you_message": "Your message has been sent successfully. We'll get back to you within 24 hours.",
+      "form": {
+         "name": "Name",
+         "email": "Email",
+         "message": "Message",
+         "name_placeholder": "Your name",
+         "email_placeholder": "Your email address",
+         "message_placeholder": "Tell us about your project or question",
+         "sending": "Sending...",
+         "send": "Send Message"
+      }
+   },
+   "onboarding": {
+      "intro": {
+         "title": "Ride the AI wave with Datalumina®",
+         "subtitle": "Answer three quick questions, and we'll connect you with the exact resource, training, or service that will help you succeed.",
+         "duration": "(it takes 30 seconds)",
+         "start": "Start Journey",
+         "skip": "Skip to traditional contact form"
+      },
+      "question_one": {
+         "progress": "Question 1 of 3",
+         "title": "What best describes you?",
+         "subtitle": "Select all that apply to your current needs",
+         "options": {
+            "development": {
+               "label": "Client searching for the development of an AI product",
+               "description": "Need a custom AI solution built from scratch"
+            },
+            "consulting": {
+               "label": "Client searching for AI consulting",
+               "description": "Need strategic guidance on AI implementation"
+            },
+            "integration": {
+               "label": "Looking to integrate AI into existing systems",
+               "description": "Want to enhance current operations with AI"
+            },
+            "training": {
+               "label": "Team needs AI training and upskilling",
+               "description": "Want to educate your team on AI technologies"
+            }
+         },
+         "back": "Back",
+         "next": "Next Question"
+      },
+      "question_two": {
+         "progress": "Question 2 of 3",
+         "title": "What's the size of your organization?",
+         "subtitle": "This helps us tailor our recommendations",
+         "options": {
+            "startup": {
+               "label": "Startup (1-10 employees)",
+               "description": "Early-stage company looking to leverage AI for growth"
+            },
+            "small": {
+               "label": "Small Business (11-50 employees)",
+               "description": "Established business ready to integrate AI solutions"
+            },
+            "medium": {
+               "label": "Medium Company (51-200 employees)",
+               "description": "Growing company seeking AI optimization"
+            },
+            "large": {
+               "label": "Large Enterprise (200+ employees)",
+               "description": "Enterprise-level AI transformation and scaling"
+            },
+            "individual": {
+               "label": "Individual / Freelancer",
+               "description": "Personal AI learning or small project needs"
+            }
+         },
+         "back": "Back",
+         "next": "Next Question"
+      },
+      "question_three": {
+         "progress": "Question 3 of 3",
+         "title": "What's your estimated budget range?",
+         "subtitle": "This helps us recommend the most suitable solutions",
+         "options": {
+            "prefer_not_say": {
+               "label": "Prefer not to say",
+               "description": "We'll discuss budget details during our consultation"
+            },
+            "under_10k": {
+               "label": "<10,000€",
+               "description": "Small project or pilot implementation"
+            },
+            "10k_25k": {
+               "label": "10,000€ - 25,000€",
+               "description": "Medium-scale AI solution with custom development"
+            },
+            "25k_50k": {
+               "label": "25,000€ - 50,000€",
+               "description": "Comprehensive AI platform with advanced features"
+            },
+            "over_50k": {
+               "label": ">50,000€",
+               "description": "Enterprise-level AI transformation project"
+            }
+         },
+         "back": "Back",
+         "see_results": "See My Results"
+      },
+      "results": {
+         "title": "Perfect! Here's what we recommend for you:",
+         "contact_title": "Let's discuss your project",
+         "contact_subtitle": "Fill out this form and we'll get back to you within 24 hours with a detailed proposal.",
+         "recommendations": {
+            "development": {
+               "title": "Custom AI Development",
+               "description": "We'll build a tailored AI solution from the ground up, designed specifically for your business needs and requirements."
+            },
+            "consulting": {
+               "title": "AI Strategy Consulting",
+               "description": "Our experts will analyze your business and create a comprehensive AI roadmap to maximize your competitive advantage."
+            },
+            "integration": {
+               "title": "AI Integration Services",
+               "description": "Seamlessly integrate AI capabilities into your existing systems without disrupting your current operations."
+            },
+            "training": {
+               "title": "AI Training & Upskilling",
+               "description": "Comprehensive training programs to bring your team up to speed with the latest AI technologies and best practices."
+            },
+            "data_platform": {
+               "title": "Data Platform Setup",
+               "description": "Build a robust data infrastructure that supports your AI initiatives and scales with your business growth."
+            },
+            "pilot": {
+               "title": "AI Pilot Project",
+               "description": "Start small with a proof-of-concept that demonstrates AI value before full-scale implementation."
+            },
+            "enterprise": {
+               "title": "Enterprise AI Transformation",
+               "description": "Comprehensive AI transformation across your entire organization with enterprise-grade solutions."
+            }
+         },
+         "form": {
+            "name": "Full Name",
+            "email": "Business Email",
+            "phone": "Phone Number (Optional)",
+            "message": "Tell us more about your project",
+            "name_placeholder": "John Doe",
+            "email_placeholder": "john@company.com",
+            "phone_placeholder": "+1 (555) 123-4567",
+            "message_placeholder": "Describe your project, timeline, and any specific requirements...",
+            "sending": "Submitting...",
+            "submit": "Get My Personalized Proposal",
+            "success_title": "Thank you for your submission!",
+            "success_message": "We've received your information and will get back to you within 24 hours with a detailed proposal tailored to your needs.",
+            "home": "Back to Home",
+            "portfolio": "View Our Portfolio"
+         }
+      }
+   },
+   "use_cases_data": {
+      "suprem_milk": {
+         "title": "Suprem - Milk",
+         "titleFull": "Delivering real-time coin data to millions of Crypto Insiders visitors",
+         "description": "Crypto Insiders, the largest cryptocurrency news platform in the Netherlands, attracts over 2 million visitors monthly. Their team needed a reliable system to manage content creation and distribution across multiple channels.",
+         "reviewer": {
+            "name": "Riccardo Ferrari",
+            "review": "Algorithmx is an amazing company. We've been surprised by the speed, attention to details, and immediate understanding of our needs. Not only they understood our needs, but they recommended us alternative solutions or additional tools to improve our mockup product"
+         },
+         "info": {
+            "website": "Website",
+            "location": "Location",
+            "industry": "Industry",
+            "goal": "Goal",
+            "location_value": "Italy",
+            "industry_value": "Agricultural",
+            "goal_value": "AI system to analyze agricultural products and provide insights"
+         }
+      },
+      "n_and_group": {
+         "title": "N and Group",
+         "description": "A leading tech innovator in quantum computing needed a sophisticated dashboard to visualize complex data outputs. We delivered an intuitive interface that simplified user interaction with advanced computational results.",
+         "reviewer": {
+            "name": "Daniele Del Vecchio",
+            "review": "Algorithmx's AI helped us automate our customer service. The chatbot they developed significantly reduced response times and improved customer satisfaction"
+         },
+         "info": {
+            "location_value": "Italy",
+            "industry_value": "Mechanich",
+            "goal_value": "AI chatbot to automate customer service and improve response times"
+         }
+      },
+      "virality_system": {
+         "title": "Virality System",
+         "description": "This environmental monitoring startup required a scalable platform to process sensor data from thousands of locations. Our solution provided real-time analytics and actionable insights for sustainability decision-makers",
+         "reviewer": {
+            "name": "Davide Gentile",
+            "review": "Excellent experience with Algorithmx. Always careful about deadlines and developing the best code. Paying attention to the figma and my requests. Really good we will continue to collaborate"
+         },
+         "info": {
+            "location_value": "Italy",
+            "industry_value": "Social Network",
+            "goal_value": "Full social network with AI-driven content recommendations"
+         }
+      },
+      "extra_outdoor": {
+         "title": "Extra Outdoor",
+         "description": "We used Algorithmx's AI-powered analytics to optimize our marketing campaigns. Their solutions provided valuable insights that led to a 20% increase in conversion rates",
+         "reviewer": {
+            "name": "Andrea Partisani",
+            "review": "We used Algorithmx's AI-powered analytics to optimize our marketing campaigns. Their solutions provided valuable insights that led to a 20% increase in conversion rates"
+         },
+         "info": {
+            "location_value": "Italy",
+            "industry_value": "Fixtures and fittings",
+            "goal_value": "AI system to analyze customer behavior and improve retention"
+         }
+      }
+   }
+}

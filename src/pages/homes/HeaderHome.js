@@ -2,9 +2,11 @@ import React from "react";
 import WhiteButton from "../../components/WhiteButton";
 import GradientButton from "../../components/GradientButton";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
 export default function HeaderHome() {
   const nav = useNavigate();
+  const [t] = useTranslation("global");
 
   return (
     <div
@@ -31,7 +33,7 @@ export default function HeaderHome() {
           color: "white",
         }}
       >
-        Helping you integrate AI with clarity & confidence
+         {t("welcome")} Algorithmx®
       </h1>
       <div
         style={{
@@ -42,15 +44,13 @@ export default function HeaderHome() {
           lineHeight: "1.6",
         }}
       >
-        AI and data reshape our world at a relentless speed, yet most find
-        themselves caught between possibility and complexity. We are here to
-        help you identify what truly gives that competitive advantage.
+        {t("header.description")}
       </div>
 
       <div style={{ display: "flex", gap: "12px" }}>
         <WhiteButton />
         <GradientButton
-          text="CHECK PORTFOLIO"
+          text={t("header.check_portfolio")}
           onClick={() => nav("/use-cases")}
         />
       </div>

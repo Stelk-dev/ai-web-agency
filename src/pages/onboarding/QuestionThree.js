@@ -1,34 +1,38 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "../../style/onboarding.css";
 
 export default function QuestionThree({ onNext, onBack }) {
+  const [t] = useTranslation("global");
   const [selectedOption, setSelectedOption] = useState("");
 
   const options = [
     {
       id: "prefer-not-to-say",
-      label: "Prefer not to say",
-      description: "We'll discuss budget details during our consultation",
+      label: t("onboarding.question_three.options.prefer_not_say.label"),
+      description: t(
+        "onboarding.question_three.options.prefer_not_say.description"
+      ),
     },
     {
       id: "under-10k",
-      label: "<10,000€",
-      description: "Small project or pilot implementation",
+      label: t("onboarding.question_three.options.under_10k.label"),
+      description: t("onboarding.question_three.options.under_10k.description"),
     },
     {
       id: "10k-25k",
-      label: "10,000€ - 25,000€",
-      description: "Medium-scale AI solution with custom development",
+      label: t("onboarding.question_three.options.10k_25k.label"),
+      description: t("onboarding.question_three.options.10k_25k.description"),
     },
     {
       id: "25k-50k",
-      label: "25,000€ - 50,000€",
-      description: "Comprehensive AI platform with advanced features",
+      label: t("onboarding.question_three.options.25k_50k.label"),
+      description: t("onboarding.question_three.options.25k_50k.description"),
     },
     {
       id: "over-50k",
-      label: ">50,000€",
-      description: "Enterprise-level AI transformation project",
+      label: t("onboarding.question_three.options.over_50k.label"),
+      description: t("onboarding.question_three.options.over_50k.description"),
     },
   ];
 
@@ -46,15 +50,16 @@ export default function QuestionThree({ onNext, onBack }) {
     <div className="onboarding-container">
       <div className="question-container">
         <div className="question-header">
-          <div className="question-progress">Question 3 of 3</div>
+          <div className="question-progress">
+            {t("onboarding.question_three.progress")}
+          </div>
 
           <h2 className="question-title">
-            There's a budget that you have in mind?
+            {t("onboarding.question_three.title")}
           </h2>
 
           <p className="question-subtitle">
-            This helps us recommend the most suitable solution for your
-            investment
+            {t("onboarding.question_three.subtitle")}
           </p>
         </div>
 
@@ -86,7 +91,7 @@ export default function QuestionThree({ onNext, onBack }) {
 
         <div className="navigation-buttons">
           <button onClick={onBack} className="btn-back">
-            Back
+            {t("onboarding.question_three.back")}
           </button>
 
           <button
@@ -94,7 +99,7 @@ export default function QuestionThree({ onNext, onBack }) {
             disabled={!selectedOption}
             className={`btn-next ${selectedOption ? "enabled" : ""}`}
           >
-            Get My Recommendations
+            {t("onboarding.question_three.see_results")}
           </button>
         </div>
       </div>

@@ -1,11 +1,14 @@
 import React, { useEffect, useState } from "react";
-import { AllCases } from "../../UseCases";
+import { useAllCases } from "../../UseCases";
 import { useLocation } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import { FadeInSection } from "../../components/FadeInSection";
 import CallToAction from "../homes/CallToAction";
 
 export default function UseCasePage() {
   const loc = useLocation();
+  const [t] = useTranslation("global");
+  const allCases = useAllCases();
   const [isLargeScreen, setIsLargeScreen] = useState(window.innerWidth > 1300);
   const [isWideEnough, setIsWideEnough] = useState(window.innerWidth > 1300);
 
@@ -25,7 +28,7 @@ export default function UseCasePage() {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  const caseData = AllCases.find((item) => item.route === loc.pathname);
+  const caseData = allCases.find((item) => item.route === loc.pathname);
 
   const CopyRow = ({ title, description }) => {
     return (
@@ -299,19 +302,19 @@ export default function UseCasePage() {
           }}
         >
           <CopyRow
-            title={"The problem"}
+            title={t("use_case_page.the_problem")}
             description={
               "Crypto Insiders' existing infrastructure struggled to handle the demands of live updates, especially during high-traffic market surges, risking delays and outages. To stay ahead, they needed a fast, reliable, and scalable solution that could meet the expectations of their growing audience."
             }
           />
           <CopyRow
-            title={"The solution"}
+            title={t("use_case_page.the_solution")}
             description={
               "Our mission was to create a future-proof system that delivered real-time coin data seamlessly to Crypto Insiders' visitors. We focused on engineering a solution that prioritized speed, reliability, and scalability—ensuring the platform could meet today's demands and handle tomorrow's growth"
             }
           />
           <CopyRow
-            title={"The result"}
+            title={t("use_case_page.the_result")}
             description={
               "We engineered a high-performance data delivery system tailored to Crypto Insiders' needs. At the heart of the solution is a dedicated ingestion server that aggregates and verifies coin pricing data, ensuring every update is accurate and reliable. Paired with a dedicated caching layer, the system delivers blazing-fast response times under 200 milliseconds, keeping millions of visitors informed without missing a beat.\n\nTo guarantee the platform's resilience, we stress-tested the architecture to handle surges during volatile market events. The result? A scalable, future-proof system that supports Crypto Insiders' rapid growth, ensuring their audience enjoys a seamless experience—every time they visit."
             }

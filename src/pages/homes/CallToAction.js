@@ -1,7 +1,10 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import WhiteButton from "../../components/WhiteButton";
 
 export default function CallToAction() {
+  const [t] = useTranslation("global");
+
   return (
     <div
       style={{
@@ -32,7 +35,7 @@ export default function CallToAction() {
               "linear-gradient(to right,rgba(97, 11, 217, 0.52),rgba(66, 122, 212, 0.43))",
           }}
         >
-          I have an idea...
+          {t("call_to_action.tag")}
         </div>
         <h1
           style={{
@@ -44,7 +47,7 @@ export default function CallToAction() {
             color: "white",
           }}
         >
-          Let's turn complexity into capability
+          {t("call_to_action.title")}
         </h1>
         <div
           style={{
@@ -55,9 +58,7 @@ export default function CallToAction() {
             lineHeight: "1.6",
           }}
         >
-          Whether you're looking to automate processes, streamline operations,
-          or unlock new opportunities – we'll work alongside your team to
-          implement solutions that scale (with) your business.
+          {t("call_to_action.description")}
         </div>
 
         <WhiteButton />

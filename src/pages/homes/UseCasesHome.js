@@ -2,11 +2,14 @@ import React, { useState, useEffect } from "react";
 import "../../style/use-cases.css";
 import { FaExternalLinkAlt } from "react-icons/fa";
 import { useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 
-import { AllCases } from "../../UseCases";
+import { useAllCases } from "../../UseCases";
 
 const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
   const navigate = useNavigate();
+  const allCases = useAllCases();
+  const [t] = useTranslation("global");
   const [windowWidth, setWindowWidth] = useState(window.innerWidth);
 
   // Add a resize listener to track window width
@@ -37,7 +40,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
         navigate(route);
       }}
     >
-      <p className="use-case-link">Read</p>
+      <p className="use-case-link">{t("use_cases.read")}</p>
       <FaExternalLinkAlt size={"14px"} color="#1a56db" />
     </div>
   );
@@ -123,12 +126,8 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
   return (
     <div className="main-v">
       <div className="main-paragh" style={{ color: colorText }}>
-        <h1 className="main-paragh-h1">Our latest projects</h1>
-        <p className="main-paragh-desc">
-          Our track record spans from initial strategy development to full
-          implementation, always focusing on practical outcomes that drive solid
-          business value. Here are some of our most recent projects:
-        </p>
+        <h1 className="main-paragh-h1">{t("use_cases.title")}</h1>
+        <p className="main-paragh-desc">{t("use_cases.description")}</p>
       </div>
 
       <div
@@ -142,17 +141,17 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
         {/* Primary */}
         <div style={{ height: isMobile ? "auto" : "50%" }}>
           <UseCase
-            title={AllCases[0].title}
-            description={AllCases[0].description}
-            image={AllCases[0].image}
-            route={AllCases[0].route}
+            title={allCases[0].title}
+            description={allCases[0].description}
+            image={allCases[0].image}
+            route={allCases[0].route}
           />
         </div>
 
         {/* Others */}
         {topCases ? (
           <div className="use-cases-row">
-            {AllCases.slice(1, 4).map((useCase, index) => (
+            {allCases.slice(1, 4).map((useCase, index) => (
               <UseCaseBox
                 key={useCase.title}
                 title={useCase.title}
@@ -164,7 +163,7 @@ const UseCasesHome = ({ topCases = true, colorText = "black" }) => {
           </div>
         ) : (
           <>
-            {AllCases.slice(1).map((useCase, index) => (
+            {allCases.slice(1).map((useCase, index) => (
               <UseCase
                 key={useCase.title}
                 title={useCase.title}

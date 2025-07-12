@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useRef } from "react";
 // Import the correct browser version of EmailJS
 import emailjs from "@emailjs/browser";
+import { useTranslation } from "react-i18next";
 import "../style/onboarding.css";
 
 // Import onboarding components
@@ -11,6 +12,7 @@ import QuestionThree from "./onboarding/QuestionThree";
 import OnboardingResults from "./onboarding/OnboardingResults";
 
 export default function ContactUs() {
+  const [t] = useTranslation("global");
   // Onboarding flow state
   const [currentStep, setCurrentStep] = useState("intro"); // intro, question1, question2, question3, results, traditional
   const [answers, setAnswers] = useState({});
@@ -154,26 +156,28 @@ export default function ContactUs() {
   return (
     <div className="onboarding-container traditional-contact">
       <div className="traditional-contact__content">
-        <h1 className="traditional-contact__title">Get in touch</h1>
+        <h1 className="traditional-contact__title">
+          {t("contact_page.title")}
+        </h1>
         <p className="traditional-contact__subtitle">
-          Have a question or want to discuss a project? Fill out the form below,
-          and our team will get back to you within 24 hours.
+          {t("contact_page.subtitle")}
         </p>
 
         <button
           onClick={() => setCurrentStep("intro")}
           className="btn-secondary"
         >
-          Or try our quick personalized recommendations (15 seconds)
+          {t("contact_page.try_recommendations")}
         </button>
       </div>
 
       {isSubmitted ? (
         <div className="traditional-success">
-          <h2 className="traditional-success__title">Thank you!</h2>
+          <h2 className="traditional-success__title">
+            {t("contact_page.thank_you_title")}
+          </h2>
           <p className="traditional-success__message">
-            Your message has been sent successfully. We'll get back to you
-            within 24 hours.
+            {t("contact_page.thank_you_message")}
           </p>
         </div>
       ) : (
@@ -185,7 +189,7 @@ export default function ContactUs() {
           <div className="traditional-form__content">
             <div className="form-group">
               <label htmlFor="name" className="form-label">
-                Name
+                {t("contact_page.form.name")}
               </label>
               <input
                 type="text"
@@ -195,13 +199,13 @@ export default function ContactUs() {
                 onChange={handleChange}
                 required
                 className="form-input"
-                placeholder="Your name"
+                placeholder={t("contact_page.form.name_placeholder")}
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="email" className="form-label">
-                Email
+                {t("contact_page.form.email")}
               </label>
               <input
                 type="email"
@@ -211,13 +215,13 @@ export default function ContactUs() {
                 onChange={handleChange}
                 required
                 className="form-input"
-                placeholder="Your email address"
+                placeholder={t("contact_page.form.email_placeholder")}
               />
             </div>
 
             <div className="form-group">
               <label htmlFor="message" className="form-label">
-                Message
+                {t("contact_page.form.message")}
               </label>
               <textarea
                 id="message"
@@ -226,7 +230,7 @@ export default function ContactUs() {
                 onChange={handleChange}
                 required
                 className="form-textarea"
-                placeholder="Tell us about your project or question"
+                placeholder={t("contact_page.form.message_placeholder")}
               />
             </div>
 
@@ -237,7 +241,9 @@ export default function ContactUs() {
               disabled={isSubmitting}
               className="form-submit"
             >
-              {isSubmitting ? "Sending..." : "Send Message"}
+              {isSubmitting
+                ? t("contact_page.form.sending")
+                : t("contact_page.form.send")}
             </button>
           </div>
         </form>

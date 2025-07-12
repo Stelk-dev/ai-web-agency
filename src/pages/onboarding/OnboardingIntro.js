@@ -1,18 +1,22 @@
 import React from "react";
+import { useTranslation } from "react-i18next";
 import "../../style/onboarding.css";
 
 export default function OnboardingIntro({ onStart, onSkipToTraditional }) {
+  const [t] = useTranslation("global");
+
   return (
     <div className="onboarding-container onboarding-intro">
       <div className="onboarding-intro__content">
         <h1 className="onboarding-intro__title">
-          Ride the AI wave with Datalumina®
+          {t("onboarding.intro.title")}
         </h1>
         <p className="onboarding-intro__subtitle">
-          Answer three quick questions, and we'll connect you with the exact
-          resource, training, or service that will help you succeed.
+          {t("onboarding.intro.subtitle")}
         </p>
-        <p className="onboarding-intro__duration">(it takes 30 seconds)</p>
+        <p className="onboarding-intro__duration">
+          {t("onboarding.intro.duration")}
+        </p>
       </div>
 
       <div
@@ -24,11 +28,11 @@ export default function OnboardingIntro({ onStart, onSkipToTraditional }) {
         }}
       >
         <button onClick={onStart} className="btn-primary">
-          Start Journey
+          {t("onboarding.intro.start")}
         </button>
 
         <button onClick={onSkipToTraditional} className="btn-secondary">
-          Skip to traditional contact form
+          {t("onboarding.intro.skip")}
         </button>
       </div>
     </div>

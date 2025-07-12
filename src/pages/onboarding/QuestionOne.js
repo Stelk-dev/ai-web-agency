@@ -1,29 +1,31 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "../../style/onboarding.css";
 
 export default function QuestionOne({ onNext, onBack }) {
+  const [t] = useTranslation("global");
   const [selectedOptions, setSelectedOptions] = useState([]);
 
   const options = [
     {
       id: "development",
-      label: "Client searching for the development of an AI product",
-      description: "Need a custom AI solution built from scratch",
+      label: t("onboarding.question_one.options.development.label"),
+      description: t("onboarding.question_one.options.development.description"),
     },
     {
       id: "consulting",
-      label: "Client searching for AI consulting",
-      description: "Need strategic guidance on AI implementation",
+      label: t("onboarding.question_one.options.consulting.label"),
+      description: t("onboarding.question_one.options.consulting.description"),
     },
     {
       id: "integration",
-      label: "Looking to integrate AI into existing systems",
-      description: "Want to enhance current operations with AI",
+      label: t("onboarding.question_one.options.integration.label"),
+      description: t("onboarding.question_one.options.integration.description"),
     },
     {
       id: "training",
-      label: "Team needs AI training and upskilling",
-      description: "Want to educate your team on AI technologies",
+      label: t("onboarding.question_one.options.training.label"),
+      description: t("onboarding.question_one.options.training.description"),
     },
   ];
 
@@ -45,12 +47,16 @@ export default function QuestionOne({ onNext, onBack }) {
     <div className="onboarding-container">
       <div className="question-container">
         <div className="question-header">
-          <div className="question-progress">Question 1 of 3</div>
+          <div className="question-progress">
+            {t("onboarding.question_one.progress")}
+          </div>
 
-          <h2 className="question-title">What best describes you?</h2>
+          <h2 className="question-title">
+            {t("onboarding.question_one.title")}
+          </h2>
 
           <p className="question-subtitle">
-            Select all that apply to your current needs
+            {t("onboarding.question_one.subtitle")}
           </p>
         </div>
 
@@ -82,7 +88,7 @@ export default function QuestionOne({ onNext, onBack }) {
 
         <div className="navigation-buttons">
           <button onClick={onBack} className="btn-back">
-            Back
+            {t("onboarding.question_one.back")}
           </button>
 
           <button
@@ -92,7 +98,7 @@ export default function QuestionOne({ onNext, onBack }) {
               selectedOptions.length > 0 ? "enabled" : ""
             }`}
           >
-            Next Question
+            {t("onboarding.question_one.next")}
           </button>
         </div>
       </div>

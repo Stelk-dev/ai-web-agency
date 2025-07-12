@@ -1,34 +1,36 @@
 import React, { useState } from "react";
+import { useTranslation } from "react-i18next";
 import "../../style/onboarding.css";
 
 export default function QuestionTwo({ onNext, onBack }) {
+  const [t] = useTranslation("global");
   const [selectedOption, setSelectedOption] = useState("");
 
   const options = [
     {
       id: "startup",
-      label: "Startup (1-10 employees)",
-      description: "Early-stage company looking to leverage AI for growth",
+      label: t("onboarding.question_two.options.startup.label"),
+      description: t("onboarding.question_two.options.startup.description"),
     },
     {
       id: "small",
-      label: "Small Business (11-50 employees)",
-      description: "Established business ready to integrate AI solutions",
+      label: t("onboarding.question_two.options.small.label"),
+      description: t("onboarding.question_two.options.small.description"),
     },
     {
       id: "medium",
-      label: "Medium Company (51-200 employees)",
-      description: "Growing company seeking AI optimization",
+      label: t("onboarding.question_two.options.medium.label"),
+      description: t("onboarding.question_two.options.medium.description"),
     },
     {
       id: "large",
-      label: "Large Enterprise (200+ employees)",
-      description: "Enterprise-level AI transformation and scaling",
+      label: t("onboarding.question_two.options.large.label"),
+      description: t("onboarding.question_two.options.large.description"),
     },
     {
       id: "individual",
-      label: "Individual / Freelancer",
-      description: "Personal AI learning or small project needs",
+      label: t("onboarding.question_two.options.individual.label"),
+      description: t("onboarding.question_two.options.individual.description"),
     },
   ];
 
@@ -46,12 +48,16 @@ export default function QuestionTwo({ onNext, onBack }) {
     <div className="onboarding-container">
       <div className="question-container">
         <div className="question-header">
-          <div className="question-progress">Question 2 of 3</div>
+          <div className="question-progress">
+            {t("onboarding.question_two.progress")}
+          </div>
 
-          <h2 className="question-title">What's your company size?</h2>
+          <h2 className="question-title">
+            {t("onboarding.question_two.title")}
+          </h2>
 
           <p className="question-subtitle">
-            This helps us tailor our recommendations to your scale
+            {t("onboarding.question_two.subtitle")}
           </p>
         </div>
 
@@ -83,7 +89,7 @@ export default function QuestionTwo({ onNext, onBack }) {
 
         <div className="navigation-buttons">
           <button onClick={onBack} className="btn-back">
-            Back
+            {t("onboarding.question_two.back")}
           </button>
 
           <button
@@ -91,7 +97,7 @@ export default function QuestionTwo({ onNext, onBack }) {
             disabled={!selectedOption}
             className={`btn-next ${selectedOption ? "enabled" : ""}`}
           >
-            Next Question
+            {t("onboarding.question_two.next")}
           </button>
         </div>
       </div>

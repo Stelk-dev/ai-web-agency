@@ -1,10 +1,13 @@
 import React, { useEffect } from "react";
+import { useTranslation } from "react-i18next";
 import { FadeInSection } from "../components/FadeInSection";
 import UseCasesHome from "./homes/UseCasesHome";
 import CallToAction from "./homes/CallToAction";
 import SpaceGradientBackground from "../views/FullSkyView";
 
 export default function UseCasesPage() {
+  const [t] = useTranslation("global");
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -67,12 +70,10 @@ export default function UseCasesPage() {
           <h1
             style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
           >
-            Algorithmx Use Cases
+            {t("use_cases_page.title")}
           </h1>
           <p style={{ margin: "0px", padding: "0px" }}>
-            Here are some of our most recent projects showcasing how we've
-            helped organizations transform their challenges into competitive
-            advantages through AI and data solutions
+            {t("use_cases_page.description")}
           </p>
         </div>
       </div>

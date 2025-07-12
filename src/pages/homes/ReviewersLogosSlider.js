@@ -76,7 +76,7 @@ const ReviewersLogosSlider = () => {
     const scrollInterval = setInterval(scrollAnimation, 75);
 
     return () => clearInterval(scrollInterval);
-  }, [logoSetWidth]);
+  }, [logoSetWidth, logos]);
 
   // Calculate responsive spacing
   const getResponsiveSpacing = () => {

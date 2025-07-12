@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from "react";
+import { useTranslation } from "react-i18next";
 import SpaceGradientBackground from "../views/FullSkyView";
 import { FadeInSection } from "../components/FadeInSection";
 
@@ -174,6 +175,8 @@ const CircleCarousel = () => {
 };
 
 export default function Services() {
+  const [t] = useTranslation("global");
+
   useEffect(() => {
     window.scrollTo({
       top: 0,
@@ -236,14 +239,10 @@ export default function Services() {
           <h1
             style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
           >
-            Algorithmx Services
+            {t("services_page.title")}
           </h1>
           <p style={{ margin: "0px", padding: "0px" }}>
-            These days, staying ahead often means turning data and AI into
-            business value. But with countless solutions and approaches
-            available, how do you identify and implement what truly matters for
-            your organization? What does it take to become an AI-first type of
-            company? We're here to help you make the right decisions
+            {t("services_page.description")}
           </p>
         </div>
       </div>
@@ -266,7 +265,7 @@ export default function Services() {
                   margin: "0px",
                 }}
               >
-                The best tools for the best job
+                {t("services_page.tools_title")}
               </h1>
             </div>
 
