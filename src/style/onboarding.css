@@ -368,6 +368,8 @@
 }
 
 .form-group {
+  align-items: flex-start;
+  text-align: left;
   margin-bottom: 20px;
 }
 
