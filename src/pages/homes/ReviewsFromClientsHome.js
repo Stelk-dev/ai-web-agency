@@ -246,7 +246,7 @@ export default function ReviewsFromClientsHome() {
                 width: "100%",
               }}
             >
-              Over hundreds of happy clients
+              40+ of happy clients
             </h1>
           </div>
         </FadeInSection>
