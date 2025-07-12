@@ -2,6 +2,14 @@
    "welcome": "Welcome",
    "thank_you": "Thank you",
    "goodbye": "Goodbye",
+   "navbar": {
+      "home": "Home",
+      "services": "Services",
+      "cases": "Cases"
+   },
+   "buttons": {
+      "get_in_touch": "GET IN TOUCH"
+   },
    "header": {
       "description": "AI and data reshape our world at a relentless speed, yet most find themselves caught between possibility and complexity. We are here to help you identify what truly gives that competitive advantage.",
       "check_portfolio": "CHECK PORTFOLIO"
@@ -44,7 +52,54 @@
    "testimonials": {
       "title": "What our clients say",
       "description": "At Ankor, we bring together a decade of AI engineering, software development, and enterprise consulting experience to help you cut through the noise and transform possibilities into practical solutions.",
-      "happy_clients": "40+ of happy clients"
+      "happy_clients": "40+ of happy clients",
+      "reviews": {
+         "giuseppe_sartori": {
+            "name": "Giuseppe Sartori",
+            "text": "Algorithmx delivered an AI-driven forecasting tool that significantly improved our inventory management. Their team understood our complex needs and provided a practical, high-quality solution that reduced waste and saved costs. Very professional and effective.",
+            "company": "GLOBAL LOGISTICS"
+         },
+         "davide_laterza": {
+            "name": "Davide Laterza",
+            "text": "We needed to automate our customer support responses. Algorithmx developed a custom AI chatbot that handles inquiries efficiently, improving response times and customer satisfaction. Their expertise made the integration seamless.",
+            "company": "TECH SOLUTIONS INC."
+         },
+         "luigi_simonetti": {
+            "name": "Luigi Simonetti",
+            "text": "Algorithmx helped us analyze large datasets to identify key market trends. The insights gained from their AI model have been invaluable for our strategic planning. Their team provided clear explanations and excellent support throughout the project.",
+            "company": "INSIGHT ANALYTICS"
+         },
+         "luca_corradini": {
+            "name": "Luca Corradini",
+            "text": "Our challenge was optimizing our production line. Algorithmx implemented an AI system that monitors operations and suggests improvements in real-time. We've seen a noticeable increase in efficiency thanks to their top-quality service.",
+            "company": "PRECISION MFG."
+         },
+         "michele_lombardi": {
+            "name": "Michele Lombardi",
+            "text": "Algorithmx developed a predictive maintenance solution for our equipment, reducing downtime significantly. Their AI expertise helped us anticipate failures before they happened. A truly valuable partner for our operations.",
+            "company": "HEAVY INDUSTRY CO."
+         },
+         "alessandro_lodi": {
+            "name": "Alessandro Lodi",
+            "text": "We partnered with Algorithmx to enhance our fraud detection systems. The AI solution they built is highly accurate and has saved us substantial amounts by identifying suspicious activities quickly. Their team was knowledgeable and responsive.",
+            "company": "SECURE FINANCE"
+         },
+         "robert_miller": {
+            "name": "Robert Miller",
+            "text": "Algorithmx provided an AI solution to personalize our marketing campaigns. The results were impressive, with higher engagement rates and better conversion. Their approach was professional and focused on delivering tangible results.",
+            "company": "CONNECT MARKETING"
+         },
+         "jessica_davis": {
+            "name": "Jessica Davis",
+            "text": "The AI-powered recommendation engine built by Algorithmx has greatly improved user experience on our platform. They understood our goals and delivered a high-quality system that drives user retention. Excellent work!",
+            "company": "ONLINE PLATFORMS LTD."
+         },
+         "william_wilson": {
+            "name": "William Wilson",
+            "text": "Algorithmx helped us streamline our document processing using AI. What used to take days now takes hours. Their solution integrated perfectly with our existing systems. Highly recommend their top-quality AI services.",
+            "company": "ADMIN SOLUTIONS"
+         }
+      }
    },
    "call_to_action": {
       "tag": "I have an idea...",

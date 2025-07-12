@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import { useTranslation } from "react-i18next";
 import "../style/navbar.css";
 import Logo from "../assets/AppLogo2.png"; // Make sure this path matches your logo file
 import WhiteButton from "./WhiteButton";
@@ -8,6 +9,7 @@ const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const nav = useNavigate();
+  const { t } = useTranslation("global");
 
   const handleLogoClick = () => {
     if (window.location.pathname === "/") {
@@ -64,14 +66,14 @@ const Navbar = () => {
       {/* Center: Navigation - Desktop */}
       <div className={`nav-center ${mobileMenuOpen ? "mobile-open" : ""}`}>
         <Link to="/" onClick={closeMobileMenu}>
-          Home
+          {t("navbar.home")}
         </Link>
         <Link to="/services" onClick={closeMobileMenu}>
-          Services
+          {t("navbar.services")}
         </Link>
         {/* <Link to="/about">About</Link> */}
         <Link to="/use-cases" onClick={closeMobileMenu}>
-          Cases
+          {t("navbar.cases")}
         </Link>
 
         {/* Mobile-only button */}

@@ -3,81 +3,67 @@ import { FadeInSection } from "../../components/FadeInSection";
 import { useTranslation } from "react-i18next";
 import "../../style/testimonial-grid.css";
 
-// Testimonial data
-const testimonials = [
-  {
-    id: 1,
-    name: "Giuseppe Sartori",
-    text: "Algorithmx delivered an AI-driven forecasting tool that significantly improved our inventory management. Their team understood our complex needs and provided a practical, high-quality solution that reduced waste and saved costs. Very professional and effective.",
-    company: "GLOBAL LOGISTICS",
-  },
-  {
-    id: 2,
-    name: "Davide Laterza",
-    text: "We needed to automate our customer support responses. Algorithmx developed a custom AI chatbot that handles inquiries efficiently, improving response times and customer satisfaction. Their expertise made the integration seamless.",
-    company: "TECH SOLUTIONS INC.",
-  },
-  {
-    id: 3,
-    name: "Luigi Simonetti",
-    text: "Algorithmx helped us analyze large datasets to identify key market trends. The insights gained from their AI model have been invaluable for our strategic planning. Their team provided clear explanations and excellent support throughout the project.",
-    company: "INSIGHT ANALYTICS",
-  },
-  {
-    id: 4,
-    name: "Luca Corradini",
-    text: "Our challenge was optimizing our production line. Algorithmx implemented an AI system that monitors operations and suggests improvements in real-time. We've seen a noticeable increase in efficiency thanks to their top-quality service.\"",
-    company: "PRECISION MFG.",
-  },
-  {
-    id: 5,
-    name: "Michele Lombardi",
-    text: "Algorithmx developed a predictive maintenance solution for our equipment, reducing downtime significantly. Their AI expertise helped us anticipate failures before they happened. A truly valuable partner for our operations.",
-    company: "HEAVY INDUSTRY CO.",
-  },
-  {
-    id: 6,
-    name: "Alessandro Lodi",
-    text: "We partnered with Algorithmx to enhance our fraud detection systems. The AI solution they built is highly accurate and has saved us substantial amounts by identifying suspicious activities quickly. Their team was knowledgeable and responsive.",
-    company: "SECURE FINANCE",
-  },
-  {
-    id: 7,
-    name: "Robert Miller",
-    text: "Algorithmx provided an AI solution to personalize our marketing campaigns. The results were impressive, with higher engagement rates and better conversion. Their approach was professional and focused on delivering tangible results.",
-    company: "CONNECT MARKETING",
-  },
-  {
-    id: 8,
-    name: "Jessica Davis",
-    text: "The AI-powered recommendation engine built by Algorithmx has greatly improved user experience on our platform. They understood our goals and delivered a high-quality system that drives user retention. Excellent work!",
-    company: "ONLINE PLATFORMS LTD.",
-  },
-  {
-    id: 9,
-    name: "William Wilson",
-    text: "Algorithmx helped us streamline our document processing using AI. What used to take days now takes hours. Their solution integrated perfectly with our existing systems. Highly recommend their top-quality AI services.",
-    company: "ADMIN SOLUTIONS",
-  },
-  {
-    id: 10,
-    name: "Patricia Taylor",
-    text: "We needed a better way to manage our supply chain risks. Algorithmx developed an AI model that analyzes various factors to predict potential disruptions. This foresight has been crucial for our business continuity. Great expertise!",
-    company: "SUPPLY CHAIN MASTERS",
-  },
-  {
-    id: 11,
-    name: "Richard Anderson",
-    text: "Algorithmx's AI solution for optimizing our energy consumption has led to significant cost savings. Their team provided a clear roadmap and executed flawlessly. A top-quality service provider in the AI space.\"",
-    company: "ECO POWER CORP.",
-  },
-  {
-    id: 12,
-    name: "Susan Thomas",
-    text: "Working with Algorithmx on developing an AI tool for talent acquisition simplified our hiring process. It helps us identify the best candidates faster. Their professional team delivered exactly what we needed.",
-    company: "HR INNOVATE",
-  },
-];
+// Hook to get translated testimonials
+const useTestimonials = () => {
+  const { t } = useTranslation("global");
+
+  return [
+    {
+      id: 1,
+      name: t("testimonials.reviews.giuseppe_sartori.name"),
+      text: t("testimonials.reviews.giuseppe_sartori.text"),
+      company: t("testimonials.reviews.giuseppe_sartori.company"),
+    },
+    {
+      id: 2,
+      name: t("testimonials.reviews.davide_laterza.name"),
+      text: t("testimonials.reviews.davide_laterza.text"),
+      company: t("testimonials.reviews.davide_laterza.company"),
+    },
+    {
+      id: 3,
+      name: t("testimonials.reviews.luigi_simonetti.name"),
+      text: t("testimonials.reviews.luigi_simonetti.text"),
+      company: t("testimonials.reviews.luigi_simonetti.company"),
+    },
+    {
+      id: 4,
+      name: t("testimonials.reviews.luca_corradini.name"),
+      text: t("testimonials.reviews.luca_corradini.text"),
+      company: t("testimonials.reviews.luca_corradini.company"),
+    },
+    {
+      id: 5,
+      name: t("testimonials.reviews.michele_lombardi.name"),
+      text: t("testimonials.reviews.michele_lombardi.text"),
+      company: t("testimonials.reviews.michele_lombardi.company"),
+    },
+    {
+      id: 6,
+      name: t("testimonials.reviews.alessandro_lodi.name"),
+      text: t("testimonials.reviews.alessandro_lodi.text"),
+      company: t("testimonials.reviews.alessandro_lodi.company"),
+    },
+    {
+      id: 7,
+      name: t("testimonials.reviews.robert_miller.name"),
+      text: t("testimonials.reviews.robert_miller.text"),
+      company: t("testimonials.reviews.robert_miller.company"),
+    },
+    {
+      id: 8,
+      name: t("testimonials.reviews.jessica_davis.name"),
+      text: t("testimonials.reviews.jessica_davis.text"),
+      company: t("testimonials.reviews.jessica_davis.company"),
+    },
+    {
+      id: 9,
+      name: t("testimonials.reviews.william_wilson.name"),
+      text: t("testimonials.reviews.william_wilson.text"),
+      company: t("testimonials.reviews.william_wilson.company"),
+    },
+  ];
+};
 
 const TestimonialBox = ({ testimonial, opacity }) => {
   return (
@@ -160,6 +146,7 @@ const TestimonialGrid = () => {
   const [windowWidth, setWindowWidth] = useState(
     typeof window !== "undefined" ? window.innerWidth : 0
   );
+  const testimonials = useTestimonials();
 
   useEffect(() => {
     const handleResize = () => {
