@@ -1,8 +1,20 @@
 import React, { useEffect, useState, useRef } from "react";
 // Import the correct browser version of EmailJS
 import emailjs from "@emailjs/browser";
+import "../style/onboarding.css";
+
+// Import onboarding components
+import OnboardingIntro from "./onboarding/OnboardingIntro";
+import QuestionOne from "./onboarding/QuestionOne";
+import QuestionTwo from "./onboarding/QuestionTwo";
+import OnboardingResults from "./onboarding/OnboardingResults";
 
 export default function ContactUs() {
+  // Onboarding flow state
+  const [currentStep, setCurrentStep] = useState("intro"); // intro, question1, question2, results, traditional
+  const [answers, setAnswers] = useState({});
+
+  // Traditional form state
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -24,6 +36,39 @@ export default function ContactUs() {
     emailjs.init("YOUR_PUBLIC_KEY");
   }, []);
 
+  // Onboarding flow handlers
+  const handleStartOnboarding = () => {
+    setCurrentStep("question1");
+  };
+
+  const handleQuestionOneNext = (questionOneAnswers) => {
+    setAnswers((prev) => ({ ...prev, ...questionOneAnswers }));
+    setCurrentStep("question2");
+  };
+
+  const handleQuestionTwoNext = (questionTwoAnswers) => {
+    setAnswers((prev) => ({ ...prev, ...questionTwoAnswers }));
+    setCurrentStep("results");
+  };
+
+  const handleBackToQuestionOne = () => {
+    setCurrentStep("question1");
+  };
+
+  const handleBackToIntro = () => {
+    setCurrentStep("intro");
+  };
+
+  const handleStartOver = () => {
+    setCurrentStep("intro");
+    setAnswers({});
+  };
+
+  const handleSkipToTraditional = () => {
+    setCurrentStep("traditional");
+  };
+
+  // Traditional form handlers
   const handleChange = (e) => {
     const { name, value } = e.target;
     setFormData({
@@ -62,65 +107,59 @@ export default function ContactUs() {
       });
   };
 
+  // Render different components based on current step
+  if (currentStep === "intro") {
+    return (
+      <OnboardingIntro
+        onStart={handleStartOnboarding}
+        onSkipToTraditional={handleSkipToTraditional}
+      />
+    );
+  }
+
+  if (currentStep === "question1") {
+    return (
+      <QuestionOne onNext={handleQuestionOneNext} onBack={handleBackToIntro} />
+    );
+  }
+
+  if (currentStep === "question2") {
+    return (
+      <QuestionTwo
+        onNext={handleQuestionTwoNext}
+        onBack={handleBackToQuestionOne}
+      />
+    );
+  }
+
+  if (currentStep === "results") {
+    return (
+      <OnboardingResults answers={answers} onStartOver={handleStartOver} />
+    );
+  }
+
+  // Traditional contact form (fallback)
   return (
-    <div
-      className="center-div"
-      style={{
-        minHeight: "100vh",
-        width: "calc(100% - 40px)",
-        color: "white",
-        backgroundColor: "black",
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
-        padding: "0px 20px",
-      }}
-    >
-      <div
-        style={{
-          maxWidth: "600px",
-          width: "100%",
-          marginBottom: "40px",
-          textAlign: "center",
-        }}
-      >
-        <h1
-          style={{
-            fontSize: "2.5rem",
-            marginBottom: "20px",
-          }}
-        >
-          Get in touch
-        </h1>
-        <p
-          style={{
-            fontSize: "1.1rem",
-            lineHeight: "1.6",
-            color: "#e0e0e0",
-          }}
-        >
+    <div className="onboarding-container traditional-contact">
+      <div className="traditional-contact__content">
+        <h1 className="traditional-contact__title">Get in touch</h1>
+        <p className="traditional-contact__subtitle">
           Have a question or want to discuss a project? Fill out the form below,
           and our team will get back to you within 24 hours.
         </p>
+
+        <button
+          onClick={() => setCurrentStep("intro")}
+          className="btn-secondary"
+        >
+          Or try our quick personalized recommendations (15 seconds)
+        </button>
       </div>
 
       {isSubmitted ? (
-        <div
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-            padding: "30px",
-            maxWidth: "500px",
-            width: "100%",
-            textAlign: "center",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-          }}
-        >
-          <h2 style={{ fontSize: "1.5rem", marginBottom: "15px" }}>
-            Thank you!
-          </h2>
-          <p style={{ fontSize: "1.1rem", lineHeight: "1.5" }}>
+        <div className="traditional-success">
+          <h2 className="traditional-success__title">Thank you!</h2>
+          <p className="traditional-success__message">
             Your message has been sent successfully. We'll get back to you
             within 24 hours.
           </p>
@@ -129,34 +168,11 @@ export default function ContactUs() {
         <form
           ref={formRef}
           onSubmit={handleSubmit}
-          style={{
-            backgroundColor: "rgba(255, 255, 255, 0.1)",
-            borderRadius: "8px",
-            maxWidth: "600px",
-            width: "100%",
-            border: "1px solid rgba(255, 255, 255, 0.2)",
-          }}
+          className="traditional-form"
         >
-          <div
-            style={{
-              padding: "30px",
-            }}
-          >
-            <div
-              style={{
-                marginBottom: "20px",
-                width: "100%",
-              }}
-            >
-              <label
-                htmlFor="name"
-                style={{
-                  display: "block",
-                  marginBottom: "8px",
-                  fontSize: "0.95rem",
-                  fontWeight: "500",
-                }}
-              >
+          <div className="traditional-form__content">
+            <div className="form-group">
+              <label htmlFor="name" className="form-label">
                 Name
               </label>
               <input
@@ -166,30 +182,13 @@ export default function ContactUs() {
                 value={formData.name}
                 onChange={handleChange}
                 required
-                style={{
-                  width: "calc(100% - 30px)",
-                  padding: "12px 15px",
-                  fontSize: "1rem",
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
-                  borderRadius: "4px",
-                  color: "white",
-                  outline: "none",
-                }}
+                className="form-input"
                 placeholder="Your name"
               />
             </div>
 
-            <div style={{ marginBottom: "20px" }}>
-              <label
-                htmlFor="email"
-                style={{
-                  display: "block",
-                  marginBottom: "8px",
-                  fontSize: "0.95rem",
-                  fontWeight: "500",
-                }}
-              >
+            <div className="form-group">
+              <label htmlFor="email" className="form-label">
                 Email
               </label>
               <input
@@ -199,30 +198,13 @@ export default function ContactUs() {
                 value={formData.email}
                 onChange={handleChange}
                 required
-                style={{
-                  width: "calc(100% - 30px)",
-                  padding: "12px 15px",
-                  fontSize: "1rem",
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
-                  borderRadius: "4px",
-                  color: "white",
-                  outline: "none",
-                }}
+                className="form-input"
                 placeholder="Your email address"
               />
             </div>
 
-            <div style={{ marginBottom: "30px" }}>
-              <label
-                htmlFor="message"
-                style={{
-                  display: "block",
-                  marginBottom: "8px",
-                  fontSize: "0.95rem",
-                  fontWeight: "500",
-                }}
-              >
+            <div className="form-group">
+              <label htmlFor="message" className="form-label">
                 Message
               </label>
               <textarea
@@ -231,50 +213,17 @@ export default function ContactUs() {
                 value={formData.message}
                 onChange={handleChange}
                 required
-                style={{
-                  width: "calc(100% - 30px)",
-                  padding: "12px 15px",
-                  fontSize: "1rem",
-                  backgroundColor: "rgba(255, 255, 255, 0.08)",
-                  border: "1px solid rgba(255, 255, 255, 0.2)",
-                  borderRadius: "4px",
-                  minHeight: "150px",
-                  color: "white",
-                  resize: "none",
-                  outline: "none",
-                }}
+                className="form-textarea"
                 placeholder="Tell us about your project or question"
               />
             </div>
 
-            {error && (
-              <div
-                style={{
-                  color: "#ff8a8a",
-                  marginBottom: "20px",
-                  fontSize: "0.9rem",
-                }}
-              >
-                {error}
-              </div>
-            )}
+            {error && <div className="form-error">{error}</div>}
 
             <button
               type="submit"
               disabled={isSubmitting}
-              style={{
-                width: "100%",
-                padding: "14px",
-                fontSize: "1rem",
-                fontWeight: "600",
-                backgroundColor: "#2d72e1",
-                color: "white",
-                border: "none",
-                borderRadius: "4px",
-                cursor: isSubmitting ? "not-allowed" : "pointer",
-                transition: "background-color 0.3s ease",
-                opacity: isSubmitting ? 0.7 : 1,
-              }}
+              className="form-submit"
             >
               {isSubmitting ? "Sending..." : "Send Message"}
             </button>

@@ -44,7 +44,7 @@ export const AllCases = [
     image: SecondPrj1,
     route: "/use-case/n-and-group",
     reviewer: {
-      reviewerImage: Man2,
+      reviewerImage: Man1,
       name: "Daniele Del Vecchio",
       review:
         "Algorithmx's AI helped us automate our customer service. The chatbot they developed significantly reduced response times and improved customer satisfaction",
@@ -71,7 +71,7 @@ export const AllCases = [
     image: SecondPrj2,
     route: "/use-case/virality-system",
     reviewer: {
-      reviewerImage: Man1,
+      reviewerImage: Man2,
       name: "Davide Gentile",
       review:
         "Excellent experience with Algorithmx. Always careful about deadlines and developing the best code. Paying attention to the figma and my requests. Really good we will continue to collaborate",
