@@ -1,34 +1,34 @@
 import React, { useState } from "react";
 import "../../style/onboarding.css";
 
-export default function QuestionTwo({ onNext, onBack }) {
+export default function QuestionThree({ onNext, onBack }) {
   const [selectedOption, setSelectedOption] = useState("");
 
   const options = [
     {
-      id: "startup",
-      label: "Startup (1-10 employees)",
-      description: "Early-stage company looking to leverage AI for growth",
+      id: "prefer-not-to-say",
+      label: "Prefer not to say",
+      description: "We'll discuss budget details during our consultation",
     },
     {
-      id: "small",
-      label: "Small Business (11-50 employees)",
-      description: "Established business ready to integrate AI solutions",
+      id: "under-10k",
+      label: "<10,000€",
+      description: "Small project or pilot implementation",
     },
     {
-      id: "medium",
-      label: "Medium Company (51-200 employees)",
-      description: "Growing company seeking AI optimization",
+      id: "10k-25k",
+      label: "10,000€ - 25,000€",
+      description: "Medium-scale AI solution with custom development",
     },
     {
-      id: "large",
-      label: "Large Enterprise (200+ employees)",
-      description: "Enterprise-level AI transformation and scaling",
+      id: "25k-50k",
+      label: "25,000€ - 50,000€",
+      description: "Comprehensive AI platform with advanced features",
     },
     {
-      id: "individual",
-      label: "Individual / Freelancer",
-      description: "Personal AI learning or small project needs",
+      id: "over-50k",
+      label: ">50,000€",
+      description: "Enterprise-level AI transformation project",
     },
   ];
 
@@ -38,7 +38,7 @@ export default function QuestionTwo({ onNext, onBack }) {
 
   const handleNext = () => {
     if (selectedOption) {
-      onNext({ questionTwo: selectedOption });
+      onNext({ questionThree: selectedOption });
     }
   };
 
@@ -46,12 +46,15 @@ export default function QuestionTwo({ onNext, onBack }) {
     <div className="onboarding-container">
       <div className="question-container">
         <div className="question-header">
-          <div className="question-progress">Question 2 of 3</div>
+          <div className="question-progress">Question 3 of 3</div>
 
-          <h2 className="question-title">What's your company size?</h2>
+          <h2 className="question-title">
+            There's a budget that you have in mind?
+          </h2>
 
           <p className="question-subtitle">
-            This helps us tailor our recommendations to your scale
+            This helps us recommend the most suitable solution for your
+            investment
           </p>
         </div>
 
@@ -91,7 +94,7 @@ export default function QuestionTwo({ onNext, onBack }) {
             disabled={!selectedOption}
             className={`btn-next ${selectedOption ? "enabled" : ""}`}
           >
-            Next Question
+            Get My Recommendations
           </button>
         </div>
       </div>

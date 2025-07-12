@@ -7,11 +7,12 @@ import "../style/onboarding.css";
 import OnboardingIntro from "./onboarding/OnboardingIntro";
 import QuestionOne from "./onboarding/QuestionOne";
 import QuestionTwo from "./onboarding/QuestionTwo";
+import QuestionThree from "./onboarding/QuestionThree";
 import OnboardingResults from "./onboarding/OnboardingResults";
 
 export default function ContactUs() {
   // Onboarding flow state
-  const [currentStep, setCurrentStep] = useState("intro"); // intro, question1, question2, results, traditional
+  const [currentStep, setCurrentStep] = useState("intro"); // intro, question1, question2, question3, results, traditional
   const [answers, setAnswers] = useState({});
 
   // Traditional form state
@@ -48,6 +49,11 @@ export default function ContactUs() {
 
   const handleQuestionTwoNext = (questionTwoAnswers) => {
     setAnswers((prev) => ({ ...prev, ...questionTwoAnswers }));
+    setCurrentStep("question3");
+  };
+
+  const handleQuestionThreeNext = (questionThreeAnswers) => {
+    setAnswers((prev) => ({ ...prev, ...questionThreeAnswers }));
     setCurrentStep("results");
   };
 
@@ -55,13 +61,12 @@ export default function ContactUs() {
     setCurrentStep("question1");
   };
 
-  const handleBackToIntro = () => {
-    setCurrentStep("intro");
+  const handleBackToQuestionTwo = () => {
+    setCurrentStep("question2");
   };
 
-  const handleStartOver = () => {
+  const handleBackToIntro = () => {
     setCurrentStep("intro");
-    setAnswers({});
   };
 
   const handleSkipToTraditional = () => {
@@ -132,10 +137,17 @@ export default function ContactUs() {
     );
   }
 
-  if (currentStep === "results") {
+  if (currentStep === "question3") {
     return (
-      <OnboardingResults answers={answers} onStartOver={handleStartOver} />
+      <QuestionThree
+        onNext={handleQuestionThreeNext}
+        onBack={handleBackToQuestionTwo}
+      />
     );
+  }
+
+  if (currentStep === "results") {
+    return <OnboardingResults answers={answers} />;
   }
 
   // Traditional contact form (fallback)

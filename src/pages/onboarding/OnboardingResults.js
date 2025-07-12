@@ -1,8 +1,10 @@
 import React, { useState, useRef } from "react";
 import emailjs from "@emailjs/browser";
 import "../../style/onboarding.css";
+import { useNavigate } from "react-router-dom";
 
-export default function OnboardingResults({ answers, onStartOver }) {
+export default function OnboardingResults({ answers }) {
+  const nav = useNavigate();
   const [formData, setFormData] = useState({
     name: "",
     email: "",
@@ -17,7 +19,7 @@ export default function OnboardingResults({ answers, onStartOver }) {
   // Generate recommendations based on answers
   const getRecommendations = () => {
     const recommendations = [];
-    const { questionOne, questionTwo } = answers;
+    const { questionOne, questionTwo, questionThree } = answers;
 
     // Service recommendations based on first question
     if (questionOne.includes("development")) {
@@ -70,6 +72,37 @@ export default function OnboardingResults({ answers, onStartOver }) {
         description:
           "Comprehensive, scalable AI infrastructure designed for large-scale enterprise deployment and management.",
         icon: "🏢",
+      });
+    }
+
+    // Add budget-specific recommendations
+    if (questionThree === "under-10k") {
+      recommendations.push({
+        title: "AI Starter Package",
+        description:
+          "Perfect entry-level AI solution with essential features and rapid deployment to get you started quickly.",
+        icon: "⚡",
+      });
+    } else if (questionThree === "10k-25k") {
+      recommendations.push({
+        title: "Professional AI Solution",
+        description:
+          "Comprehensive AI implementation with custom features, training, and ongoing support for growing businesses.",
+        icon: "🎯",
+      });
+    } else if (questionThree === "25k-50k") {
+      recommendations.push({
+        title: "Advanced AI Platform",
+        description:
+          "Full-scale AI transformation with advanced analytics, machine learning models, and enterprise integrations.",
+        icon: "🚀",
+      });
+    } else if (questionThree === "over-50k") {
+      recommendations.push({
+        title: "Enterprise AI Ecosystem",
+        description:
+          "Complete AI transformation with cutting-edge technology, dedicated support team, and scalable architecture.",
+        icon: "🏆",
       });
     }
 
@@ -127,8 +160,8 @@ export default function OnboardingResults({ answers, onStartOver }) {
             We've received your information and our team will contact you within
             24 hours with personalized recommendations based on your needs.
           </p>
-          <button onClick={onStartOver} className="btn-back">
-            Start Over
+          <button onClick={() => nav("/")} className="btn-back">
+            Home
           </button>
         </div>
       </div>

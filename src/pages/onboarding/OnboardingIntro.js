@@ -9,10 +9,10 @@ export default function OnboardingIntro({ onStart, onSkipToTraditional }) {
           Ride the AI wave with Datalumina®
         </h1>
         <p className="onboarding-intro__subtitle">
-          Answer two quick questions, and we'll connect you with the exact
+          Answer three quick questions, and we'll connect you with the exact
           resource, training, or service that will help you succeed.
         </p>
-        <p className="onboarding-intro__duration">(it takes 15 seconds)</p>
+        <p className="onboarding-intro__duration">(it takes 30 seconds)</p>
       </div>
 
       <div

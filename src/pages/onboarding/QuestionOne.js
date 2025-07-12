@@ -45,7 +45,7 @@ export default function QuestionOne({ onNext, onBack }) {
     <div className="onboarding-container">
       <div className="question-container">
         <div className="question-header">
-          <div className="question-progress">Question 1 of 2</div>
+          <div className="question-progress">Question 1 of 3</div>
 
           <h2 className="question-title">What best describes you?</h2>
 
