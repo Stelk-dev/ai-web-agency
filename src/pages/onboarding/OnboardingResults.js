@@ -120,10 +120,10 @@ export default function OnboardingResults({ answers }) {
     // Using EmailJS to send the form
     emailjs
       .send(
-        "service_l86qclt",
-        "template_6xfchin",
+        "service_n1w6heh",
+        "template_0zyhgt8",
         emailData,
-        "L7ua-WuLwhYL-Ji9Z"
+        "RjYrZTbtLg4YTFGlM"
       )
       .then((result) => {
         setIsSubmitting(false);

@@ -92,10 +92,10 @@ export default function ContactUs() {
     // Using the browser version of EmailJS
     emailjs
       .sendForm(
-        "service_l86qclt",
-        "template_6xfchin",
+        "service_n1w6heh",
+        "template_0zyhgt8",
         formRef.current,
-        "L7ua-WuLwhYL-Ji9Z"
+        "RjYrZTbtLg4YTFGlM"
       )
       .then((result) => {
         setIsSubmitting(false);
