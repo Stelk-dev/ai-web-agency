@@ -97,6 +97,8 @@ fetch('YOUR_N8N_WEBHOOK_URL/saveData', {
         "Automatizzare la raccolta dati da un form web con N8N ti permette di risparmiare tempo prezioso, ridurre gli errori manuali e migliorare la reattività nella gestione dei tuoi potenziali clienti. Questo flusso di lavoro non solo garantisce che nessun lead vada perso, ma ti fornisce anche i dati necessari nel momento giusto e nel formato desiderato.",
     },
     tags: ["N8N", "Webhook", "Google Sheets", "Gmail", "Automation"],
+    downloadLink:
+      "https://drive.google.com/file/d/1UxGqs81R98kJGf_tpTxXaEHX02nlLLub/view?usp=sharing",
   },
   // Add more blog posts here
 ];

@@ -167,7 +167,7 @@ export default function BlogPost() {
                 overflow: "hidden",
                 boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
                 position: "relative",
-                paddingTop: "56.25%" // 16:9 Aspect Ratio
+                paddingTop: "56.25%", // 16:9 Aspect Ratio
               }}
             >
               <iframe
@@ -526,99 +526,104 @@ export default function BlogPost() {
               </div>
             </div>
           )}
-          
+
           {/* Download Section */}
-          <div style={{ marginBottom: "40px" }}>
-            <div
-              style={{
-                backgroundColor: "rgba(59, 130, 246, 0.1)",
-                border: "1px solid rgba(59, 130, 246, 0.3)",
-                borderRadius: "8px",
-                padding: "24px",
-                display: "flex",
-                flexDirection: "column",
-                alignItems: "center",
-                justifyContent: "center",
-              }}
-            >
-              <h4
+          {post.downloadLink && (
+            <div style={{ marginBottom: "40px" }}>
+              <div
                 style={{
-                  fontSize: "1.1rem",
-                  fontWeight: "600",
-                  marginBottom: "16px",
-                  color: "white",
-                  textAlign: "center",
+                  backgroundColor: "rgba(59, 130, 246, 0.1)",
+                  border: "1px solid rgba(59, 130, 246, 0.3)",
+                  borderRadius: "8px",
+                  padding: "24px",
+                  display: "flex",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  justifyContent: "center",
                 }}
               >
-                Scarica la Risorsa
-              </h4>
-              
-              {post.image && post.image.fileImage && (
-                <div
+                <h4
                   style={{
-                    width: "100%",
-                    maxWidth: "500px",
-                    marginBottom: "20px",
-                    borderRadius: "6px",
-                    overflow: "hidden",
-                    border: "1px solid rgba(59, 130, 246, 0.5)",
-                    boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
+                    fontSize: "1.1rem",
+                    fontWeight: "600",
+                    marginBottom: "16px",
+                    color: "white",
+                    textAlign: "center",
                   }}
                 >
-                  <img
-                    src={post.image.fileImage}
-                    alt="Risorsa scaricabile"
+                  Scarica la Risorsa
+                </h4>
+
+                {post.image && post.image.fileImage && (
+                  <div
                     style={{
                       width: "100%",
-                      height: "auto",
-                      display: "block",
+                      maxWidth: "500px",
+                      marginBottom: "20px",
+                      borderRadius: "6px",
+                      overflow: "hidden",
+                      border: "1px solid rgba(59, 130, 246, 0.5)",
+                      boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
                     }}
-                  />
-                </div>
-              )}
-              
-              <p
-                style={{
-                  margin: "0 0 20px 0",
-                  color: "rgba(255, 255, 255, 0.9)",
-                  fontSize: "0.95rem",
-                  textAlign: "center",
-                  maxWidth: "90%",
-                }}
-              >
-                Accedi a materiale aggiuntivo scaricando il nostro file con il codice completo della soluzione
-              </p>
-              
-              <a
-                href="https://drive.google.com/file/d/16cNP_F5va9A89bL2fFjmk_V6RxwUFxEy/view?usp=drive_link"
-                target="_blank"
-                rel="noopener noreferrer"
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  gap: "8px",
-                  backgroundColor: "rgba(59, 130, 246, 0.8)",
-                  color: "white",
-                  padding: "12px 20px",
-                  borderRadius: "8px",
-                  textDecoration: "none",
-                  fontWeight: "500",
-                  transition: "all 0.2s ease",
-                }}
-                onMouseOver={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(59, 130, 246, 1)";
-                  e.currentTarget.style.transform = "translateY(-2px)";
-                }}
-                onMouseOut={(e) => {
-                  e.currentTarget.style.backgroundColor = "rgba(59, 130, 246, 0.8)";
-                  e.currentTarget.style.transform = "translateY(0)";
-                }}
-              >
-                <FiDownload style={{ width: "18px", height: "18px" }} />
-                Scarica File
-              </a>
+                  >
+                    <img
+                      src={post.image.fileImage}
+                      alt="Risorsa scaricabile"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        display: "block",
+                      }}
+                    />
+                  </div>
+                )}
+
+                <p
+                  style={{
+                    margin: "0 0 20px 0",
+                    color: "rgba(255, 255, 255, 0.9)",
+                    fontSize: "0.95rem",
+                    textAlign: "center",
+                    maxWidth: "90%",
+                  }}
+                >
+                  Accedi a materiale aggiuntivo scaricando il nostro file con il
+                  codice completo della soluzione
+                </p>
+
+                <a
+                  href={post.downloadLink}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    gap: "8px",
+                    backgroundColor: "rgba(59, 130, 246, 0.8)",
+                    color: "white",
+                    padding: "12px 20px",
+                    borderRadius: "8px",
+                    textDecoration: "none",
+                    fontWeight: "500",
+                    transition: "all 0.2s ease",
+                  }}
+                  onMouseOver={(e) => {
+                    e.currentTarget.style.backgroundColor =
+                      "rgba(59, 130, 246, 1)";
+                    e.currentTarget.style.transform = "translateY(-2px)";
+                  }}
+                  onMouseOut={(e) => {
+                    e.currentTarget.style.backgroundColor =
+                      "rgba(59, 130, 246, 0.8)";
+                    e.currentTarget.style.transform = "translateY(0)";
+                  }}
+                >
+                  <FiDownload style={{ width: "18px", height: "18px" }} />
+                  Scarica File
+                </a>
+              </div>
             </div>
-          </div>
+          )}
 
           {/* Conclusion */}
           {post.content.conclusion && (
