@@ -6,6 +6,7 @@ import CallToAction from "./homes/CallToAction";
 import SpaceGradientBackground from "../views/FullSkyView";
 import { getAllPosts, formatDate } from "../data/BlogPosts";
 import { FiClock, FiUser, FiCalendar, FiArrowRight } from "react-icons/fi";
+import { FaYoutube } from "react-icons/fa";
 
 export default function Blog() {
   const [t] = useTranslation("global");
@@ -104,9 +105,9 @@ export default function Blog() {
             {blogPosts.length > 0
               ? blogPosts.map((post) => (
                   <div key={post.id}>
-                    <Link 
+                    <Link
                       to={`/blog/${post.id}`}
-                      style={{ textDecoration: 'none' }}
+                      style={{ textDecoration: "none" }}
                     >
                       <div
                         className="blog-card"
@@ -313,11 +314,13 @@ export default function Blog() {
                               </div>
                             )}
                           </div>
-                          <p style={{ 
-                            fontSize: "1rem", 
-                            lineHeight: "1.5",
-                            color: "rgba(255, 255, 255, 0.9)"
-                          }}>
+                          <p
+                            style={{
+                              fontSize: "1rem",
+                              lineHeight: "1.5",
+                              color: "rgba(255, 255, 255, 0.9)",
+                            }}
+                          >
                             {post.excerpt}
                           </p>
                           <div
@@ -325,6 +328,7 @@ export default function Blog() {
                               marginTop: "20px",
                               display: "flex",
                               alignItems: "center",
+                              justifyContent: "space-between",
                             }}
                           >
                             <button
@@ -343,6 +347,29 @@ export default function Blog() {
                             >
                               {t("blog_page.read_more")} <FiArrowRight />
                             </button>
+                            {post.youtubeUrl && (
+                              <a
+                                href={post.youtubeUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                style={{
+                                  background: "none",
+                                  color: "#FF0000",
+                                  border: "none",
+                                  padding: "8px 0",
+                                  cursor: "pointer",
+                                  fontSize: "0.9rem",
+                                  fontWeight: "bold",
+                                  display: "flex",
+                                  alignItems: "center",
+                                  gap: "5px",
+                                  textDecoration: "none",
+                                }}
+                              >
+                                <FaYoutube style={{ fontSize: "1.1rem" }} />{" "}
+                                Watch on YouTube
+                              </a>
+                            )}
                           </div>
                         </div>
                       </div>
@@ -504,11 +531,13 @@ export default function Blog() {
                             </span>
                           </div>
                         </div>
-                        <p style={{ 
-                          fontSize: "1rem", 
-                          lineHeight: "1.5",
-                          color: "rgba(255, 255, 255, 0.9)"
-                        }}>
+                        <p
+                          style={{
+                            fontSize: "1rem",
+                            lineHeight: "1.5",
+                            color: "rgba(255, 255, 255, 0.9)",
+                          }}
+                        >
                           {t("blog_page.sample_excerpt")}
                         </p>
                         <div
@@ -516,6 +545,7 @@ export default function Blog() {
                             marginTop: "20px",
                             display: "flex",
                             alignItems: "center",
+                            justifyContent: "space-between",
                           }}
                         >
                           <button
@@ -534,6 +564,27 @@ export default function Blog() {
                           >
                             {t("blog_page.read_more")} <FiArrowRight />
                           </button>
+                          <a
+                            href="https://www.youtube.com/watch?v=mPYkaHbH-_4"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{
+                              background: "none",
+                              color: "#FF0000",
+                              border: "none",
+                              padding: "8px 0",
+                              cursor: "pointer",
+                              fontSize: "0.9rem",
+                              fontWeight: "bold",
+                              display: "flex",
+                              alignItems: "center",
+                              gap: "5px",
+                              textDecoration: "none",
+                            }}
+                          >
+                            <FaYoutube style={{ fontSize: "1.1rem" }} /> Watch
+                            on YouTube
+                          </a>
                         </div>
                       </div>
                     </div>

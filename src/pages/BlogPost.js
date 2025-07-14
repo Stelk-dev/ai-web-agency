@@ -13,6 +13,7 @@ import {
   FiMail,
   FiArrowRight,
 } from "react-icons/fi";
+import { FaYoutube } from "react-icons/fa";
 
 export default function BlogPost() {
   const [t] = useTranslation("global");
@@ -50,6 +51,19 @@ export default function BlogPost() {
       </div>
     );
   }
+
+  // Get YouTube video ID from URL if it exists
+  const getYoutubeVideoId = (url) => {
+    if (!url) return null;
+    const regExp =
+      /^.*((youtu.be\/)|(v\/)|(\/u\/\w\/)|(embed\/)|(watch\?))\??v?=?([^#&?]*).*/;
+    const match = url.match(regExp);
+    return match && match[7] && match[7].length === 11 ? match[7] : null;
+  };
+
+  const youtubeVideoId = post.youtubeUrl
+    ? getYoutubeVideoId(post.youtubeUrl)
+    : null;
 
   // Map icons to components
   const getIconComponent = (iconName) => {
@@ -143,6 +157,35 @@ export default function BlogPost() {
             {post.subtitle}
           </h2>
 
+          {/* YouTube Video Player */}
+          {youtubeVideoId && (
+            <div
+              style={{
+                marginBottom: "24px",
+                borderRadius: "12px",
+                overflow: "hidden",
+                boxShadow: "0 4px 6px rgba(0, 0, 0, 0.1)",
+                position: "relative",
+                paddingTop: "56.25%", // 16:9 Aspect Ratio
+              }}
+            >
+              <iframe
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: "none",
+                }}
+                src={`https://www.youtube.com/embed/${youtubeVideoId}`}
+                title={post.title}
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+              ></iframe>
+            </div>
+          )}
+
           <div
             style={{
               display: "flex",
@@ -200,6 +243,35 @@ export default function BlogPost() {
                   {post.readTime} lettura
                 </span>
               </div>
+            )}
+            {post.youtubeUrl && (
+              <a
+                href={post.youtubeUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  gap: "8px",
+                  color: "#FF0000",
+                  textDecoration: "none",
+                }}
+              >
+                <FaYoutube
+                  style={{
+                    width: "16px",
+                    height: "16px",
+                  }}
+                />
+                <span
+                  style={{
+                    fontSize: "14px",
+                    color: "rgba(255, 255, 255, 0.7)",
+                  }}
+                >
+                  YouTube
+                </span>
+              </a>
             )}
           </div>
         </header>

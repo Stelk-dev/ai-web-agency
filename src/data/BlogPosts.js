@@ -23,6 +23,7 @@ export const blogPosts = [
     author: "Tech Guide",
     readTime: "8 min",
     category: "Automazione",
+    youtubeUrl: "https://www.youtube.com/watch?v=mPYkaHbH-_4",
     image: {
       type: "gradient",
       colors: ["#3B82F6", "#60A5FA"],
