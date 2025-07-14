@@ -5,7 +5,8 @@
    "navbar": {
       "home": "Home",
       "services": "Servizi",
-      "cases": "Casi"
+      "cases": "Casi",
+      "blog": "Blog"
    },
    "buttons": {
       "get_in_touch": "CONTATTACI"
@@ -123,6 +124,13 @@
    "use_cases_page": {
       "title": "Casi d'Uso Algorithmx",
       "description": "Ecco alcuni dei nostri progetti più recenti che mostrano come abbiamo aiutato le organizzazioni a trasformare le loro sfide in vantaggi competitivi attraverso soluzioni AI e dati"
+   },
+   "blog_page": {
+      "title": "Blog Algorithmx",
+      "description": "Approfondimenti, guide e prospettive del settore su AI, soluzioni di dati e trasformazione digitale per aiutarti a navigare nel panorama tecnologico in evoluzione",
+      "sample_title": "Articolo sull'Innovazione AI",
+      "sample_excerpt": "Scopri le ultime tendenze e innovazioni nell'intelligenza artificiale e come stanno trasformando le industrie in tutto il mondo.",
+      "read_more": "Leggi di Più"
    },
    "contact_page": {
       "title": "Mettiti in contatto",

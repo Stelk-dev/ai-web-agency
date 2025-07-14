@@ -5,7 +5,8 @@
    "navbar": {
       "home": "Home",
       "services": "Services",
-      "cases": "Cases"
+      "cases": "Cases",
+      "blog": "Blog"
    },
    "buttons": {
       "get_in_touch": "GET IN TOUCH"
@@ -123,6 +124,13 @@
    "use_cases_page": {
       "title": "Algorithmx Use Cases",
       "description": "Here are some of our most recent projects showcasing how we've helped organizations transform their challenges into competitive advantages through AI and data solutions"
+   },
+   "blog_page": {
+      "title": "Algorithmx Blog",
+      "description": "Insights, guides, and industry perspectives on AI, data solutions, and digital transformation to help you navigate the evolving technological landscape",
+      "sample_title": "AI Innovation Article",
+      "sample_excerpt": "Discover the latest trends and breakthroughs in artificial intelligence and how they're transforming industries across the globe.",
+      "read_more": "Read More"
    },
    "contact_page": {
       "title": "Get in touch",

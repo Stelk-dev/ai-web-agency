@@ -75,6 +75,9 @@ const Navbar = () => {
         <Link to="/use-cases" onClick={closeMobileMenu}>
           {t("navbar.cases")}
         </Link>
+        <Link to="/blog" onClick={closeMobileMenu}>
+          {t("navbar.blog")}
+        </Link>
 
         {/* Mobile-only button */}
         <div className="mobile-contact-button" onClick={closeMobileMenu}>

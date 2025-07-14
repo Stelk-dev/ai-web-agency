@@ -6,6 +6,7 @@ import ContactUs from "./pages/ContactUs";
 import UseCasesPage from "./pages/UseCasesPage";
 import UseCasePage from "./pages/usecases/UseCasePage";
 import Services from "./pages/Services";
+import Blog from "./pages/Blog";
 import { useAllCases } from "./UseCases";
 
 function App() {
@@ -28,6 +29,7 @@ function App() {
           {/* <Route path="/about" element={<AboutUs />} /> */}
           <Route path="/services" element={<Services />} />
           <Route path="/use-cases" element={<UseCasesPage />} />
+          <Route path="/blog" element={<Blog />} />
           <Route path="/contact-us" element={<ContactUs />} />
 
           {allCases.map((item) => (
