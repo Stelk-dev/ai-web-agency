@@ -130,7 +130,15 @@
       "description": "Approfondimenti, guide e prospettive del settore su AI, soluzioni di dati e trasformazione digitale per aiutarti a navigare nel panorama tecnologico in evoluzione",
       "sample_title": "Articolo sull'Innovazione AI",
       "sample_excerpt": "Scopri le ultime tendenze e innovazioni nell'intelligenza artificiale e come stanno trasformando le industrie in tutto il mondo.",
-      "read_more": "Leggi di Più"
+      "read_more": "Leggi di Più",
+      "sample_subtitle": "Esplorando Nuove Possibilità",
+      "sample_category": "Tecnologia",
+      "sample_author": "Team Algorithmx",
+      "no_date": "Data non disponibile"
+   },
+   "blog_post": {
+      "not_found": "Articolo non trovato",
+      "back_to_blog": "Torna al Blog"
    },
    "contact_page": {
       "title": "Mettiti in contatto",

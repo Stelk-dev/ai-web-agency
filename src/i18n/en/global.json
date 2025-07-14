@@ -130,7 +130,15 @@
       "description": "Insights, guides, and industry perspectives on AI, data solutions, and digital transformation to help you navigate the evolving technological landscape",
       "sample_title": "AI Innovation Article",
       "sample_excerpt": "Discover the latest trends and breakthroughs in artificial intelligence and how they're transforming industries across the globe.",
-      "read_more": "Read More"
+      "read_more": "Read More",
+      "sample_subtitle": "Exploring New Possibilities",
+      "sample_category": "Technology",
+      "sample_author": "Algorithmx Team",
+      "no_date": "No date available"
+   },
+   "blog_post": {
+      "not_found": "Blog post not found",
+      "back_to_blog": "Back to Blog"
    },
    "contact_page": {
       "title": "Get in touch",

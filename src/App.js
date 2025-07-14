@@ -7,6 +7,7 @@ import UseCasesPage from "./pages/UseCasesPage";
 import UseCasePage from "./pages/usecases/UseCasePage";
 import Services from "./pages/Services";
 import Blog from "./pages/Blog";
+import BlogPost from "./pages/BlogPost";
 import { useAllCases } from "./UseCases";
 
 function App() {
@@ -30,6 +31,7 @@ function App() {
           <Route path="/services" element={<Services />} />
           <Route path="/use-cases" element={<UseCasesPage />} />
           <Route path="/blog" element={<Blog />} />
+          <Route path="/blog/:id" element={<BlogPost />} />
           <Route path="/contact-us" element={<ContactUs />} />
 
           {allCases.map((item) => (
