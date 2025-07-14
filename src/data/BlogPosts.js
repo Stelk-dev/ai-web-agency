@@ -10,7 +10,8 @@
 // - tags: array of tags for categorization
 
 // Import blog post images
-import n8nImage from "../assets/blog-posts/n8n.png";
+import n8nImage from "../assets/blog-posts/1/n8n.png";
+import n8nAgentCode from "../assets/blog-posts/1/n8n_agent_code.png";
 
 export const blogPosts = [
   {
@@ -28,6 +29,7 @@ export const blogPosts = [
       type: "gradient",
       colors: ["#3B82F6", "#60A5FA"],
       hoverImage: n8nImage,
+      fileImage: n8nAgentCode,
     },
     steps: [
       {
