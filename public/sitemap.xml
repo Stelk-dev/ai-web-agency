@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset 
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+
+  <url>
+    <loc>https://algorithmx.agency/</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/" />
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+  </url>
+
+
+  <url>
+    <loc>https://algorithmx.agency/services</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/services" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/services" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://algorithmx.agency/use-cases</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/use-cases" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/use-cases" />
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+  <url>
+    <loc>https://algorithmx.agency/blog</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/blog" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/blog" />
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://algorithmx.agency/contact-us</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/contact-us" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/contact-us" />
+    <changefreq>yearly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+ 
+  <url>
+    <loc>https://algorithmx.agency/blog/1</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/blog/1" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/blog/1" />
+    <changefreq>yearly</changefreq>
+    <priority>0.6</priority>
+  </url>
+
+ 
+  <url>
+    <loc>https://algorithmx.agency/use-case/suprem-milk</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/use-case/suprem-milk" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/use-case/suprem-milk" />
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://algorithmx.agency/use-case/n-and-group</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/use-case/n-and-group" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/use-case/n-and-group" />
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://algorithmx.agency/use-case/virality-system</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/use-case/virality-system" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/use-case/virality-system" />
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+  <url>
+    <loc>https://algorithmx.agency/use-case/extra-outdoor</loc>
+    <xhtml:link rel="alternate" hreflang="en" href="https://algorithmx.agency/use-case/extra-outdoor" />
+    <xhtml:link rel="alternate" hreflang="it" href="https://algorithmx.agency/it/use-case/extra-outdoor" />
+    <changefreq>yearly</changefreq>
+    <priority>0.8</priority>
+  </url>
+
+</urlset>
