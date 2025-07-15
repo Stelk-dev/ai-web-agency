@@ -13,6 +13,7 @@ import NextJs from "../assets/icons/next-js.png";
 import UseCasesHome from "./homes/UseCasesHome";
 import ResponsiveCardList from "./homes/OurServicesHome";
 import CallToAction from "./homes/CallToAction";
+import SEO from "../components/SEO/SEO";
 
 const CircleCarousel = () => {
   const [isMobile, setIsMobile] = useState(false);
@@ -184,111 +185,122 @@ export default function Services() {
       behavior: "instant",
     });
   }, []);
+  const seo = t("seo.services_page", { returnObjects: true });
 
   return (
-    <div
-      style={{
-        backgroundColor: "black",
-        flexDirection: "column",
-      }}
-      className="center-div"
-    >
-      {/* Background */}
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        robots={seo.robots}
+        canonical={seo.canonical}
+        schema={seo.schema}
+      />
       <div
         style={{
-          position: "absolute",
-          top: 0,
-          left: "50%",
-          transform: "translateX(-50%)",
-          width: "85%",
-          height: "85%",
+          backgroundColor: "black",
+          flexDirection: "column",
         }}
+        className="center-div"
       >
-        <SpaceGradientBackground
-          starsNumber={15}
-          glowingStarsNumber={14}
-          backgroundColorBlack={true}
-        />
-      </div>
-
-      {/* Content */}
-      <div
-        style={{
-          height: "80vh",
-          display: "flex",
-          alignItems: "center",
-          justifyContent: "center",
-          textAlign: "center",
-          color: "white",
-          padding: "0px 24px",
-        }}
-      >
+        {/* Background */}
         <div
           style={{
-            width: "100%",
-            position: "relative",
-            zIndex: 10,
-            height: "100%",
-            display: "flex",
-            flexDirection: "column",
-            justifyContent: "center",
-            alignItems: "center",
-            maxWidth: "800px",
+            position: "absolute",
+            top: 0,
+            left: "50%",
+            transform: "translateX(-50%)",
+            width: "85%",
+            height: "85%",
           }}
         >
-          <h1
-            style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
-          >
-            {t("services_page.title")}
-          </h1>
-          <p style={{ margin: "0px", padding: "0px" }}>
-            {t("services_page.description")}
-          </p>
+          <SpaceGradientBackground
+            starsNumber={15}
+            glowingStarsNumber={14}
+            backgroundColorBlack={true}
+          />
         </div>
-      </div>
 
-      {/* Tools used */}
-      <FadeInSection>
+        {/* Content */}
         <div
           style={{
-            width: "100vw",
+            height: "80vh",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            textAlign: "center",
             color: "white",
+            padding: "0px 24px",
           }}
         >
-          <div style={{ padding: "0px 24px" }}>
-            <div className="center-div">
-              <h1
-                style={{
-                  fontWeight: "500",
-                  fontSize: "36px",
-                  lineHeight: "1.2",
-                  margin: "0px",
-                }}
-              >
-                {t("services_page.tools_title")}
-              </h1>
-            </div>
-
-            <div className="center-div">
-              <CircleCarousel />
-            </div>
+          <div
+            style={{
+              width: "100%",
+              position: "relative",
+              zIndex: 10,
+              height: "100%",
+              display: "flex",
+              flexDirection: "column",
+              justifyContent: "center",
+              alignItems: "center",
+              maxWidth: "800px",
+            }}
+          >
+            <h1
+              style={{ fontWeight: "600", fontSize: "60px", lineHeight: "1.2" }}
+            >
+              {t("services_page.title")}
+            </h1>
+            <p style={{ margin: "0px", padding: "0px" }}>
+              {t("services_page.description")}
+            </p>
           </div>
         </div>
-      </FadeInSection>
 
-      <FadeInSection>
-        <ResponsiveCardList />
-      </FadeInSection>
-      <div style={{ height: "300px" }} />
+        {/* Tools used */}
+        <FadeInSection>
+          <div
+            style={{
+              width: "100vw",
+              color: "white",
+            }}
+          >
+            <div style={{ padding: "0px 24px" }}>
+              <div className="center-div">
+                <h1
+                  style={{
+                    fontWeight: "500",
+                    fontSize: "36px",
+                    lineHeight: "1.2",
+                    margin: "0px",
+                  }}
+                >
+                  {t("services_page.tools_title")}
+                </h1>
+              </div>
 
-      <FadeInSection>
-        <UseCasesHome colorText="white" />
-      </FadeInSection>
-      <div style={{ height: "300px" }} />
+              <div className="center-div">
+                <CircleCarousel />
+              </div>
+            </div>
+          </div>
+        </FadeInSection>
 
-      <FadeInSection>
-        <CallToAction />
-      </FadeInSection>
-    </div>
+        <FadeInSection>
+          <ResponsiveCardList />
+        </FadeInSection>
+        <div style={{ height: "300px" }} />
+
+        <FadeInSection>
+          <UseCasesHome colorText="white" />
+        </FadeInSection>
+        <div style={{ height: "300px" }} />
+
+        <FadeInSection>
+          <CallToAction />
+        </FadeInSection>
+      </div>
+    </>
   );
 }

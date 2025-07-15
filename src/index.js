@@ -10,6 +10,7 @@ import i18next from "i18next";
 import { I18nextProvider } from "react-i18next";
 import global_en from "./i18n/en/global.json";
 import global_it from "./i18n/it/global.json";
+import { HelmetProvider } from "react-helmet-async";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 
 i18next.init({
@@ -27,7 +28,9 @@ root.render(
   <React.StrictMode>
     <I18nextProvider i18n={i18next}>
       <BrowserRouter>
-        <App />
+        <HelmetProvider>
+          <App />
+        </HelmetProvider>
       </BrowserRouter>
     </I18nextProvider>
   </React.StrictMode>

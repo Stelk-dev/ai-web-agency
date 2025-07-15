@@ -1,362 +1,497 @@
 {
-   "welcome": "Benvenuto",
-   "thank_you": "Grazie",
-   "goodbye": "Arrivederci",
-   "navbar": {
-      "home": "Home",
-      "services": "Servizi",
-      "cases": "Casi",
-      "blog": "Blog"
-   },
-   "buttons": {
-      "get_in_touch": "CONTATTACI"
-   },
-   "header": {
-      "description": "L'IA e i dati rimodellano il nostro mondo a una velocità implacabile, eppure molti si trovano intrappolati tra possibilità e complessità. Siamo qui per aiutarti a identificare ciò che davvero fornisce quel vantaggio competitivo.",
-      "check_portfolio": "GUARDA IL PORTFOLIO"
-   },
-   "services": {
-      "title": "I nostri servizi",
-      "description": "Dalla costruzione di piattaforme AI di livello enterprise alla guida della trasformazione digitale e al miglioramento delle competenze dei team di sviluppo, ti aiutiamo a superare qualsiasi confine di ciò che è possibile, indirizzandoti verso tecnologie AI e dati che hanno senso per aiutarti a crescere.",
-      "features": {
-         "llms": {
-            "title": "Costruzione di Sistemi con LLM",
-            "subtitle": "La nostra competenza nei LLM ci permette di creare e ottimizzare potenti sistemi basati su IA su misura per le tue esigenze"
-         },
-         "production": {
-            "title": "Soluzioni AI Pronte per la Produzione",
-            "subtitle": "Ti guidiamo attraverso l'intero processo, dalla prototipazione alla produzione su larga scala, assicurando che le tue iniziative AI siano di successo e sostenibili"
-         },
-         "data_platform": {
-            "title": "Ingegneria di Piattaforme Dati",
-            "subtitle": "Progettiamo e costruiamo piattaforme dati scalabili e robuste su Azure per supportare le tue iniziative AI"
-         },
-         "deploying": {
-            "title": "Distribuzione di Applicazioni AI",
-            "subtitle": "Garantiamo che le tue applicazioni centrate sui dati e AI siano distribuite senza problemi, con affidabilità e scalabilità in mente."
-         },
-         "upskilling": {
-            "title": "Formazione del Tuo Team di Ingegneria",
-            "subtitle": "Forniamo formazione pratica per elevare le competenze AI del tuo team, assicurando che siano equipaggiati per gestire le ultime tecnologie e le migliori pratiche"
-         },
-         "integrating": {
-            "title": "Integrazione dell'AI nel Tuo Stack",
-            "subtitle": "Ti aiutiamo ad incorporare l'AI nei tuoi sistemi attuali per migliorare le loro capacità senza interrompere le tue operazioni."
-         }
+  "seo": {
+    "home": {
+      "title": "Algorithmx – Agenzia AI ed Esperti LLM",
+      "description": "Creiamo sistemi AI di livello enterprise, piattaforme dati scalabili e aiutiamo i team ad abbracciare il futuro dell’intelligenza artificiale.",
+      "keywords": "Agenzia AI, LLMs, Azure, data engineering, soluzioni AI, Algorithmx",
+      "canonical": "https://algorithmx.agency",
+      "robots": "index, follow",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "Algorithmx",
+        "url": "https://algorithmx.agency",
+        "logo": "https://algorithmx.agency/logo192.png",
+        "description": "Aiutiamo le aziende ad adottare l’AI attraverso sistemi LLM scalabili, piattaforme dati e consulenza esperta.",
+        "sameAs": [
+          "https://www.linkedin.com/company/algorithmx-agency",
+          "https://twitter.com/algorithmxai"
+        ],
+        "address": {
+          "@type": "PostalAddress",
+          "addressCountry": "IT",
+          "addressLocality": "Italia"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "Customer Support",
+          "email": "info@algorithmx.agency"
+        }
       }
-   },
-   "use_cases": {
-      "title": "I nostri progetti più recenti",
-      "description": "Il nostro track record va dallo sviluppo della strategia iniziale alla piena implementazione, concentrandoci sempre su risultati pratici che generano un solido valore aziendale. Ecco alcuni dei nostri progetti più recenti:",
-      "read": "Leggi"
-   },
-   "testimonials": {
-      "title": "Cosa dicono i nostri clienti",
-      "description": "In Ankor, riuniamo un decennio di esperienza in ingegneria AI, sviluppo software e consulenza aziendale per aiutarti a tagliare attraverso il rumore e trasformare le possibilità in soluzioni pratiche.",
-      "happy_clients": "40+ clienti soddisfatti",
-      "reviews": {
-         "giuseppe_sartori": {
-            "name": "Giuseppe Sartori",
-            "text": "Algorithmx ha fornito uno strumento di previsione basato su AI che ha migliorato significativamente la nostra gestione dell'inventario. Il loro team ha compreso le nostre esigenze complesse e ha fornito una soluzione pratica e di alta qualità che ha ridotto gli sprechi e risparmiato costi. Molto professionali ed efficaci.",
-            "company": "GLOBAL LOGISTICS"
-         },
-         "davide_laterza": {
-            "name": "Davide Laterza",
-            "text": "Avevamo bisogno di automatizzare le nostre risposte al supporto clienti. Algorithmx ha sviluppato un chatbot AI personalizzato che gestisce le richieste in modo efficiente, migliorando i tempi di risposta e la soddisfazione dei clienti. La loro competenza ha reso l'integrazione senza problemi.",
-            "company": "TECH SOLUTIONS INC."
-         },
-         "luigi_simonetti": {
-            "name": "Luigi Simonetti",
-            "text": "Algorithmx ci ha aiutato ad analizzare grandi dataset per identificare le tendenze chiave del mercato. Gli insight ottenuti dal loro modello AI sono stati inestimabili per la nostra pianificazione strategica. Il loro team ha fornito spiegazioni chiare e supporto eccellente durante tutto il progetto.",
-            "company": "INSIGHT ANALYTICS"
-         },
-         "luca_corradini": {
-            "name": "Luca Corradini",
-            "text": "La nostra sfida era ottimizzare la nostra linea di produzione. Algorithmx ha implementato un sistema AI che monitora le operazioni e suggerisce miglioramenti in tempo reale. Abbiamo visto un aumento notevole dell'efficienza grazie al loro servizio di alta qualità.",
-            "company": "PRECISION MFG."
-         },
-         "michele_lombardi": {
-            "name": "Michele Lombardi",
-            "text": "Algorithmx ha sviluppato una soluzione di manutenzione predittiva per le nostre attrezzature, riducendo significativamente i tempi di inattività. La loro competenza AI ci ha aiutato ad anticipare i guasti prima che accadessero. Un partner davvero prezioso per le nostre operazioni.",
-            "company": "HEAVY INDUSTRY CO."
-         },
-         "alessandro_lodi": {
-            "name": "Alessandro Lodi",
-            "text": "Abbiamo collaborato con Algorithmx per migliorare i nostri sistemi di rilevamento frodi. La soluzione AI che hanno costruito è altamente accurata e ci ha fatto risparmiare importi sostanziali identificando rapidamente attività sospette. Il loro team era competente e reattivo.",
-            "company": "SECURE FINANCE"
-         },
-         "robert_miller": {
-            "name": "Robert Miller",
-            "text": "Algorithmx ha fornito una soluzione AI per personalizzare le nostre campagne di marketing. I risultati sono stati impressionanti, con tassi di coinvolgimento più alti e migliori conversioni. Il loro approccio era professionale e focalizzato sul fornire risultati tangibili.",
-            "company": "CONNECT MARKETING"
-         },
-         "jessica_davis": {
-            "name": "Jessica Davis",
-            "text": "Il motore di raccomandazione alimentato da AI costruito da Algorithmx ha migliorato notevolmente l'esperienza utente sulla nostra piattaforma. Hanno compreso i nostri obiettivi e hanno fornito un sistema di alta qualità che guida la retention degli utenti. Lavoro eccellente!",
-            "company": "ONLINE PLATFORMS LTD."
-         },
-         "william_wilson": {
-            "name": "William Wilson",
-            "text": "Algorithmx ci ha aiutato a semplificare l'elaborazione dei nostri documenti usando l'AI. Quello che prima richiedeva giorni ora richiede ore. La loro soluzione si è integrata perfettamente con i nostri sistemi esistenti. Raccomando vivamente i loro servizi AI di alta qualità.",
-            "company": "ADMIN SOLUTIONS"
-         }
+    },
+    "services_page": {
+      "title": "Servizi AI – Algorithmx",
+      "description": "Esplora i nostri servizi AI: sistemi LLM, piattaforme basate su Azure, automazione e formazione per il tuo team.",
+      "keywords": "servizi AI, machine learning, automazione, Azure AI, sviluppo AI",
+      "robots": "index, follow",
+      "canonical": "https://algorithmx.agency/services",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Servizi AI – Algorithmx",
+        "description": "Esplora i nostri servizi AI: sistemi LLM, piattaforme basate su Azure, automazione e formazione per il tuo team.",
+        "url": "https://algorithmx.agency/services"
       }
-   },
-   "call_to_action": {
-      "tag": "Ho un'idea...",
-      "title": "Trasformiamo la complessità in capacità",
-      "description": "Che tu stia cercando di automatizzare processi, semplificare operazioni o sbloccare nuove opportunità – lavoreremo insieme al tuo team per implementare soluzioni che crescono (con) il tuo business."
-   },
-   "about_us": {
-      "title": "Chi Siamo",
-      "description": "Al giorno d'oggi, rimanere all'avanguardia spesso significa trasformare dati e IA in valore aziendale. Ma con innumerevoli soluzioni e approcci disponibili, come identificare e implementare ciò che conta davvero per la tua organizzazione? Cosa serve per diventare un'azienda AI-first? Siamo qui per aiutarti a prendere le decisioni giuste."
-   },
-   "use_case_page": {
-      "the_problem": "Il problema",
-      "the_solution": "La soluzione",
-      "the_result": "Il risultato"
-   },
-   "services_page": {
-      "title": "Servizi Algorithmx",
-      "description": "Al giorno d'oggi, rimanere all'avanguardia spesso significa trasformare dati e IA in valore aziendale. Ma con innumerevoli soluzioni e approcci disponibili, come identificare e implementare ciò che conta davvero per la tua organizzazione? Cosa serve per diventare un'azienda AI-first? Siamo qui per aiutarti a prendere le decisioni giuste",
-      "tools_title": "I migliori strumenti per il miglior lavoro"
-   },
-   "use_cases_page": {
-      "title": "Casi d'Uso Algorithmx",
-      "description": "Ecco alcuni dei nostri progetti più recenti che mostrano come abbiamo aiutato le organizzazioni a trasformare le loro sfide in vantaggi competitivi attraverso soluzioni AI e dati"
-   },
-   "blog_page": {
-      "title": "Blog Algorithmx",
-      "description": "Approfondimenti, guide e prospettive del settore su AI, soluzioni di dati e trasformazione digitale per aiutarti a navigare nel panorama tecnologico in evoluzione",
-      "sample_title": "Articolo sull'Innovazione AI",
-      "sample_excerpt": "Scopri le ultime tendenze e innovazioni nell'intelligenza artificiale e come stanno trasformando le industrie in tutto il mondo.",
-      "read_more": "Leggi di Più",
-      "sample_subtitle": "Esplorando Nuove Possibilità",
-      "sample_category": "Tecnologia",
-      "sample_author": "Team Algorithmx",
-      "no_date": "Data non disponibile"
-   },
-   "blog_post": {
-      "not_found": "Articolo non trovato",
-      "back_to_blog": "Torna al Blog"
-   },
-   "contact_page": {
-      "title": "Mettiti in contatto",
-      "subtitle": "Hai una domanda o vuoi discutere un progetto? Compila il modulo qui sotto e il nostro team ti risponderà entro 24 ore.",
-      "try_recommendations": "Oppure prova le nostre raccomandazioni personalizzate rapide (15 secondi)",
-      "thank_you_title": "Grazie!",
-      "thank_you_message": "Il tuo messaggio è stato inviato con successo. Ti risponderemo entro 24 ore.",
+    },
+    "use_cases": {
+      "title": "Casi d'Uso AI – Algorithmx",
+      "description": "Studi reali che mostrano come abbiamo aiutato le aziende ad avere successo con AI e piattaforme dati.",
+      "keywords": "casi d'uso AI, esempi di progetto, piattaforme dati, soluzioni AI",
+      "robots": "index, follow",
+      "canonical": "https://algorithmx.agency/use-cases",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": "Casi d'Uso AI – Algorithmx",
+        "description": "Studi reali che mostrano come abbiamo aiutato le aziende ad avere successo con AI e piattaforme dati.",
+        "url": "https://algorithmx.agency/use-cases"
+      }
+    },
+    "blog": {
+      "title": "Blog & Tutorial AI – Algorithmx",
+      "description": "Scopri approfondimenti, guide pratiche e articoli esperti su automazione, flussi AI, data engineering e altro.",
+      "keywords": "blog AI, guide automazione, tutorial N8N, machine learning, consigli AI",
+      "robots": "index, follow",
+      "canonical": "https://algorithmx.agency/blog",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "Blog",
+        "name": "Blog & Tutorial AI – Algorithmx",
+        "description": "Scopri approfondimenti, guide pratiche e articoli esperti su automazione, flussi AI, data engineering e altro.",
+        "url": "https://algorithmx.agency/blog"
+      }
+    },
+    "blog_post_1": {
+      "title": "Automatizza la Raccolta Dati da un Modulo Web: Guida Pratica con N8N",
+      "description": "Scopri come automatizzare l’invio di moduli web usando N8N con questo tutorial step-by-step di Algorithmx.",
+      "keywords": "automazione N8N, integrazione moduli web, raccolta dati, strumenti AI",
+      "robots": "index, follow",
+      "canonical": "https://algorithmx.agency/blog/1",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "headline": "Automatizza la Raccolta Dati da un Modulo Web: Guida Pratica con N8N",
+        "description": "Scopri come automatizzare l’invio di moduli web usando N8N con questo tutorial step-by-step di Algorithmx.",
+        "url": "https://algorithmx.agency/blog/1",
+        "author": {
+          "@type": "Organization",
+          "name": "Algorithmx"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "Algorithmx",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://algorithmx.agency/logo.png"
+          }
+        },
+        "mainEntityOfPage": "https://algorithmx.agency/blog/1",
+        "datePublished": "2025-07-01"
+      }
+    },
+    "contact_us": {
+      "title": "Contatta Algorithmx – Mettiti in Contatto",
+      "description": "Pronto a portare l’AI nella tua azienda? Contatta il nostro team per iniziare il tuo percorso.",
+      "keywords": "contatta agenzia AI, supporto Algorithmx, consulenza soluzioni AI",
+      "robots": "index, follow",
+      "canonical": "https://algorithmx.agency/contact-us",
+      "schema": {
+        "@context": "https://schema.org",
+        "@type": "ContactPage",
+        "name": "Contatta Algorithmx – Mettiti in Contatto",
+        "description": "Pronto a portare l’AI nella tua azienda? Contatta il nostro team per iniziare il tuo percorso.",
+        "url": "https://algorithmx.agency/contact-us"
+      }
+    },
+    "project_supremmilk": {
+      "title": "Caso Studio: Suprem Milk – Automazione Contenuti per Crypto Insiders",
+      "description": "Abbiamo creato una piattaforma scalabile per automatizzare la creazione e distribuzione di contenuti per Crypto Insiders.",
+      "keywords": "Crypto Insiders, automazione contenuti, Suprem Milk, pubblicazione AI"
+    },
+    "project_nandgroup": {
+      "title": "Caso Studio: N and Group – Visualizzazione per Calcolo Quantistico",
+      "description": "Per questa azienda tech quantistica, abbiamo creato una dashboard intuitiva per analizzare output computazionali complessi.",
+      "keywords": "calcolo quantistico, visualizzazione dati, AI aziendale, N and Group"
+    },
+    "project_viralitysystem": {
+      "title": "Caso Studio: Virality System – Piattaforma Dati Ambientali in Tempo Reale",
+      "description": "Abbiamo sviluppato una piattaforma di analisi scalabile per il monitoraggio ambientale in tempo reale su migliaia di località.",
+      "keywords": "analisi ambientale, dati in tempo reale, piattaforma IoT, sostenibilità, Virality System"
+    },
+    "project_extraoutdoor": {
+      "title": "Caso Studio: Extra Outdoor – Ottimizzazione Marketing con Analisi AI",
+      "description": "Extra Outdoor ha aumentato i tassi di conversione del 20% grazie ai nostri strumenti di analisi AI per il comportamento dei clienti.",
+      "keywords": "marketing AI, analisi clienti, ottimizzazione conversioni, Extra Outdoor"
+    }
+  },
+  "welcome": "Benvenuto",
+  "thank_you": "Grazie",
+  "goodbye": "Arrivederci",
+  "navbar": {
+    "home": "Home",
+    "services": "Servizi",
+    "cases": "Casi",
+    "blog": "Blog"
+  },
+  "buttons": {
+    "get_in_touch": "CONTATTACI"
+  },
+  "header": {
+    "description": "L'IA e i dati rimodellano il nostro mondo a una velocità implacabile, eppure molti si trovano intrappolati tra possibilità e complessità. Siamo qui per aiutarti a identificare ciò che davvero fornisce quel vantaggio competitivo.",
+    "check_portfolio": "GUARDA IL PORTFOLIO"
+  },
+  "services": {
+    "title": "I nostri servizi",
+    "description": "Dalla costruzione di piattaforme AI di livello enterprise alla guida della trasformazione digitale e al miglioramento delle competenze dei team di sviluppo, ti aiutiamo a superare qualsiasi confine di ciò che è possibile, indirizzandoti verso tecnologie AI e dati che hanno senso per aiutarti a crescere.",
+    "features": {
+      "llms": {
+        "title": "Costruzione di Sistemi con LLM",
+        "subtitle": "La nostra competenza nei LLM ci permette di creare e ottimizzare potenti sistemi basati su IA su misura per le tue esigenze"
+      },
+      "production": {
+        "title": "Soluzioni AI Pronte per la Produzione",
+        "subtitle": "Ti guidiamo attraverso l'intero processo, dalla prototipazione alla produzione su larga scala, assicurando che le tue iniziative AI siano di successo e sostenibili"
+      },
+      "data_platform": {
+        "title": "Ingegneria di Piattaforme Dati",
+        "subtitle": "Progettiamo e costruiamo piattaforme dati scalabili e robuste su Azure per supportare le tue iniziative AI"
+      },
+      "deploying": {
+        "title": "Distribuzione di Applicazioni AI",
+        "subtitle": "Garantiamo che le tue applicazioni centrate sui dati e AI siano distribuite senza problemi, con affidabilità e scalabilità in mente."
+      },
+      "upskilling": {
+        "title": "Formazione del Tuo Team di Ingegneria",
+        "subtitle": "Forniamo formazione pratica per elevare le competenze AI del tuo team, assicurando che siano equipaggiati per gestire le ultime tecnologie e le migliori pratiche"
+      },
+      "integrating": {
+        "title": "Integrazione dell'AI nel Tuo Stack",
+        "subtitle": "Ti aiutiamo ad incorporare l'AI nei tuoi sistemi attuali per migliorare le loro capacità senza interrompere le tue operazioni."
+      }
+    }
+  },
+  "use_cases": {
+    "title": "I nostri progetti più recenti",
+    "description": "Il nostro track record va dallo sviluppo della strategia iniziale alla piena implementazione, concentrandoci sempre su risultati pratici che generano un solido valore aziendale. Ecco alcuni dei nostri progetti più recenti:",
+    "read": "Leggi"
+  },
+  "testimonials": {
+    "title": "Cosa dicono i nostri clienti",
+    "description": "In Ankor, riuniamo un decennio di esperienza in ingegneria AI, sviluppo software e consulenza aziendale per aiutarti a tagliare attraverso il rumore e trasformare le possibilità in soluzioni pratiche.",
+    "happy_clients": "40+ clienti soddisfatti",
+    "reviews": {
+      "giuseppe_sartori": {
+        "name": "Giuseppe Sartori",
+        "text": "Algorithmx ha fornito uno strumento di previsione basato su AI che ha migliorato significativamente la nostra gestione dell'inventario. Il loro team ha compreso le nostre esigenze complesse e ha fornito una soluzione pratica e di alta qualità che ha ridotto gli sprechi e risparmiato costi. Molto professionali ed efficaci.",
+        "company": "GLOBAL LOGISTICS"
+      },
+      "davide_laterza": {
+        "name": "Davide Laterza",
+        "text": "Avevamo bisogno di automatizzare le nostre risposte al supporto clienti. Algorithmx ha sviluppato un chatbot AI personalizzato che gestisce le richieste in modo efficiente, migliorando i tempi di risposta e la soddisfazione dei clienti. La loro competenza ha reso l'integrazione senza problemi.",
+        "company": "TECH SOLUTIONS INC."
+      },
+      "luigi_simonetti": {
+        "name": "Luigi Simonetti",
+        "text": "Algorithmx ci ha aiutato ad analizzare grandi dataset per identificare le tendenze chiave del mercato. Gli insight ottenuti dal loro modello AI sono stati inestimabili per la nostra pianificazione strategica. Il loro team ha fornito spiegazioni chiare e supporto eccellente durante tutto il progetto.",
+        "company": "INSIGHT ANALYTICS"
+      },
+      "luca_corradini": {
+        "name": "Luca Corradini",
+        "text": "La nostra sfida era ottimizzare la nostra linea di produzione. Algorithmx ha implementato un sistema AI che monitora le operazioni e suggerisce miglioramenti in tempo reale. Abbiamo visto un aumento notevole dell'efficienza grazie al loro servizio di alta qualità.",
+        "company": "PRECISION MFG."
+      },
+      "michele_lombardi": {
+        "name": "Michele Lombardi",
+        "text": "Algorithmx ha sviluppato una soluzione di manutenzione predittiva per le nostre attrezzature, riducendo significativamente i tempi di inattività. La loro competenza AI ci ha aiutato ad anticipare i guasti prima che accadessero. Un partner davvero prezioso per le nostre operazioni.",
+        "company": "HEAVY INDUSTRY CO."
+      },
+      "alessandro_lodi": {
+        "name": "Alessandro Lodi",
+        "text": "Abbiamo collaborato con Algorithmx per migliorare i nostri sistemi di rilevamento frodi. La soluzione AI che hanno costruito è altamente accurata e ci ha fatto risparmiare importi sostanziali identificando rapidamente attività sospette. Il loro team era competente e reattivo.",
+        "company": "SECURE FINANCE"
+      },
+      "robert_miller": {
+        "name": "Robert Miller",
+        "text": "Algorithmx ha fornito una soluzione AI per personalizzare le nostre campagne di marketing. I risultati sono stati impressionanti, con tassi di coinvolgimento più alti e migliori conversioni. Il loro approccio era professionale e focalizzato sul fornire risultati tangibili.",
+        "company": "CONNECT MARKETING"
+      },
+      "jessica_davis": {
+        "name": "Jessica Davis",
+        "text": "Il motore di raccomandazione alimentato da AI costruito da Algorithmx ha migliorato notevolmente l'esperienza utente sulla nostra piattaforma. Hanno compreso i nostri obiettivi e hanno fornito un sistema di alta qualità che guida la retention degli utenti. Lavoro eccellente!",
+        "company": "ONLINE PLATFORMS LTD."
+      },
+      "william_wilson": {
+        "name": "William Wilson",
+        "text": "Algorithmx ci ha aiutato a semplificare l'elaborazione dei nostri documenti usando l'AI. Quello che prima richiedeva giorni ora richiede ore. La loro soluzione si è integrata perfettamente con i nostri sistemi esistenti. Raccomando vivamente i loro servizi AI di alta qualità.",
+        "company": "ADMIN SOLUTIONS"
+      }
+    }
+  },
+  "call_to_action": {
+    "tag": "Ho un'idea...",
+    "title": "Trasformiamo la complessità in capacità",
+    "description": "Che tu stia cercando di automatizzare processi, semplificare operazioni o sbloccare nuove opportunità – lavoreremo insieme al tuo team per implementare soluzioni che crescono (con) il tuo business."
+  },
+  "about_us": {
+    "title": "Chi Siamo",
+    "description": "Al giorno d'oggi, rimanere all'avanguardia spesso significa trasformare dati e IA in valore aziendale. Ma con innumerevoli soluzioni e approcci disponibili, come identificare e implementare ciò che conta davvero per la tua organizzazione? Cosa serve per diventare un'azienda AI-first? Siamo qui per aiutarti a prendere le decisioni giuste."
+  },
+  "use_case_page": {
+    "the_problem": "Il problema",
+    "the_solution": "La soluzione",
+    "the_result": "Il risultato"
+  },
+  "services_page": {
+    "title": "Servizi Algorithmx",
+    "description": "Al giorno d'oggi, rimanere all'avanguardia spesso significa trasformare dati e IA in valore aziendale. Ma con innumerevoli soluzioni e approcci disponibili, come identificare e implementare ciò che conta davvero per la tua organizzazione? Cosa serve per diventare un'azienda AI-first? Siamo qui per aiutarti a prendere le decisioni giuste",
+    "tools_title": "I migliori strumenti per il miglior lavoro"
+  },
+  "use_cases_page": {
+    "title": "Casi d'Uso Algorithmx",
+    "description": "Ecco alcuni dei nostri progetti più recenti che mostrano come abbiamo aiutato le organizzazioni a trasformare le loro sfide in vantaggi competitivi attraverso soluzioni AI e dati"
+  },
+  "blog_page": {
+    "title": "Blog Algorithmx",
+    "description": "Approfondimenti, guide e prospettive del settore su AI, soluzioni di dati e trasformazione digitale per aiutarti a navigare nel panorama tecnologico in evoluzione",
+    "sample_title": "Articolo sull'Innovazione AI",
+    "sample_excerpt": "Scopri le ultime tendenze e innovazioni nell'intelligenza artificiale e come stanno trasformando le industrie in tutto il mondo.",
+    "read_more": "Leggi di Più",
+    "sample_subtitle": "Esplorando Nuove Possibilità",
+    "sample_category": "Tecnologia",
+    "sample_author": "Team Algorithmx",
+    "no_date": "Data non disponibile"
+  },
+  "blog_post": {
+    "not_found": "Articolo non trovato",
+    "back_to_blog": "Torna al Blog"
+  },
+  "contact_page": {
+    "title": "Mettiti in contatto",
+    "subtitle": "Hai una domanda o vuoi discutere un progetto? Compila il modulo qui sotto e il nostro team ti risponderà entro 24 ore.",
+    "try_recommendations": "Oppure prova le nostre raccomandazioni personalizzate rapide (15 secondi)",
+    "thank_you_title": "Grazie!",
+    "thank_you_message": "Il tuo messaggio è stato inviato con successo. Ti risponderemo entro 24 ore.",
+    "form": {
+      "name": "Nome",
+      "email": "Email",
+      "message": "Messaggio",
+      "name_placeholder": "Il tuo nome",
+      "email_placeholder": "Il tuo indirizzo email",
+      "message_placeholder": "Raccontaci del tuo progetto o della tua domanda",
+      "sending": "Invio in corso...",
+      "send": "Invia Messaggio"
+    }
+  },
+  "onboarding": {
+    "intro": {
+      "title": "Cavalca l'onda dell'IA con Algorithmx®",
+      "subtitle": "Rispondi a tre domande rapide e ti collegheremo con la risorsa, formazione o servizio esatto che ti aiuterà ad avere successo.",
+      "duration": "(ci vogliono 30 secondi)",
+      "start": "Inizia il Viaggio",
+      "skip": "Salta al modulo di contatto tradizionale"
+    },
+    "question_one": {
+      "progress": "Domanda 1 di 3",
+      "title": "Cosa ti descrive meglio?",
+      "subtitle": "Seleziona tutto ciò che si applica alle tue esigenze attuali",
+      "options": {
+        "development": {
+          "label": "Cliente che cerca lo sviluppo di un prodotto AI",
+          "description": "Hai bisogno di una soluzione AI personalizzata costruita da zero"
+        },
+        "consulting": {
+          "label": "Cliente che cerca consulenza AI",
+          "description": "Hai bisogno di una guida strategica sull'implementazione dell'IA"
+        },
+        "integration": {
+          "label": "Voglio integrare l'IA nei sistemi esistenti",
+          "description": "Vuoi migliorare le operazioni attuali con l'IA"
+        },
+        "training": {
+          "label": "Il team ha bisogno di formazione e riqualificazione AI",
+          "description": "Vuoi educare il tuo team sulle tecnologie AI"
+        }
+      },
+      "back": "Indietro",
+      "next": "Prossima Domanda"
+    },
+    "question_two": {
+      "progress": "Domanda 2 di 3",
+      "title": "Qual è la dimensione della tua organizzazione?",
+      "subtitle": "Questo ci aiuta ad adattare le nostre raccomandazioni",
+      "options": {
+        "startup": {
+          "label": "Startup (1-10 dipendenti)",
+          "description": "Azienda in fase iniziale che cerca di sfruttare l'IA per la crescita"
+        },
+        "small": {
+          "label": "Piccola Impresa (11-50 dipendenti)",
+          "description": "Azienda consolidata pronta ad integrare soluzioni AI"
+        },
+        "medium": {
+          "label": "Azienda Media (51-200 dipendenti)",
+          "description": "Azienda in crescita che cerca l'ottimizzazione AI"
+        },
+        "large": {
+          "label": "Grande Impresa (200+ dipendenti)",
+          "description": "Trasformazione e scalabilità AI a livello enterprise"
+        },
+        "individual": {
+          "label": "Individuale / Freelancer",
+          "description": "Apprendimento AI personale o esigenze di piccoli progetti"
+        }
+      },
+      "back": "Indietro",
+      "next": "Prossima Domanda"
+    },
+    "question_three": {
+      "progress": "Domanda 3 di 3",
+      "title": "Qual è la tua fascia di budget stimata?",
+      "subtitle": "Questo ci aiuta a raccomandare le soluzioni più adatte",
+      "options": {
+        "prefer_not_say": {
+          "label": "Preferisco non dirlo",
+          "description": "Discuteremo i dettagli del budget durante la nostra consultazione"
+        },
+        "under_10k": {
+          "label": "<10.000€",
+          "description": "Piccolo progetto o implementazione pilota"
+        },
+        "10k_25k": {
+          "label": "10.000€ - 25.000€",
+          "description": "Soluzione AI di media scala con sviluppo personalizzato"
+        },
+        "25k_50k": {
+          "label": "25.000€ - 50.000€",
+          "description": "Piattaforma AI completa con funzionalità avanzate"
+        },
+        "over_50k": {
+          "label": ">50.000€",
+          "description": "Progetto di trasformazione AI a livello enterprise"
+        }
+      },
+      "back": "Indietro",
+      "see_results": "Vedi i Miei Risultati"
+    },
+    "results": {
+      "title": "Perfetto! Ecco cosa ti consigliamo:",
+      "contact_title": "Discutiamo del tuo progetto",
+      "contact_subtitle": "Compila questo modulo e ti risponderemo entro 24 ore con una proposta dettagliata.",
+      "recommendations": {
+        "development": {
+          "title": "Sviluppo AI Personalizzato",
+          "description": "Costruiremo una soluzione AI su misura da zero, progettata specificamente per le tue esigenze e requisiti aziendali."
+        },
+        "consulting": {
+          "title": "Consulenza Strategica AI",
+          "description": "I nostri esperti analizzeranno la tua attività e creeranno una roadmap AI completa per massimizzare il tuo vantaggio competitivo."
+        },
+        "integration": {
+          "title": "Servizi di Integrazione AI",
+          "description": "Integra senza problemi le capacità AI nei tuoi sistemi esistenti senza interrompere le tue operazioni attuali."
+        },
+        "training": {
+          "title": "Formazione e Riqualificazione AI",
+          "description": "Programmi di formazione completi per portare il tuo team al passo con le ultime tecnologie AI e le migliori pratiche."
+        },
+        "data_platform": {
+          "title": "Configurazione Piattaforma Dati",
+          "description": "Costruisci un'infrastruttura dati robusta che supporta le tue iniziative AI e scala con la crescita del tuo business."
+        },
+        "pilot": {
+          "title": "Progetto Pilota AI",
+          "description": "Inizia in piccolo con una prova di concetto che dimostra il valore dell'IA prima dell'implementazione su larga scala."
+        },
+        "enterprise": {
+          "title": "Trasformazione AI Enterprise",
+          "description": "Trasformazione AI completa in tutta la tua organizzazione con soluzioni di livello enterprise."
+        }
+      },
       "form": {
-         "name": "Nome",
-         "email": "Email",
-         "message": "Messaggio",
-         "name_placeholder": "Il tuo nome",
-         "email_placeholder": "Il tuo indirizzo email",
-         "message_placeholder": "Raccontaci del tuo progetto o della tua domanda",
-         "sending": "Invio in corso...",
-         "send": "Invia Messaggio"
+        "name": "Nome Completo",
+        "email": "Email Aziendale",
+        "phone": "Numero di Telefono (Opzionale)",
+        "message": "Raccontaci di più del tuo progetto",
+        "name_placeholder": "Mario Rossi",
+        "email_placeholder": "mario@azienda.com",
+        "phone_placeholder": "+39 123 456 7890",
+        "message_placeholder": "Descrivi il tuo progetto, tempistiche e requisiti specifici...",
+        "sending": "Invio in corso...",
+        "submit": "Ottieni la Mia Proposta Personalizzata",
+        "success_title": "Grazie per la tua richiesta!",
+        "success_message": "Abbiamo ricevuto le tue informazioni e ti risponderemo entro 24 ore con una proposta dettagliata su misura per le tue esigenze.",
+        "home": "Torna alla Home",
+        "portfolio": "Vedi il Nostro Portfolio"
       }
-   },
-   "onboarding": {
-      "intro": {
-         "title": "Cavalca l'onda dell'IA con Algorithmx®",
-         "subtitle": "Rispondi a tre domande rapide e ti collegheremo con la risorsa, formazione o servizio esatto che ti aiuterà ad avere successo.",
-         "duration": "(ci vogliono 30 secondi)",
-         "start": "Inizia il Viaggio",
-         "skip": "Salta al modulo di contatto tradizionale"
+    }
+  },
+  "use_cases_data": {
+    "suprem_milk": {
+      "title": "Suprem - Milk",
+      "titleFull": "Fornire dati di criptovalute in tempo reale a milioni di visitatori di Crypto Insiders",
+      "description": "Crypto Insiders, la più grande piattaforma di notizie di criptovalute nei Paesi Bassi, attira oltre 2 milioni di visitatori mensili. Il loro team aveva bisogno di un sistema affidabile per gestire la creazione e distribuzione di contenuti attraverso più canali.",
+      "reviewer": {
+        "name": "Riccardo Ferrari",
+        "review": "Algorithmx è un'azienda straordinaria. Siamo rimasti sorpresi dalla velocità, attenzione ai dettagli e comprensione immediata delle nostre esigenze. Non solo hanno capito le nostre necessità, ma ci hanno raccomandato soluzioni alternative o strumenti aggiuntivi per migliorare il nostro prodotto prototipo"
       },
-      "question_one": {
-         "progress": "Domanda 1 di 3",
-         "title": "Cosa ti descrive meglio?",
-         "subtitle": "Seleziona tutto ciò che si applica alle tue esigenze attuali",
-         "options": {
-            "development": {
-               "label": "Cliente che cerca lo sviluppo di un prodotto AI",
-               "description": "Hai bisogno di una soluzione AI personalizzata costruita da zero"
-            },
-            "consulting": {
-               "label": "Cliente che cerca consulenza AI",
-               "description": "Hai bisogno di una guida strategica sull'implementazione dell'IA"
-            },
-            "integration": {
-               "label": "Voglio integrare l'IA nei sistemi esistenti",
-               "description": "Vuoi migliorare le operazioni attuali con l'IA"
-            },
-            "training": {
-               "label": "Il team ha bisogno di formazione e riqualificazione AI",
-               "description": "Vuoi educare il tuo team sulle tecnologie AI"
-            }
-         },
-         "back": "Indietro",
-         "next": "Prossima Domanda"
-      },
-      "question_two": {
-         "progress": "Domanda 2 di 3",
-         "title": "Qual è la dimensione della tua organizzazione?",
-         "subtitle": "Questo ci aiuta ad adattare le nostre raccomandazioni",
-         "options": {
-            "startup": {
-               "label": "Startup (1-10 dipendenti)",
-               "description": "Azienda in fase iniziale che cerca di sfruttare l'IA per la crescita"
-            },
-            "small": {
-               "label": "Piccola Impresa (11-50 dipendenti)",
-               "description": "Azienda consolidata pronta ad integrare soluzioni AI"
-            },
-            "medium": {
-               "label": "Azienda Media (51-200 dipendenti)",
-               "description": "Azienda in crescita che cerca l'ottimizzazione AI"
-            },
-            "large": {
-               "label": "Grande Impresa (200+ dipendenti)",
-               "description": "Trasformazione e scalabilità AI a livello enterprise"
-            },
-            "individual": {
-               "label": "Individuale / Freelancer",
-               "description": "Apprendimento AI personale o esigenze di piccoli progetti"
-            }
-         },
-         "back": "Indietro",
-         "next": "Prossima Domanda"
-      },
-      "question_three": {
-         "progress": "Domanda 3 di 3",
-         "title": "Qual è la tua fascia di budget stimata?",
-         "subtitle": "Questo ci aiuta a raccomandare le soluzioni più adatte",
-         "options": {
-            "prefer_not_say": {
-               "label": "Preferisco non dirlo",
-               "description": "Discuteremo i dettagli del budget durante la nostra consultazione"
-            },
-            "under_10k": {
-               "label": "<10.000€",
-               "description": "Piccolo progetto o implementazione pilota"
-            },
-            "10k_25k": {
-               "label": "10.000€ - 25.000€",
-               "description": "Soluzione AI di media scala con sviluppo personalizzato"
-            },
-            "25k_50k": {
-               "label": "25.000€ - 50.000€",
-               "description": "Piattaforma AI completa con funzionalità avanzate"
-            },
-            "over_50k": {
-               "label": ">50.000€",
-               "description": "Progetto di trasformazione AI a livello enterprise"
-            }
-         },
-         "back": "Indietro",
-         "see_results": "Vedi i Miei Risultati"
-      },
-      "results": {
-         "title": "Perfetto! Ecco cosa ti consigliamo:",
-         "contact_title": "Discutiamo del tuo progetto",
-         "contact_subtitle": "Compila questo modulo e ti risponderemo entro 24 ore con una proposta dettagliata.",
-         "recommendations": {
-            "development": {
-               "title": "Sviluppo AI Personalizzato",
-               "description": "Costruiremo una soluzione AI su misura da zero, progettata specificamente per le tue esigenze e requisiti aziendali."
-            },
-            "consulting": {
-               "title": "Consulenza Strategica AI",
-               "description": "I nostri esperti analizzeranno la tua attività e creeranno una roadmap AI completa per massimizzare il tuo vantaggio competitivo."
-            },
-            "integration": {
-               "title": "Servizi di Integrazione AI",
-               "description": "Integra senza problemi le capacità AI nei tuoi sistemi esistenti senza interrompere le tue operazioni attuali."
-            },
-            "training": {
-               "title": "Formazione e Riqualificazione AI",
-               "description": "Programmi di formazione completi per portare il tuo team al passo con le ultime tecnologie AI e le migliori pratiche."
-            },
-            "data_platform": {
-               "title": "Configurazione Piattaforma Dati",
-               "description": "Costruisci un'infrastruttura dati robusta che supporta le tue iniziative AI e scala con la crescita del tuo business."
-            },
-            "pilot": {
-               "title": "Progetto Pilota AI",
-               "description": "Inizia in piccolo con una prova di concetto che dimostra il valore dell'IA prima dell'implementazione su larga scala."
-            },
-            "enterprise": {
-               "title": "Trasformazione AI Enterprise",
-               "description": "Trasformazione AI completa in tutta la tua organizzazione con soluzioni di livello enterprise."
-            }
-         },
-         "form": {
-            "name": "Nome Completo",
-            "email": "Email Aziendale",
-            "phone": "Numero di Telefono (Opzionale)",
-            "message": "Raccontaci di più del tuo progetto",
-            "name_placeholder": "Mario Rossi",
-            "email_placeholder": "mario@azienda.com",
-            "phone_placeholder": "+39 123 456 7890",
-            "message_placeholder": "Descrivi il tuo progetto, tempistiche e requisiti specifici...",
-            "sending": "Invio in corso...",
-            "submit": "Ottieni la Mia Proposta Personalizzata",
-            "success_title": "Grazie per la tua richiesta!",
-            "success_message": "Abbiamo ricevuto le tue informazioni e ti risponderemo entro 24 ore con una proposta dettagliata su misura per le tue esigenze.",
-            "home": "Torna alla Home",
-            "portfolio": "Vedi il Nostro Portfolio"
-         }
+      "info": {
+        "website": "Sito Web",
+        "location": "Posizione",
+        "industry": "Settore",
+        "goal": "Obiettivo",
+        "location_value": "Italia",
+        "industry_value": "Agricolo",
+        "goal_value": "Sistema AI per analizzare prodotti agricoli e fornire approfondimenti"
       }
-   },
-   "use_cases_data": {
-      "suprem_milk": {
-         "title": "Suprem - Milk",
-         "titleFull": "Fornire dati di criptovalute in tempo reale a milioni di visitatori di Crypto Insiders",
-         "description": "Crypto Insiders, la più grande piattaforma di notizie di criptovalute nei Paesi Bassi, attira oltre 2 milioni di visitatori mensili. Il loro team aveva bisogno di un sistema affidabile per gestire la creazione e distribuzione di contenuti attraverso più canali.",
-         "reviewer": {
-            "name": "Riccardo Ferrari",
-            "review": "Algorithmx è un'azienda straordinaria. Siamo rimasti sorpresi dalla velocità, attenzione ai dettagli e comprensione immediata delle nostre esigenze. Non solo hanno capito le nostre necessità, ma ci hanno raccomandato soluzioni alternative o strumenti aggiuntivi per migliorare il nostro prodotto prototipo"
-         },
-         "info": {
-            "website": "Sito Web",
-            "location": "Posizione",
-            "industry": "Settore",
-            "goal": "Obiettivo",
-            "location_value": "Italia",
-            "industry_value": "Agricolo",
-            "goal_value": "Sistema AI per analizzare prodotti agricoli e fornire approfondimenti"
-         }
+    },
+    "n_and_group": {
+      "title": "N and Group",
+      "description": "Un innovatore tecnologico leader nel quantum computing aveva bisogno di una dashboard sofisticata per visualizzare output di dati complessi. Abbiamo fornito un'interfaccia intuitiva che ha semplificato l'interazione dell'utente con risultati computazionali avanzati.",
+      "reviewer": {
+        "name": "Daniele Del Vecchio",
+        "review": "L'IA di Algorithmx ci ha aiutato ad automatizzare il nostro servizio clienti. Il chatbot che hanno sviluppato ha ridotto significativamente i tempi di risposta e migliorato la soddisfazione del cliente"
       },
-      "n_and_group": {
-         "title": "N and Group",
-         "description": "Un innovatore tecnologico leader nel quantum computing aveva bisogno di una dashboard sofisticata per visualizzare output di dati complessi. Abbiamo fornito un'interfaccia intuitiva che ha semplificato l'interazione dell'utente con risultati computazionali avanzati.",
-         "reviewer": {
-            "name": "Daniele Del Vecchio",
-            "review": "L'IA di Algorithmx ci ha aiutato ad automatizzare il nostro servizio clienti. Il chatbot che hanno sviluppato ha ridotto significativamente i tempi di risposta e migliorato la soddisfazione del cliente"
-         },
-         "info": {
-            "location_value": "Italia",
-            "industry_value": "Meccanico",
-            "goal_value": "Chatbot AI per automatizzare il servizio clienti e migliorare i tempi di risposta"
-         }
-      },
-      "virality_system": {
-         "title": "Virality System",
-         "description": "Questa startup di monitoraggio ambientale richiedeva una piattaforma scalabile per elaborare dati di sensori da migliaia di posizioni. La nostra soluzione ha fornito analisi in tempo reale e approfondimenti actionable per i decisori della sostenibilità",
-         "reviewer": {
-            "name": "Davide Gentile",
-            "review": "Esperienza eccellente con Algorithmx. Sempre attenti alle scadenze e allo sviluppo del miglior codice. Prestando attenzione al figma e alle mie richieste. Davvero bravi, continueremo a collaborare"
-         },
-         "info": {
-            "location_value": "Italia",
-            "industry_value": "Social Network",
-            "goal_value": "Social network completo con raccomandazioni di contenuti basate su AI"
-         }
-      },
-      "extra_outdoor": {
-         "title": "Extra Outdoor",
-         "description": "Abbiamo utilizzato l'analisi alimentata da AI di Algorithmx per ottimizzare le nostre campagne di marketing. Le loro soluzioni hanno fornito approfondimenti preziosi che hanno portato a un aumento del 20% nei tassi di conversione",
-         "reviewer": {
-            "name": "Andrea Partisani",
-            "review": "Abbiamo utilizzato l'analisi alimentata da AI di Algorithmx per ottimizzare le nostre campagne di marketing. Le loro soluzioni hanno fornito approfondimenti preziosi che hanno portato a un aumento del 20% nei tassi di conversione"
-         },
-         "info": {
-            "location_value": "Italia",
-            "industry_value": "Infissi e accessori",
-            "goal_value": "Sistema AI per analizzare il comportamento dei clienti e migliorare la retention"
-         }
+      "info": {
+        "location_value": "Italia",
+        "industry_value": "Meccanico",
+        "goal_value": "Chatbot AI per automatizzare il servizio clienti e migliorare i tempi di risposta"
       }
-   }
+    },
+    "virality_system": {
+      "title": "Virality System",
+      "description": "Questa startup di monitoraggio ambientale richiedeva una piattaforma scalabile per elaborare dati di sensori da migliaia di posizioni. La nostra soluzione ha fornito analisi in tempo reale e approfondimenti actionable per i decisori della sostenibilità",
+      "reviewer": {
+        "name": "Davide Gentile",
+        "review": "Esperienza eccellente con Algorithmx. Sempre attenti alle scadenze e allo sviluppo del miglior codice. Prestando attenzione al figma e alle mie richieste. Davvero bravi, continueremo a collaborare"
+      },
+      "info": {
+        "location_value": "Italia",
+        "industry_value": "Social Network",
+        "goal_value": "Social network completo con raccomandazioni di contenuti basate su AI"
+      }
+    },
+    "extra_outdoor": {
+      "title": "Extra Outdoor",
+      "description": "Abbiamo utilizzato l'analisi alimentata da AI di Algorithmx per ottimizzare le nostre campagne di marketing. Le loro soluzioni hanno fornito approfondimenti preziosi che hanno portato a un aumento del 20% nei tassi di conversione",
+      "reviewer": {
+        "name": "Andrea Partisani",
+        "review": "Abbiamo utilizzato l'analisi alimentata da AI di Algorithmx per ottimizzare le nostre campagne di marketing. Le loro soluzioni hanno fornito approfondimenti preziosi che hanno portato a un aumento del 20% nei tassi di conversione"
+      },
+      "info": {
+        "location_value": "Italia",
+        "industry_value": "Infissi e accessori",
+        "goal_value": "Sistema AI per analizzare il comportamento dei clienti e migliorare la retention"
+      }
+    }
+  }
 }
