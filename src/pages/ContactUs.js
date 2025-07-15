@@ -10,9 +10,11 @@ import QuestionOne from "./onboarding/QuestionOne";
 import QuestionTwo from "./onboarding/QuestionTwo";
 import QuestionThree from "./onboarding/QuestionThree";
 import OnboardingResults from "./onboarding/OnboardingResults";
+import SEO from "../components/SEO/SEO";
 
 export default function ContactUs() {
   const [t] = useTranslation("global");
+
   // Onboarding flow state
   const [currentStep, setCurrentStep] = useState("intro"); // intro, question1, question2, question3, results, traditional
   const [answers, setAnswers] = useState({});
@@ -153,101 +155,112 @@ export default function ContactUs() {
   }
 
   // Traditional contact form (fallback)
+  const seo = t("seo.contact_us", { returnObjects: true });
   return (
-    <div className="onboarding-container traditional-contact">
-      <div className="traditional-contact__content">
-        <h1 className="traditional-contact__title">
-          {t("contact_page.title")}
-        </h1>
-        <p className="traditional-contact__subtitle">
-          {t("contact_page.subtitle")}
-        </p>
-
-        <button
-          onClick={() => setCurrentStep("intro")}
-          className="btn-secondary"
-        >
-          {t("contact_page.try_recommendations")}
-        </button>
-      </div>
-
-      {isSubmitted ? (
-        <div className="traditional-success">
-          <h2 className="traditional-success__title">
-            {t("contact_page.thank_you_title")}
-          </h2>
-          <p className="traditional-success__message">
-            {t("contact_page.thank_you_message")}
+    <>
+      <SEO
+        title={seo.title}
+        description={seo.description}
+        keywords={seo.keywords}
+        robots={seo.robots}
+        canonical={seo.canonical}
+        schema={seo.schema}
+      />
+      <div className="onboarding-container traditional-contact">
+        <div className="traditional-contact__content">
+          <h1 className="traditional-contact__title">
+            {t("contact_page.title")}
+          </h1>
+          <p className="traditional-contact__subtitle">
+            {t("contact_page.subtitle")}
           </p>
+
+          <button
+            onClick={() => setCurrentStep("intro")}
+            className="btn-secondary"
+          >
+            {t("contact_page.try_recommendations")}
+          </button>
         </div>
-      ) : (
-        <form
-          ref={formRef}
-          onSubmit={handleSubmit}
-          className="traditional-form"
-        >
-          <div className="traditional-form__content">
-            <div className="form-group">
-              <label htmlFor="name" className="form-label">
-                {t("contact_page.form.name")}
-              </label>
-              <input
-                type="text"
-                id="name"
-                name="name"
-                value={formData.name}
-                onChange={handleChange}
-                required
-                className="form-input"
-                placeholder={t("contact_page.form.name_placeholder")}
-              />
-            </div>
 
-            <div className="form-group">
-              <label htmlFor="email" className="form-label">
-                {t("contact_page.form.email")}
-              </label>
-              <input
-                type="email"
-                id="email"
-                name="email"
-                value={formData.email}
-                onChange={handleChange}
-                required
-                className="form-input"
-                placeholder={t("contact_page.form.email_placeholder")}
-              />
-            </div>
-
-            <div className="form-group">
-              <label htmlFor="message" className="form-label">
-                {t("contact_page.form.message")}
-              </label>
-              <textarea
-                id="message"
-                name="message"
-                value={formData.message}
-                onChange={handleChange}
-                required
-                className="form-textarea"
-                placeholder={t("contact_page.form.message_placeholder")}
-              />
-            </div>
-
-            {error && <div className="form-error">{error}</div>}
-
-            <button
-              type="submit"
-              disabled={isSubmitting}
-              className="form-submit"
-            >
-              {isSubmitting
-                ? t("contact_page.form.sending")
-                : t("contact_page.form.send")}
-            </button>
+        {isSubmitted ? (
+          <div className="traditional-success">
+            <h2 className="traditional-success__title">
+              {t("contact_page.thank_you_title")}
+            </h2>
+            <p className="traditional-success__message">
+              {t("contact_page.thank_you_message")}
+            </p>
           </div>
-        </form>
-      )}
-    </div>
+        ) : (
+          <form
+            ref={formRef}
+            onSubmit={handleSubmit}
+            className="traditional-form"
+          >
+            <div className="traditional-form__content">
+              <div className="form-group">
+                <label htmlFor="name" className="form-label">
+                  {t("contact_page.form.name")}
+                </label>
+                <input
+                  type="text"
+                  id="name"
+                  name="name"
+                  value={formData.name}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                  placeholder={t("contact_page.form.name_placeholder")}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="email" className="form-label">
+                  {t("contact_page.form.email")}
+                </label>
+                <input
+                  type="email"
+                  id="email"
+                  name="email"
+                  value={formData.email}
+                  onChange={handleChange}
+                  required
+                  className="form-input"
+                  placeholder={t("contact_page.form.email_placeholder")}
+                />
+              </div>
+
+              <div className="form-group">
+                <label htmlFor="message" className="form-label">
+                  {t("contact_page.form.message")}
+                </label>
+                <textarea
+                  id="message"
+                  name="message"
+                  value={formData.message}
+                  onChange={handleChange}
+                  required
+                  className="form-textarea"
+                  placeholder={t("contact_page.form.message_placeholder")}
+                />
+              </div>
+
+              {error && <div className="form-error">{error}</div>}
+
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="form-submit"
+              >
+                {isSubmitting
+                  ? t("contact_page.form.sending")
+                  : t("contact_page.form.send")}
+              </button>
+            </div>
+          </form>
+        )}
+      </div>
+    </>
   );
 }
