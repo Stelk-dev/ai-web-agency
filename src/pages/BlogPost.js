@@ -3,17 +3,12 @@ import { useTranslation } from "react-i18next";
 import { useParams, Link } from "react-router-dom";
 import { FadeInSection } from "../components/FadeInSection";
 import CallToAction from "./homes/CallToAction";
-import { getPostById, formatDate } from "../data/BlogPosts";
 import {
-  FiClock,
-  FiUser,
-  FiCalendar,
-  FiCode,
-  FiDatabase,
-  FiMail,
-  FiArrowRight,
-  FiDownload,
-} from "react-icons/fi";
+  getPostById,
+  formatFirebaseDate,
+  formatReadingTime,
+} from "../data/BlogPosts";
+import { FiClock, FiCalendar, FiArrowRight, FiDownload } from "react-icons/fi";
 import { FaYoutube } from "react-icons/fa";
 import SEO from "../components/SEO/SEO";
 
@@ -21,6 +16,8 @@ export default function BlogPost() {
   const [t] = useTranslation("global");
   const { id } = useParams();
   const [post, setPost] = useState(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
   useEffect(() => {
     window.scrollTo({
@@ -29,11 +26,76 @@ export default function BlogPost() {
       behavior: "instant",
     });
 
-    // Find the post with the given ID
-    // Convert id from string to number to match the type in blogPosts
-    const foundPost = getPostById(Number(id));
-    setPost(foundPost);
+    // Fetch the post from Firebase
+    const fetchPost = async () => {
+      try {
+        setLoading(true);
+        setError(null);
+        const foundPost = await getPostById(id);
+        setPost(foundPost);
+      } catch (err) {
+        console.error("Error fetching post:", err);
+        setError("Failed to load blog post");
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchPost();
   }, [id]);
+  console.log(post);
+
+  // Show loading state
+  if (loading) {
+    return (
+      <div
+        style={{
+          backgroundColor: "black",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "white",
+          padding: "0px 24px",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <p style={{ fontSize: "18px" }}>Loading...</p>
+        </div>
+      </div>
+    );
+  }
+
+  // Show error state
+  if (error) {
+    return (
+      <div
+        style={{
+          backgroundColor: "black",
+          minHeight: "100vh",
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+          color: "white",
+          padding: "0px 24px",
+        }}
+      >
+        <div style={{ textAlign: "center" }}>
+          <p style={{ fontSize: "18px" }}>{error}</p>
+          <Link
+            to="/blog"
+            style={{
+              color: "rgba(59, 130, 246, 0.8)",
+              textDecoration: "none",
+              fontSize: "16px",
+            }}
+          >
+            ← Back to Blog
+          </Link>
+        </div>
+      </div>
+    );
+  }
 
   // If post is not found, show a message
   if (!post) {
@@ -63,23 +125,13 @@ export default function BlogPost() {
     return match && match[7] && match[7].length === 11 ? match[7] : null;
   };
 
-  const youtubeVideoId = post.youtubeUrl
-    ? getYoutubeVideoId(post.youtubeUrl)
+  const youtubeVideoId = post.youtube_url
+    ? getYoutubeVideoId(post.youtube_url)
     : null;
 
-  // Map icons to components
-  const getIconComponent = (iconName) => {
-    switch (iconName) {
-      case "FiCode":
-        return <FiCode />;
-      case "FiDatabase":
-        return <FiDatabase />;
-      case "FiMail":
-        return <FiMail />;
-      default:
-        return <FiArrowRight />;
-    }
-  };
+  // Get the appropriate content from Firebase
+  const content = post.content_in || post.content_en || "";
+
   const seo = t("seo.blog_post_1", { returnObjects: true });
 
   return (
@@ -143,7 +195,7 @@ export default function BlogPost() {
                 marginBottom: "16px",
               }}
             >
-              {post.category}
+              {post.label}
             </div>
 
             <h1
@@ -155,19 +207,8 @@ export default function BlogPost() {
                 lineHeight: "1.2",
               }}
             >
-              {post.title}
+              {post.name || post.title || "Untitled"}
             </h1>
-
-            <h2
-              style={{
-                fontSize: "1.25rem",
-                fontWeight: "400",
-                color: "rgba(255, 255, 255, 0.7)",
-                marginBottom: "24px",
-              }}
-            >
-              {post.subtitle}
-            </h2>
 
             {/* YouTube Video Player */}
             {youtubeVideoId && (
@@ -191,7 +232,7 @@ export default function BlogPost() {
                     border: "none",
                   }}
                   src={`https://www.youtube.com/embed/${youtubeVideoId}`}
-                  title={post.title}
+                  title={post.name || post.title || "Blog Post"}
                   allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
                   allowFullScreen
                 ></iframe>
@@ -210,25 +251,6 @@ export default function BlogPost() {
               <div
                 style={{ display: "flex", alignItems: "center", gap: "8px" }}
               >
-                <FiUser
-                  style={{
-                    width: "16px",
-                    height: "16px",
-                    color: "rgba(255, 255, 255, 0.7)",
-                  }}
-                />
-                <span
-                  style={{
-                    fontSize: "14px",
-                    color: "rgba(255, 255, 255, 0.7)",
-                  }}
-                >
-                  {post.author}
-                </span>
-              </div>
-              <div
-                style={{ display: "flex", alignItems: "center", gap: "8px" }}
-              >
                 <FiCalendar
                   style={{
                     width: "16px",
@@ -242,10 +264,12 @@ export default function BlogPost() {
                     color: "rgba(255, 255, 255, 0.7)",
                   }}
                 >
-                  {post.date ? formatDate(post.date) : t("blog_page.no_date")}
+                  {post.created_at
+                    ? formatFirebaseDate(post.created_at)
+                    : t("blog_page.no_date")}
                 </span>
               </div>
-              {post.readTime && (
+              {post.time_of_reading && (
                 <div
                   style={{ display: "flex", alignItems: "center", gap: "8px" }}
                 >
@@ -262,13 +286,13 @@ export default function BlogPost() {
                       color: "rgba(255, 255, 255, 0.7)",
                     }}
                   >
-                    {post.readTime} lettura
+                    {formatReadingTime(post.time_of_reading)}
                   </span>
                 </div>
               )}
-              {post.youtubeUrl && (
+              {post.youtube_url && (
                 <a
-                  href={post.youtubeUrl}
+                  href={post.youtube_url}
                   target="_blank"
                   rel="noopener noreferrer"
                   style={{
@@ -299,215 +323,112 @@ export default function BlogPost() {
           </header>
 
           <FadeInSection>
-            {/* Process Steps */}
-            {post.steps && post.steps.length > 0 && (
-              <div
-                style={{
-                  backgroundColor: "rgba(20, 20, 20, 0.7)",
-                  padding: "30px",
-                  borderRadius: "12px",
-                  marginBottom: "40px",
-                  backdropFilter: "blur(5px)",
-                  border: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "600",
-                    marginBottom: "24px",
-                    color: "white",
-                    textAlign: "center",
-                  }}
-                >
-                  Il Processo in {post.steps.length} Passaggi
-                </h3>
-
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "space-between",
-                    alignItems: "flex-start",
-                    gap: "20px",
-                    position: "relative",
-                    flexWrap: "wrap",
-                  }}
-                >
-                  {post.steps.map((step, index) => (
-                    <div
-                      key={index}
-                      style={{
-                        display: "flex",
-                        flexDirection: "column",
-                        alignItems: "center",
-                        textAlign: "center",
-                        flex: "1",
-                        minWidth: "150px",
-                        position: "relative",
-                      }}
-                    >
-                      <div
-                        style={{
-                          width: "60px",
-                          height: "60px",
-                          backgroundColor: "rgba(59, 130, 246, 0.8)",
-                          borderRadius: "50%",
-                          display: "flex",
-                          alignItems: "center",
-                          justifyContent: "center",
-                          marginBottom: "16px",
-                          color: "white",
-                          fontSize: "24px",
-                        }}
-                      >
-                        {getIconComponent(step.icon)}
-                      </div>
-                      <h4
-                        style={{
-                          fontSize: "1rem",
-                          fontWeight: "600",
-                          marginBottom: "8px",
-                          color: "white",
-                        }}
-                      >
-                        {step.title}
-                      </h4>
-                      <p
-                        style={{
-                          fontSize: "14px",
-                          color: "rgba(255, 255, 255, 0.7)",
-                          margin: "0",
-                        }}
-                      >
-                        {step.description}
-                      </p>
-                      {index < post.steps.length - 1 && (
-                        <div
-                          style={{
-                            position: "absolute",
-                            right: "-12px",
-                            top: "30px",
-                            color: "rgba(255, 255, 255, 0.3)",
-                            transform: "translateX(0)",
-                            display: "flex",
-                            alignItems: "center",
-                            justifyContent: "center",
-                            zIndex: 10,
-                          }}
-                          className="arrow-container"
-                        >
-                          <FiArrowRight
-                            style={{ width: "24px", height: "24px" }}
-                          />
-                        </div>
-                      )}
-                    </div>
-                  ))}
-                </div>
-              </div>
-            )}
-
-            {/* Introduction */}
-            <div style={{ marginBottom: "40px" }}>
-              <p
-                style={{
-                  fontSize: "1.125rem",
-                  color: "rgba(255, 255, 255, 0.9)",
-                  marginBottom: "24px",
-                  fontWeight: "400",
-                  lineHeight: "1.6",
-                }}
-              >
-                {post.content.introduction}
-              </p>
-
-              {post.content.callout && (
+            {/* JSON File Download Section with Thumbnail */}
+            {post.file_thumbnail && post.file && (
+              <div style={{ marginBottom: "40px" }}>
                 <div
                   style={{
                     backgroundColor: "rgba(59, 130, 246, 0.1)",
                     border: "1px solid rgba(59, 130, 246, 0.3)",
                     borderRadius: "8px",
-                    padding: "20px",
-                    marginBottom: "32px",
+                    padding: "24px",
+                    display: "flex",
+                    flexDirection: "column",
+                    alignItems: "center",
+                    justifyContent: "center",
                   }}
                 >
-                  <p
+                  <h4
                     style={{
-                      margin: "0",
-                      color: "rgba(59, 130, 246, 0.9)",
-                      fontSize: "1rem",
-                    }}
-                  >
-                    {post.content.callout}
-                  </p>
-                </div>
-              )}
-            </div>
-
-            {/* Content Sections */}
-            <div style={{ marginBottom: "40px" }}>
-              {post.content.sections.map((section, index) => (
-                <section key={index} style={{ marginBottom: "32px" }}>
-                  <h3
-                    style={{
-                      fontSize: "1.5rem",
+                      fontSize: "1.1rem",
                       fontWeight: "600",
                       marginBottom: "16px",
                       color: "white",
+                      textAlign: "center",
                     }}
                   >
-                    {section.title}
-                  </h3>
-                  <p
+                    Download the JSON Resource
+                  </h4>
+
+                  {/* File Thumbnail Image */}
+                  <div
                     style={{
-                      fontSize: "1rem",
-                      color: "rgba(255, 255, 255, 0.9)",
                       marginBottom: "20px",
-                      lineHeight: "1.6",
+                      borderRadius: "8px",
+                      overflow: "hidden",
+                      boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+                      maxWidth: "90%",
+                      width: "100%",
                     }}
                   >
-                    {section.content}
-                  </p>
-                </section>
-              ))}
-            </div>
+                    <img
+                      src={post.file_thumbnail}
+                      alt="File preview"
+                      style={{
+                        width: "100%",
+                        height: "auto",
+                        display: "block",
+                      }}
+                    />
+                  </div>
 
-            {/* Code Example */}
-            {post.content.codeExample && (
-              <div style={{ marginBottom: "40px" }}>
-                <h3
-                  style={{
-                    fontSize: "1.5rem",
-                    fontWeight: "600",
-                    marginBottom: "16px",
-                    color: "white",
-                  }}
-                >
-                  Esempio di Codice
-                </h3>
-
-                <div
-                  style={{
-                    backgroundColor: "#1F2937",
-                    borderRadius: "8px",
-                    padding: "20px",
-                    overflow: "auto",
-                  }}
-                >
-                  <pre
+                  <button
+                    onClick={() => {
+                      try {
+                        const jsonContent = JSON.stringify(post.file, null, 2);
+                        const blob = new Blob([jsonContent], {
+                          type: "application/json",
+                        });
+                        const url = URL.createObjectURL(blob);
+                        const link = document.createElement("a");
+                        link.href = url;
+                        link.download = `${post.name || "content"}.json`;
+                        document.body.appendChild(link);
+                        link.click();
+                        document.body.removeChild(link);
+                        URL.revokeObjectURL(url);
+                      } catch (error) {
+                        console.error("Error downloading JSON:", error);
+                      }
+                    }}
                     style={{
-                      margin: "0",
-                      color: "#E5E7EB",
-                      fontSize: "14px",
-                      fontFamily: "Monaco, Menlo, 'Ubuntu Mono', monospace",
-                      overflowX: "auto",
+                      display: "flex",
+                      alignItems: "center",
+                      gap: "8px",
+                      backgroundColor: "rgba(59, 130, 246, 0.8)",
+                      color: "white",
+                      padding: "12px 20px",
+                      borderRadius: "8px",
+                      border: "none",
+                      cursor: "pointer",
+                      fontWeight: "500",
+                      transition: "all 0.2s ease",
+                    }}
+                    onMouseOver={(e) => {
+                      e.currentTarget.style.backgroundColor =
+                        "rgba(59, 130, 246, 1)";
+                      e.currentTarget.style.transform = "translateY(-2px)";
+                    }}
+                    onMouseOut={(e) => {
+                      e.currentTarget.style.backgroundColor =
+                        "rgba(59, 130, 246, 0.8)";
+                      e.currentTarget.style.transform = "translateY(0)";
                     }}
                   >
-                    <code>{post.content.codeExample}</code>
-                  </pre>
+                    <FiDownload style={{ width: "18px", height: "18px" }} />
+                    Scarica JSON
+                  </button>
                 </div>
               </div>
             )}
+
+            {/* Main Content - Rendered from HTML */}
+            <div style={{ marginBottom: "40px" }}>
+              <div
+                className="html-content"
+                dangerouslySetInnerHTML={{ __html: content }}
+              />
+            </div>
 
             {/* Tags */}
             {post.tags && post.tags.length > 0 && (
@@ -548,8 +469,8 @@ export default function BlogPost() {
               </div>
             )}
 
-            {/* Download Section */}
-            {post.downloadLink && (
+            {/* Download Section (existing file download) */}
+            {post.file && !post.file_thumbnail && (
               <div style={{ marginBottom: "40px" }}>
                 <div
                   style={{
@@ -575,30 +496,6 @@ export default function BlogPost() {
                     Scarica la Risorsa
                   </h4>
 
-                  {post.image && post.image.fileImage && (
-                    <div
-                      style={{
-                        width: "100%",
-                        maxWidth: "500px",
-                        marginBottom: "20px",
-                        borderRadius: "6px",
-                        overflow: "hidden",
-                        border: "1px solid rgba(59, 130, 246, 0.5)",
-                        boxShadow: "0 4px 12px rgba(0, 0, 0, 0.15)",
-                      }}
-                    >
-                      <img
-                        src={post.image.fileImage}
-                        alt="Risorsa scaricabile"
-                        style={{
-                          width: "100%",
-                          height: "auto",
-                          display: "block",
-                        }}
-                      />
-                    </div>
-                  )}
-
                   <p
                     style={{
                       margin: "0 0 20px 0",
@@ -613,7 +510,7 @@ export default function BlogPost() {
                   </p>
 
                   <a
-                    href={post.downloadLink}
+                    href={post.file}
                     target="_blank"
                     rel="noopener noreferrer"
                     style={{
@@ -644,63 +541,6 @@ export default function BlogPost() {
                   </a>
                 </div>
               </div>
-            )}
-
-            {/* Conclusion */}
-            {post.content.conclusion && (
-              <div
-                style={{
-                  backgroundColor: "rgba(5, 150, 105, 0.1)",
-                  border: "1px solid rgba(5, 150, 105, 0.3)",
-                  borderRadius: "8px",
-                  padding: "24px",
-                  marginBottom: "40px",
-                }}
-              >
-                <h3
-                  style={{
-                    fontSize: "1.25rem",
-                    fontWeight: "600",
-                    marginBottom: "12px",
-                    color: "rgba(5, 150, 105, 1)",
-                  }}
-                >
-                  Conclusione: Efficienza a Portata di Click
-                </h3>
-                <p
-                  style={{
-                    margin: "0",
-                    color: "rgba(5, 150, 105, 0.9)",
-                    fontSize: "1rem",
-                    lineHeight: "1.6",
-                  }}
-                >
-                  {post.content.conclusion}
-                </p>
-              </div>
-            )}
-
-            {/* Download Link section removed as we have a dedicated download section with fileImage */}
-
-            {/* Footer */}
-            {post.content.footer && (
-              <footer
-                style={{
-                  textAlign: "center",
-                  paddingTop: "24px",
-                  borderTop: "1px solid rgba(255, 255, 255, 0.1)",
-                }}
-              >
-                <p
-                  style={{
-                    color: "rgba(255, 255, 255, 0.7)",
-                    fontSize: "14px",
-                    margin: "0",
-                  }}
-                >
-                  {post.content.footer}
-                </p>
-              </footer>
             )}
           </FadeInSection>
         </div>
