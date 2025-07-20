@@ -321,17 +321,6 @@ export default function Blog() {
                                 </div>
                               )}
                             </div>
-                            <p
-                              style={{
-                                fontSize: "1rem",
-                                lineHeight: "1.5",
-                                color: "rgba(255, 255, 255, 0.9)",
-                              }}
-                            >
-                              {post.content_in
-                                ? post.content_in.substring(0, 150) + "..."
-                                : post.excerpt || "No description available"}
-                            </p>
                             <div
                               style={{
                                 marginTop: "20px",
