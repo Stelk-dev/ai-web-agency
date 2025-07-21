@@ -165,14 +165,7 @@ export default function Blog() {
                 </div>
               </div>
             ) : (
-              <div
-                className="blog-grid"
-                style={{
-                  display: "grid",
-                  gridTemplateColumns: "repeat(auto-fill, minmax(350px, 1fr))",
-                  gap: "30px",
-                }}
-              >
+              <div className="blog-grid blog-grid-3x3">
                 {blogPosts.length > 0 ? (
                   blogPosts.map((post) => (
                     <div key={post.id}>

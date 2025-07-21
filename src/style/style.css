@@ -17,3 +17,25 @@
     justify-content: center;
     align-items: center;
 }
+
+/* Blog Grid 3x3 Layout */
+.blog-grid-3x3 {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+}
+
+/* Responsive design for blog grid */
+@media (max-width: 1024px) {
+    .blog-grid-3x3 {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .blog-grid-3x3 {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+}

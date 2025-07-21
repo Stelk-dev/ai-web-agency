@@ -43,7 +43,6 @@ export default function BlogPost() {
 
     fetchPost();
   }, [id]);
-  console.log(post);
 
   // Show loading state
   if (loading) {
@@ -130,7 +129,7 @@ export default function BlogPost() {
     : null;
 
   // Get the appropriate content from Firebase
-  const content = post.content_in || post.content_en || "";
+  const content = post.content_it || post.content_en || "";
 
   const seo = t("seo.blog_post_1", { returnObjects: true });
 
